@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //object:Object,Array,Date,Math
+    /*var obj={//字面量创建一个对象
+        name:"珠峰培训",
+        age:"8年",
+        1:15711314152
+    };
+    console.log(obj);*/
+    //如何获取对象中的属性--查
+    //obj.name
+    //obj["name"]
+    //对象中的属性名是可以为数字的，那么在获取数字属性名的时候不能用对象名.属性名的方式来进行获取，只能用对象名["属性名"]的方式获取***
+    //属性名为数字的时候，获取的时候可以省略引号
+    /*console.log(obj.b1);
+    console.log(obj["age"]);
+    console.log(obj["1"]);*/
+    //console.log(obj.1);//×
+
+
+    /*var ary=["a","b","c"];
+    console.log(ary);*/
+
+    //增加属性名和属性值--人为添加，即自定义属性
+    /*var obj=new Object();//用实例的方式创建对象
+    //console.log(obj);//Object{}
+    obj["name"]="珠峰";
+    obj.age=8;
+    obj[1]="00000";
+    obj.zhufeng="耿大爷";
+    console.log(obj);*/
+    //浏览器显示属性的排序方式是：数字为属性名的时候，会优先展示，然后按照属性的书写顺序进行排序
+    //obj["name"]="珠峰"; 如果属性名的位置没有引号，浏览器会人为name是一个变量
+
+    //修改对象中的属性值：获取要修改的属性，将原来的属性值用新的属性值代替
+    /*var obj={
+        name:"珠峰"
+    };
+    obj.name="珠峰培训";*/
+    //console.log(obj);
+
+    //删除属性：删除的是自定义属性，不能删除内置属性******
+   /* delete obj.name;
+    delete obj.__proto__;
+    console.log(obj);*/
+
+    //乘法表选项卡练习：
+    //var obj=new Object();//用实例方式创建一个对象的实例
+    //现在这个对像中只有内置属性，我需要向里面添加一下几个键值对
+    /*属性名name   属性值 你的名字
+    属性名tel    属性值 你的手机号
+    属性名QQ     属性值 你的qq号码
+    添加这三个属性后，输出一次obj
+    再添加属性名marry 属性值 自己看着填
+    输出一次obj
+    marry 修改属性值 让其属性值为空 null
+    输出一次obj
+    删除marry
+    输出一次obj*/
+    var obj=new Object();
+    //Object{}
+    obj.name="王佰惠";
+    obj["tel"]=15711314152;
+    obj.QQ=1519414263;
+    console.log(obj);
+    obj["marry"]="no";
+    console.log(obj);
+//    obj.marry="";
+    obj.marry=null;//null 占位 空
+    console.log(obj);
+    //delete obj.marry;
+    console.log(obj);
+    //obj.1="123";//数字的属性名不能用这种形式
+    //obj.[1]="123";//中括号是对的 .是另一种形式 不需要两者结合
+
+    //浏览器显示这个对象有两个形式：
+    //第一种形式是展现当前操作结果
+    //第二种形式是展现对象的所有属性，包括内置属性和自定义属性
+    alert(obj);
+</script>
+</body>
+</html>

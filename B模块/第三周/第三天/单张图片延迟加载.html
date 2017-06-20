@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>单张图片延迟加载</title>
+    <style>
+        body{
+            background: -webkit-linear-gradient(top,powderblue,palegoldenrod,mediumpurple,peachpuff);
+        }
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            width: 600px;
+            height: 300px;
+            border: 10px solid olive;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1000px auto;
+            background: url("多张图片延迟加载/images/load.gif") no-repeat center;
+        }
+        #box img{
+            width: 100%;
+            height: 100%;
+            border: none;
+            vertical-align: top;
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+     <div id="box"><img src="" real="img/4.jpg"></div>
+</body>
+</html>
+<script src="utils1.js"></script>
+<script>
+
+    /*
+    * 图片延迟加载
+    *     1）刚开始的时刻图片的src没有值，盒子有一个默认loading图
+    *     2）当图片完全进入可视窗口内，我们在加载这图，其实就是把src的属性赋值，只要src属性有值那么就会主动加载图片资源
+    *     3）图片的真实资源地址添加到一个自定义的
+    *
+    * */
+    var oBox=document.getElementById('box');
+    var oImg=oBox.getElementsByTagName('img')[0];
+
+    window.onscroll=function(){
+        var screenHeight=utils.win('clientHeight');//窗口高度
+        var screenScrollTop=utils.win('scrollTop');//窗口滚出去的高度
+
+        var boxHeight=oImg.parentNode.offsetHeight;//盒子的高度
+        var boxOffsetTop=utils.offset(oImg.parentNode).top;//盒子距离body的上偏移量
+
+        if(screenHeight+screenScrollTop>boxHeight+boxOffsetTop){
+            if(oImg.isLoaded){
+                return;
+            }
+            var tempImg=document.createElement('img');
+            tempImg.src=oImg.getAttribute('real');
+            tempImg.onload=function(){
+                oImg.src=oImg.getAttribute('real');
+
+                fadeIn(oImg);
+            };
+            tempImg=null;
+            oImg.isLoaded=true;
+
+
+
+            //oImg.src=oImg.getAttribute('real');
+        }
+    };
+
+    function fadeIn(ele){ // 淡入
+        window.clearInterval(ele.timer);
+        ele.timer = window.setInterval(function (){
+            var val = utils.getCss(ele,'opacity');
+            if(val >= 1){
+                window.clearInterval(ele.timer);
+                return;
+            }
+            val += 0.01; //'0.010.01'
+            utils.setCss(ele,'opacity',val);
+        },20);
+
+    }
+</script>

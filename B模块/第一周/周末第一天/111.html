@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /*var num=10;
+    var obj={
+        num:11,
+        fn:(function(num){
+            this.num++;
+            num++;
+            return function (){
+                num++;
+                console.log(num);
+            }
+        })(num)
+    };
+    obj.fn();
+    var num=obj.fn;
+    num();
+    console.log(this.num,obj.num);*/
+
+    /*var num=2;
+    var obj={
+        num:3,
+        fn:(function(num){
+            this.num++;
+            num++;
+            return function (){
+                this.num++;
+                num++;
+                console.log(num);
+            }
+        })(this.num)
+    };
+
+    var f=obj.fn;
+
+    f();  obj.fn();
+    console.log(window.num,obj.num);*/
+
+    var obj={num:2};
+    obj.fn=(function(){
+        var num;
+        num++;
+        this.num--;
+        return function (){
+            this.num++;
+            num++;
+            console.log(num);
+        }
+
+    })();//没传实参，函数里面也没有，等于undefined+1=NaN
+    obj.fn();
+    document.body.xx=obj.fn;
+
+    document.body.xx();
+    console.log(this.num,obj.num);
+
+
+
+
+
+
+
+    var i=0;        //1   2     3     4     5
+    console.log(2+ ++i + i++ + ++i + i++ + ++i);
+                   // 3     4   7     10     15
+
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQ-AJAX</title>
+    <script src="jquery-1.11.3.js"></script>
+</head>
+<body>
+<script>
+    $.ajax({
+        url:'temp.json',
+        method:'get',
+        dataType:'json',//-->预设服务器返回的数据内容的格式 json(默认)
+        data:null, // -->设置请求主体的内容，如果是GET请求，JQ会把这些内容放到请求地址的末尾，通过问号传参的方式传递给服务器，POST请求才是放在请求主题中
+        cache:false, // --> 是否保留GET请求的缓存，TRUE是保留也就是不清除GET缓存，设置成为FALSE是清除缓存（在URL末尾加随机数），此参数对于POST请求无效；
+        async:true,// -->设置同步异步，默认是TRUE代表异步
+        success:function(result){
+            //  当数据请求成功后执行的回调函数，result就是从服务器获取的结果
+            console.log(result);
+        },
+        error:function(msg){
+            //  当属局请求失败指定的回调函数，msg就是失败的原因
+        }
+
+    });
+
+    /*
+    * get 放在URL末尾
+    * POST  放在请求主体
+    * 字符串-->写的是什么传低的就是什么
+    * 对象 -->会把对象变成 key:value 键值对
+    *
+    *
+    * */
+</script>
+</body>
+</html>

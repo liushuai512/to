@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QQ-music</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <script>
+        //在样式html:fontSize生效之前，我们根据当前设备的宽度计算出当前设备的对应的比例关系的html的fontSize
+        ;
+        (function () {
+            var winWidth = document.documentElement.clientWidth;//当前窗口的宽度
+            document.documentElement.style.fontSize = winWidth / 640 * 100 + 'px';
+        })()
+    </script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<!--最外层的大盒子-->
+<!--<div id="music-box" class="music-box">
+    <div class="music-bg"></div>
+    &lt;!&ndash;header&ndash;&gt;
+    <div class="header">
+        <div class="music-info">
+            <div class="music-logo"><img src="img/poster.jpg" alt=""></div>
+            <div class="music-song">
+                <p>模特</p>
+                <p>李荣浩</p>
+            </div>
+        </div>
+            <div class="music-btn">
+                <a class="play" href="javascript:;"></a>
+                <a class="pause" href="javascript:;"></a>
+            </div>
+        </div>
+        <div class="main">
+            <div class="lyric">
+                <p>模特</p>
+                <p>词：周耀辉</p>
+                <p>曲：李荣浩</p>
+            </div>
+        </div>
+
+
+    &lt;!&ndash;footer&ndash;&gt;
+    &lt;!&ndash;<div class="footer">
+        &lt;!&ndash;收藏&ndash;&gt;
+        <div class="collection"></div>
+        <div class="progress">
+            &lt;!&ndash;当前播放时间&ndash;&gt;
+            <div class="currentTimer"></div>
+            &lt;!&ndash;进度条&ndash;&gt;
+            <div class="progressBar"></div>
+            &lt;!&ndash;总时间&ndash;&gt;
+            <div class="totalTime"></div>
+        </div>
+        &lt;!&ndash;下载按钮&ndash;&gt;
+        <div class="download">
+            <a href="javascript:;">下载这首音乐</a>
+        </div>
+    </div>&ndash;&gt;
+</div>-->
+
+</body>
+</html>
+<script src="js/index.js"></script>

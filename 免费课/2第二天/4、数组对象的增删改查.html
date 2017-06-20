@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //用单一变量储存多个值，就是数组
+    //数组也是对象数据类型，也是有键值对组成的，但是数组中直观显示的内容是属性值，而属性名是数组自带的索引
+    //索引：是由一组有序的数字组成，从0开始到length-1结束
+    //0 代表 数组中的第一项
+    //1 代表 数组中的第二项
+    //2 代表 数组中的第三项
+    //...
+    //length-1 代表 数组中的length项
+    //length 代表 数组的长度（数组中值的个数）
+
+    //console.log(newAry1[newAry1.length-1]);//************
+
+
+    //创建一个新的数组
+    //实例创建  可以向这个数组直接传递参数
+    var newAry=new Array();
+    console.log(newAry);
+    //字面量创建
+    var newAry1=["1",2,"a",newAry,function () {}];
+           //索引 0   1  2    3      4
+           //length: 5
+    //console.log(newAry1[newAry1[4]]);//undefined
+    //console.log(newAry1[function () {}]);
+    //console.log(newAry);
+    //console.log(newAry1);
+    console.log(newAry1["0"]);
+    console.log(newAry1[4]);//function () {}
+    //不知道数组中值的个数，向获取到最后一个值
+    console.log(newAry1.length);//获取到数组的长度，并没有获取到最后一个值
+    console.log(newAry1[length-1]);//undefined
+    // 因为length在这里 不知道是那个对象的length 所以 他找不到任何的值
+    //[xxx-1]  浏览器会人为xxx是一个变量  xxx is not defined
+    //因为length在js中有自己的意义，所以js没有报错，那在查找length的过程中，并不知道length是谁的长度，所以没找到具体的值
+    console.log(newAry1[newAry1.length-1]);//************
+    //对象的属性名不能单独存在
+    /*delete newAry1[0];
+    console.log(newAry1);*/
+    newAry1[0]="y";
+    console.log(newAry1);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var ary=[10,11,12,13,10,14]
+    var obj={}
+    Array.prototype.myForEach=function(callback,context){
+        context=context || window;
+        if('forEach' in Array.prototype){
+            this.forEach(callback,context);
+            return;
+        }
+        for(var i=0;i<this.length;i++){
+            callback.call(context,this[i],i,this);
+        }
+    }
+    var res=ary.myForEach(function(){
+        console.log(this)
+    },obj);
+    console.log(res);
+</script>
+</body>
+</html>

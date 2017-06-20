@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机同学</title>
+
+    <style>
+        html,body,div{
+            margin: 0;
+            padding: 0;
+            background: -webkit-linear-gradient(left,peachpuff,peru,palevioletred,purple);
+        }
+
+       #box{
+           margin: 15px auto;
+           width: 800px;
+           height: 400px;
+           border: 10px dashed #999;
+           border-radius: 20px;
+           background:  -webkit-linear-gradient(top,olive,orange,olivedrab);
+           font-size: 100px;
+           line-height: 400px;
+           text-align: center;
+           color: white;
+           cursor: pointer;
+           -webkit-user-select: none ;/*点击的时候不能选中文字*/
+       }
+    </style>
+</head>
+<body>
+<div id="box">start</div>
+
+<script>
+    var box=document.getElementById('box');
+    var ary=[
+            /*['坤坤屁屁','凯凯','脸脸','姑姑','莫愁']*/
+        ['秦弘', '冯春笋', '刘凯杰', '杜晓东', '何永强', '曹凤梅'],
+        ['陈晨', '刘丽娜', '唐莹莹', '马晓敏', '崔莹', '张芳芳', '郑鹏峰'],
+        ['田之存', '邵志伟', '王长成', '乔世昌', '赵林', '杨洁', '刘帅'],
+        ['魏晓', '邢震豪', '赵磊', '居贺', '刘佳昊', '裴燕飞', '田云飞'],
+        ['任志龙', '管亚楠', '李彪彪', '荣长江', '王江', '张豫晋', '徐云娇', '韩有阳']
+
+
+    ];
+
+    var isRun=false;//刚刷新页面的时刻，定时器是没有启动的
+    box.onclick=function(){
+
+        if(isRun==false){//如果定时器停止，就启动，否则就是停止，没有启动，是因为刚刚刷新页面，还处于暂停阶段
+            fn();//启动定时器
+            isRun=true;//只要启动了一个定时器，那么这个标志着现在是运行  还是停止的变量，需要更换一次状态
+        }else {
+            //当前已经启动一个定时器
+
+            window.clearInterval(timer);
+            isRun=false;
+        }
+    };
+    var timer=null;
+    function fn(){
+        timer=window.setInterval(function(){
+            var ran=Math.round(Math.random()*ary.length-1);
+           var ranGroup=ary[ran];
+           ran=Math.round(Math.random()*(ranGroup.length-1));
+            var ranStudent=ranGroup[ran];
+            box.innerHTML=ranStudent;
+
+        },30)
+    }
+
+
+</script>
+</body>
+</html>
+<!--
+['秦弘','冯春笋','刘凯杰','杜晓东','柯永强','曹凤梅']
+['陈晨','刘丽娜','唐莹莹','马晓敏','崔莹','张芳芳','郑鹏峰']
+['','','','','','','']-->
+
+
+<!--
+['秦弘','冯春笋','刘凯杰','杜晓东','何永强','曹凤梅'],
+['陈晨','刘丽娜','唐莹莹','马晓敏','崔莹','张芳芳','郑鹏峰'],
+['田之存','邵志伟','王长成','乔世昌','赵林','杨洁','刘帅'],
+['魏晓','邢震豪','赵磊','居贺','刘佳昊','裴燕飞','田云飞'],
+['任志龙','管亚楠','李彪彪','荣长江','王江','张豫晋','徐云娇','韩有阳']
+-->
+

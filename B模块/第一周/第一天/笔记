@@ -1,0 +1,176 @@
+复习免费课
+1、所有的方法
+  数据类型：
+    基本数据类型：
+    number : Number() ==>数字/NaN
+             parseInt()==>取整
+             parseFloat()==>包含小数部分
+             isNaN()==>true  不是一个数/false
+    string :charAt(index)==>通过索引来获取字符 （如过索引值超出了范围，返回空字符串）
+            charCodeAt(index)==>返回对应的ASCII表的编码
+            substr(n,m)==>从索引n开始截取m个
+            substring(n,m)==>从索引n开始到索引m-1
+            slice()==>支持负数索引
+
+            * toUpperCase()==>
+            * toLowerCase()==》
+
+            indexOf('a')==>  字母a在字符串中出现的索引位置，出现返回对应的索引，否则返回 -1
+            window.navigator.userAgent（他的属性是一个字符串，检测浏览器）
+               chrome：chrome;
+               IE:MSIE:7/8/9/
+               firefox:Firefox
+               可以利用indexOf和window.navigator.userAgent来判断当前浏览器；
+            window.navigator.userAgent.indexOf('Chrome') !==-1
+            LastIndexOf('a')==> 最后一次出现的索引/ -1;
+
+
+            ** replace(old，function(){
+                 当replace方法的第二个参数是函数，那么是用这个函数执行结果（return）来替换第一个函数所匹配到的字符
+                 return
+              })
+            ** split()==》把字符串按照参数拆分成数组  参数也可以是一个正则
+
+
+            match()//正则
+            search（）//查找
+
+            eval（'alert()'）==>把字符串当做JS表达式运行  去引号
+
+    boolean
+       Boolean() true/false
+       false: 0，NaN,"",null,undefined
+
+
+    null
+    undefined
+
+    引用数据类型：对象{}  如果使用变量的方式给对象添加属性，使用obj[变量]的方式
+               数组[]  push（）向数组末尾增加一项
+                      unshift() 此案够数组开头增加一项
+                      pop（） 删除最后一项
+                      shift（）
+                      splice（n,m） m:deleteCount
+                      splice(n,0,m) 把所有删除项放到一个新数组返回
+                      slice(n,m) n到m-1
+
+                      排序
+                         reverse()==>直接把原有数组倒序
+                         sort（function（a,b）{return a-b）   =>都是在原有数组上排序
+
+                         ary1.concat(5,[a],[6]);
+
+                      join() ==>数组拼接
+
+               正则/^\w$/
+
+
+               new Date()；
+                   getFullYear()
+                   getMonth()
+                   getDate()
+                   getDay()
+                   getHours()
+                   getMinutes()
+                   getSeconds()
+                   getMilliseconds()
+                   getTime()  距离1970年01月01日 8:00 ms
+
+
+               Mach
+                   Mach.abs();  绝对值
+                   Mach.max（1,2,3,'5px'）；最大值
+                   Mach.min(); 最小值
+                   Mach.ceil(); 向上取整
+                   Mach.floor(); 向下取整
+                   Mach.round(); 注意负数
+                   Mach.random();
+                   n-m随机整数
+                   Mach.round(Mach.random()*(m-n)+n)
+
+
+                   Mach.PI 3.1415926-3.1415927
+                   Mach'pow(2,3) =>2的3次方
+                   Mach.sqrt(9)==>3  开平方
+
+                   //反三角
+
+
+                   document.getElementById('div1')  在获取不到的时候返回值是 null
+                   document.getElementsByClassName('c1')[]
+                   document.getElementsByTagName('div')[]
+                   document.getElement
+                   document.documentElement
+                   document.body
+                   document.documentElement.clientWidth ||document.body.clientWidth
+                   document.documentElement.clientHeight ||document.body.clientHeight
+
+                   var p=document.createElement('p') 创建元素
+
+                   document.body.appendChild(p)  把p添加在body末尾
+                   document.body.insertBefore(p,old)  把p插入到old的前面
+
+                   document.body.replaceChild(new,old)
+                   document.body.removeChild(p);
+                   p.cloneNode(true/false)  true/克隆子子孙孙
+
+
+                   body.setAttribute()
+                   body.getAttribute()
+                   body.removeAttribute()
+                   移动
+                   document.querySelector（）
+                   document.querySelectorAll（）
+
+
+     只要是引用数据类型就可以添加属性
+     自定义属性与this
+
+
+
+
+
+
+
+
+
+      数据类型检测：
+         typeof: 'number' 'string' 'boolean' 'object' 'undefined' 'function'
+         instanceof:  检测实例是否属于类
+         constructor
+         Object.prototype.toString.call()
+
+
+
+////////////////////////////////////////////////////////////
+
+1.linux (苹果本系统)
+  pwd  当前位置
+  ls   当前位置有多少文件
+  cd   b
+  cd../  回到上一级
+  cd../../回俩级
+
+  mkdir
+  vim
+
+2.git
+ www.gitHub.com=>sign up
+ username=>用户名
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

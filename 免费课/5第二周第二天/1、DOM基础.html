@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="按钮" name="btn">
+<div id="parent" name="btn">
+    <p>1111</p>
+    <p>2222</p>
+</div>
+<div id="div1">第一个div</div>
+<div id="div2">第二个div</div>
+<p class="test">3333</p>
+<p class="test">4444</p>
+<script>
+    //var oDiv=document.getElementById("div1");
+    //var oBtn=document.getElementById("btn");
+    /*
+    * 1、通过元素id获取一个元素
+    * 1）获取范围只能是document
+    * 2）如果没有获取到，返回值为null
+    * 3）在ie67下，会将表单元素的name属性值当做id属性值来调取，不区分大小写
+    * 4）如果一个文档下有相同的id属性值，那么获取到的是第一个元素对象
+    * 5）id只能获取一个对象
+    * */
+    /*var oDiv=document.getElementById("parent");
+    var oPs=oDiv.getElementsByTagName("p");//[p,p]
+    oPs[0].style.backgroundColor="red";*/
+    /*
+    * 2、通过元素的标签名获取一组元素
+    * 1）获取到的是一个类数组 -- [div#div1, div#div2]
+    * 类数组有索引和长度
+    * 2）通过标签名获取元素的范围是可以变化的，可以是整个文档，也可以是一个元素对象
+    * */
+    //var oBtns=document.getElementsByName("btn");
+    /*
+    * 3、通过元素的name属性获取一组元素
+    * 1）在ie6-9下，只能获取到表单元素
+    * 2）获取到的是一个类数组
+    * 3）获取范围是可以变化的
+    * */
+    //var oPs=document.getElementsByClassName("test");
+    /*
+    * 4、通过标签属性class的值获取一组元素
+    * 1）获取到的是一个类数组
+    * 2）获取范围是可以变化的
+    * 3）在ie678中报错  //对象不支持“getElementsByClassName”属性或方法
+    * */
+    var oHtml=document.documentElement;
+    var oBody=document.body;
+    var oWidth=document.documentElement.clientWidth||document.body.clientWidth;
+    /*
+    * 5、获取根元素
+    * document.documentElement;
+    * document.body;
+    * */
+    /*
+    * 6、在移动端我们获取元素常用的方法（ ie678不兼容）
+     document.querySelector("#id");//获取一个
+     document.querySelectorAll(".class");//获取一组
+     document.querySelectorAll("#tab li");
+     * */
+
+</script>
+</body>
+</html>

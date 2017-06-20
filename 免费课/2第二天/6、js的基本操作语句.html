@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul id="list" class="ulList">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<ul id="list1" class="ulList">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<script>
+    //如何获取一个DOM对象
+    //1、通过id名获取一个元素
+    //var oList=document.getElementById("list");
+    //声明一个变量oList用来存储和代表获取到的DOM元素
+    /*声明 变量名 赋值 在文档中通过id名（list）称获取一个元素
+    document  文档对象  确定获取对象的范围
+    . 的
+    get 得到 获取
+    element 元素
+    by 通过
+    id 元素的id属性（元素的id名称）*/
+    //console.log(oList);
+    //2、通过类名获取一组DOM元素
+    /*var oList=document.getElementsByClassName("ulList");
+    console.log(oList);//获取到了两个ul
+    /!*
+    [ul#list.ulList,ul#list1.ulList]
+    0:ul#list.ulList
+    1:ul#list1.ulList
+    length:2
+    *!/
+    console.log(oList[0]);*/
+    //3、通过元素的标签名获取一组元素（tagName）
+    /*var oList=document.getElementsByTagName("ul");
+    //console.log(oList);
+    /!*
+     [ul#list.ulList,ul#list1.ulList]
+     0:ul#list.ulList
+     1:ul#list1.ulList
+     length:2
+    *!/
+    console.log(oList[1]);*/
+    //idName
+    /*var oList1=document.getElementById("list");
+    //className
+    var oList2=document.getElementsByClassName("ulList");
+    //tagName
+    var oList3=document.getElementsByTagName("ul");*/
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

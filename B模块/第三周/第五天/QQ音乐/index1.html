@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <!--meta:vp-->
+    <script>
+        //再样式html、fontSize生效之前我们根据当前设备的宽度计算出当前设备对应比例关系的html 和 fonSize;
+        ~function () {
+           var winWidth = document.documentElement.clientWidth;//当前窗口的宽度
+            //根节点的字体大小就修改结束了；
+            document.documentElement.style.fontSize = winWidth / 640 *100 +'px';
+            window.htmlFontSize=winWidth/640*100;
+
+        }()
+    </script>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/indexx.css">
+    <title>QQ</title>
+</head>
+<body>
+<div class="music-box">
+    <!--最外层的大盒子-->
+    <!--专门处理模糊背景的-->
+    <div class="music-bg"></div>
+    <audio class="audio" src="img/demo.m4a" preload="none" style="display: none"></audio>
+    <div class="header">
+        <div class="music-info">
+            <div class="music-logo"><img src="img/13.jpg"></div>
+            <div class="music-song">
+                <p>微笑</p>
+                <p>翟梦苑</p>
+            </div>
+        </div>
+        <div class="music-btn">
+            <a class="play" href="javascript:;"></a>
+            <a class="pause" href="javascript:;"></a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="lyric">
+            <!--<p>模特</p>
+            <p>词：周耀锟</p>
+            <p>曲：李荣浩</p>-->
+        </div>
+    </div>
+    <div class="footer">
+        <!--收藏-->
+        <div class="collection"><a href="javascript:;"></a></div>
+        <div class="progress">
+            <!--当前播放的时间-->
+            <div class="currentTime">00:00</div>
+            <!--进度条-->
+            <div class="progressBar"><span></span></div>
+            <!--总时间-->
+            <div class="totalTime">05:55</div>
+        </div>
+        <div class="download">
+            <a href="javascript:;">下载这首音乐</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+<script src="js/index.js"></script>

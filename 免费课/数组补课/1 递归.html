@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // 递归 : 自己调用自己
+    // 只要是引用数据类型都是一个内存地址
+    // 需求 : 求1-100的和
+    var total = 0;
+    total = null;
+    // 不可以被3整除
+    for(var i = 1; i <= 100; i++){
+        i; // 1 - 100
+        if(i%3 /*== 0*/){ // 1,2,3,4,5,6,7,8,9...
+            total += i;
+        }
+    }
+    // console.log(total); // 3367
+
+    // 不可以被3整除 3367
+    function sum(n){
+        // n = 100
+        if(n==1){
+            // 这个判断就是让这个递归函数停下来的原因
+            return 1;
+        }
+        if(n%3 == 0){
+            return sum(n-1);
+        }
+        return n + sum(n-1); // sum(99) sum(98) sum(97)...
+        //     100 + sum(99)
+        //     /*99*/ + sum(98)
+        //     98 + sum(97)
+        //    ...
+        //     3 + sum(2)
+        //     2 + sum(1)
+        //     1
+    }
+    var res = sum(100);
+    // sum(100) => 100 + sum(99) => 100 + 99 + sum(98) ... 2 + sum(1)
+    // => 100 + 99 + ... + 1 + sum(0) => 100 + 99 + ... 2 + 1 + 0 => 5050
+    console.log(res);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

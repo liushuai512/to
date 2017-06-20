@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //获取元素的方法
+    /*document.getElementById()
+    document.getElementsByName()[1]
+    document.getElementsByTagName()
+    document.getElementsByClassName()
+    document.documentElement//html
+    document.body*/
+
+    /*//DOM节点   nodeType  1  nodeName  大写的标签名
+    oP.childNodes//获取oP下所有的子节点（元素 文本 注释 ）
+    oP.children//获取oP下所有的元素子节点
+    oP.parentNode//获取父节点
+    oP.previousSibling//获取上一个节点
+    oP.nextSibling//获取下一个节点
+    oP.firstChild//获取子节点中的第一个节点
+    oP.lastChild//获取子节点中的最后一个节点*/
+
+    var oDiv=document.createElement("div");//创建一个元素节点
+    var oBody=document.body;
+    //将新元素放在其他元素内
+    oBody.appendChild(oDiv);//将创建的元素添加到指定元素之内，放在这个指定元素所有内容之后
+    //放在指定元素之前
+    父级.insertBefore(ele,oldEle)
+
+    //替换
+    父级.replaceChild(ele,oldEle)
+
+    oDiv.id="div1"
+    //克隆
+    克隆的对象.cloneNode()
+    oDiv.cloneNode() 就会有两个一模一样的oDiv了
+    true  //克隆的对象内所有的内容都会被复制一份
+    如果不填任何参数，默认克隆一份这个对象
+
+    //删除
+    父级.removeChild(ele)
+
+    //创建属性节点 会显示在html元素的标签内
+    目标对象.setAttribute("属性名","属性值")
+    //获取创建的属性节点
+    getAttribute("属性名")
+    obj.name="xxx"//不会显示在html中
+
+
+
+
+
+
+</script>
+</body>
+</html>

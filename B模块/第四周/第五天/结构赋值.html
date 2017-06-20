@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>结构赋值</title>
+    <style>
+        div,body{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 200px;
+            height: 200px;
+            margin-top: 50px;
+            margin-left: 50px;
+            background: #999;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    //解构赋值：按照一定规则，从数组和对象中提取值，对变量进行赋值，这被称为结构赋值
+    var a=1;
+    var b=2;
+    var c=3;
+    var [a,b,c]=[1,2,3];
+    function offset(ele) {//偏移量
+        var l = 0, t = 0;
+        l += ele.offsetLeft;
+        t += ele.offsetTop;
+        var par = ele.offsetParent;
+        while (par) {
+            if (window.navigator.userAgent.indexOf('MSIE 8') === -1) {
+                l += par.clientLeft;
+                t += par.clientTop;
+            }
+            l += par.offsetLeft;
+            t += par.offsetTop;
+            par = par.offsetParent;
+        }
+        return {left: l, top: t};
+    }
+
+
+
+
+    var box=document.getElementById('box');
+    //var offsetVal=offset(box);
+
+</script>
+</body>
+</html>

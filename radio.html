@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        a, abbr, acronym, address, applet, article, aside, audio, b, big, blockquote, body, canvas, caption, center, cite, code, dd, del, details, dfn, div, dl, dt, em, embed, fieldset, figcaption, figure, footer, form, h1, h2, h3, h4, h5, h6, header, hgroup, html, i, iframe, img, ins, label, legend, li, mark, menu, nav, object, ol, output, p, pre, q, ruby, s, samp, section, small, span, strike, strong, sub, summary, sup, table, tbody, td, tfoot, th, thead, time, tr, tt, u, ul, var, video {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            font-size: 100%;
+            vertical-align: baseline;
+        }
+        body {
+            min-width: 320px;
+            color: #343434;
+            background-color: #fff;
+            font-family: "Gotham SSm A","Gotham SSm B",Helvetica,Arial,sans-serif;
+            line-height: 1.667;
+        }
+        body, html {
+            height: 100%;
+            font-size: 14px;
+        }
+        .radio-list {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+        }
+        .radio-list__item {
+            padding-bottom: 10px;
+        }
+        .radio {
+            outline: 0;
+            cursor: default;
+            font-size: 14px;
+            line-height: normal;
+            text-align: left;
+            vertical-align: baseline;
+        }
+        .radio, .radio__icon {
+            display: inline-block;
+        }
+        .radio>input {
+            position: absolute;
+            z-index: -1;
+            margin: 0;
+            opacity: 0;
+            border: 0;
+        }
+        input[type="radio"] {
+            margin: 3px 3px 0px 5px;
+        }
+
+        input[type="radio"] {
+            -webkit-appearance: radio;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"], input[type="checkbox"] {
+            background-color: initial;
+            margin: 3px 0.5ex;
+            padding: initial;
+            border: initial;
+        }
+
+        input {
+            -webkit-appearance: textfield;
+            background-color: white;
+            -webkit-rtl-ordering: logical;
+            -webkit-user-select: text;
+            cursor: auto;
+            padding: 1px;
+            border-width: 2px;
+            border-style: inset;
+            border-color: initial;
+            border-image: initial;
+        }
+
+        input, textarea, keygen, select, button {
+            text-rendering: auto;
+            color: initial;
+            letter-spacing: normal; /* letter-spacing 属性增加或减少字符间的空白（字符间距）。*/
+            word-spacing: normal; /* word-spacing 属性增加或减少单词间的空白（即字间隔）。*/
+            text-transform: none; /* text-transform 属性控制文本的大小写。*/
+            text-indent: 0px; /* text-indent 属性规定文本块中首行文本的缩进。*/
+            text-shadow: none; /* text-shadow 属性向文本设置阴影。 text-shadow: h-shadow v-shadow blur color; */
+            display: inline-block;
+            text-align: start;
+            margin: 0em 0em 0em 0em;
+            font: 13.3333px Arial;
+        }
+
+        input, textarea, keygen, select, button, meter, progress {
+            -webkit-writing-mode: horizontal-tb;
+        }
+        .radio__icon {
+            position: relative;
+            float: left;
+            top: 0;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            width: 16px;
+            height: 16px;
+            font-size: 16px;
+            line-height: 16px;
+            border: 1px solid #636465;
+            background-color: #fff;
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .radio__label, .radio__note, input:checked+.radio__icon:after {
+            display: block;
+        }
+        .radio__icon::after {
+            position: absolute;
+            display: none;
+            width: 8px;
+            height: 8px;
+            content: '';
+            top: 50%;
+            left: 50%;
+            background-color: #18a3fa;
+            -webkit-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+            -webkit-border-radius: 50%;
+            border-radius: 50%;
+        }
+
+        .radio__label, .radio__note {
+            position: relative;
+            margin-left: 23px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="radio-list">
+    <label class="radio-list__item radio">
+        <input name="any_problems" value="No" type="radio" required="" aria-required="true">
+        <span class="radio__icon"></span>
+        <span class="radio__label">No</span>
+    </label>
+    <label class="radio-list__item radio">
+        <input name="any_problems" value="Yes" type="radio" required="" aria-required="true">
+        <span class="radio__icon"></span>
+        <span class="radio__label">Yes</span>
+    </label>
+</div>
+
+
+
+</body>
+</html>

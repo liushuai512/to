@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var str='11224455332';
+    var seg=/\d{3}(?!$)/g;
+    str=str.split("").reverse().join("").replace(seg,function(){
+        return arguments[0]+',';
+    }).split("").reverse().join("");
+    console.log(str);
+</script>

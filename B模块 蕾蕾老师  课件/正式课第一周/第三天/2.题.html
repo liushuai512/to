@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*var num = 10;
+    var obj = {
+        num: 20,
+        fn: (function (num) {
+            this.num *= 2;
+            num += 10;
+            return function () {
+                this.num *= 3;
+                num += 1;
+                console.log(num);
+            }
+        })(num)
+    };
+    var fn = obj.fn;
+    fn();
+    obj.fn();
+    console.log(window.num, obj.num);*/
+
+
+    /*var a=12;
+    function show(){
+        alert(a);
+        a=15;//全局的this
+    }
+    show();alert(a);*/
+
+
+    function fn() {
+        var i = 10;
+        return function (n) {
+            console.log(n + (++i));
+        }
+    }
+    var f = fn();
+    f(15);
+    f(20);
+    fn()(15);
+    fn()(20);
+    fn()(30);
+    f(30);
+</script>
+</body>
+</html>

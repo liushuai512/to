@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+    <div id="div1" class="c1 c2 c3"></div>
+    <div id="div2" class="c1 c2">
+        <span class="c2 c3"></span>
+        <p class="c1 c2"></p>
+        <i class="c3"></i>
+        <b class="c3 c4 c2 c1"></b>
+    </div>
+</body>
+</html>
+<script>
+    document.getElementsByClassName('c1 c2');
+     div2.getElementsByClassName('c1');
+    //getElesByClass('c1 c2',div2);
+
+
+    function getElesByClass(className,context){
+        context=context ||document;
+        if(context.getElementsByClassName){
+            // 标准浏览器
+            return context.getElementsByClassName(className);
+        }
+        var tags = context.getElementsByTagName('*');
+        var ary=[];
+        var classNameAry=className.replace(/(^ +| +$)/g,' ').split(/ +/);
+        for(var i=0;i<tags.length;i++){
+            var curTag=tags[i];
+            var tagIsOk=true;//假设这个标签符合条件
+            for(var j=0;j<classNameAry.length;j++){
+                var curClass=classNameAry[j];
+                var reg=new RegExp("(^| +)"+curClass+"( +|$)");
+                if(!reg.test(curTag.className)){
+                    tagIsOk=false;
+                    break;
+                }
+            }
+            if(tagIsOk){
+                ary.push(curTag);
+            }
+        }
+        return ary;
+
+    }
+    console.log(getElesByClass('c1 c2',div2))
+</script>

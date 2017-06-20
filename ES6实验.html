@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function Parent(p) {
+        this.p = p || 'p';
+    }
+    Parent.prototype.sayP = function () {
+        console.log(this.p);
+    };
+    function Child (c) {
+        this.c = c || 'c';
+    }
+    Child.prototype = new Parent('ppp');
+    Child.prototype.constructor = Child;
+    Child.prototype.sayC = function () {
+        console.log(this.c);
+    };
+    var c = new Child();
+    c.sayC(); // c
+    c.sayP(); // ppp
+
+</script>
+</body>
+</html>

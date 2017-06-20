@@ -1,0 +1,23 @@
+{
+  "name": "20170305RESUME",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "less": "lessc css/index.less css/index.min.css -x"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "less": "^2.7.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhouxiaotian/resume.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zhouxiaotian/resume/issues"
+  },
+  "homepage": "https://github.com/zhouxiaotian/resume#readme",
+  "description": ""
+}

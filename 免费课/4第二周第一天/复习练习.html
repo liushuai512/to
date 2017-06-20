@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+1、<div id="div1" class="div2"></div>
+var div1=document.getElementsByTagName("div")[0];
+var div1=document.getElementById("div1")
+var div1=document.getElementsByClassName("div2")[0];
+Elements 取到的是一组元素集合，如果要从集合中拿到一个元素的话，需要对象名[索引]
+
+2、点击每个按钮弹出“我是第几个按钮” 写代码
+<input type="button" value="点击">
+<input type="button" value="点击">
+<input type="button" value="点击">
+<input type="button" value="点击">
+<input type="button" value="点击">
+var oBtns=document.getElementsByTagName("input");
+for(var i=0;i<oBtns.length;i++){
+oBtns[i].index=i;
+oBtns[i].onclick=function(){
+alert("我是第"+(this.index+1)+"个input");
+}
+}
+3、
+![]==[]     true
+0 NaN "" null undefined  -- > false
+![]--布尔   !true --> false  -->0
+[].toString()-->"" --> 0
+0==0 true
+[]--对象
+布尔转为数字
+对象转为字符串再转数字
+
+![]==false  true
+false
+
+"1"==[1]  true
+"1"=="1"
+
+"1"===[1]  false
+
+parseFloat([])==parseFloat(0)  false
+NaN==0
+parseFloat和parseInt测试的值只能是数字和字符串
+
+
+
+
+
+
+</body>
+</html>

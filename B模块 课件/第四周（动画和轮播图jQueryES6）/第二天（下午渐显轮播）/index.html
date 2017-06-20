@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>渐显轮播图</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!--第一个轮播图-->
+    <div id="banner1" class="banner">
+        <div class="bannerInner">
+            <!--<div><img src="" real="images/1.jpg"></div>-->
+            <!--<div><img src="" real="images/2.jpg"></div>-->
+            <!--<div><img src="" real="images/3.jpg"></div>-->
+            <!--<div><img src="" real="images/4.jpg"></div>-->
+        </div>
+        <ul class="focusUl">
+            <!--<li class="cur"></li>-->
+            <!--<li></li>-->
+            <!--<li></li>-->
+            <!--<li></li>-->
+        </ul>
+        <a class="left" href="javascript:void 0"></a>
+        <a class="right" href="javascript:void 0"></a>
+    </div>
+    <!--第二个轮播图-->
+    <div id="banner3" class="banner">
+        <div class="bannerInner">
+        </div>
+        <ul class="focusUl">
+        </ul>
+        <a class="left" href="javascript:void 0"></a>
+        <a class="right" href="javascript:void 0"></a>
+    </div>
+    <div id="banner2" class="banner">
+        <div class="bannerInner">
+        </div>
+        <ul class="focusUl">
+        </ul>
+        <a class="left" href="javascript:void 0"></a>
+        <a class="right" href="javascript:void 0"></a>
+    </div>
+</body>
+</html>
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/index-jq.js"></script>
+<!--<script src="../utils.js"></script>-->
+<!--<script src="../animate.js"></script>-->
+<!--<script src="js/index1.js"></script>-->
+<!--&lt;!&ndash;<script src="js/index.js"></script>&ndash;&gt;-->
+<!--<script src="js/bannerClass.js"></script>-->
+<script>
+    var banner1 = document.getElementById('banner1');
+    var banner2 = document.getElementById('banner2');
+    new Banner(banner1,'data.txt');
+    new Banner(banner2,'data2.txt',3000);
+    new Banner(banner3,'data2.txt',3000);
+</script>
+

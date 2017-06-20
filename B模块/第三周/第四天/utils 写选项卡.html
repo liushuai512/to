@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0
+        }
+
+        .tab ul {
+            margin: 0 auto;
+            list-style: none;
+            width: 300px;
+            height: 30px;
+        }
+
+        .tab li {
+            float: left;
+            width: 100px;
+            background: pink;
+            line-height: 30px;
+            cursor: pointer;
+        }
+
+        .tab div {
+            display: none;
+            margin: 0 auto;
+            width: 300px;
+            line-height: 300px;
+            background: pink;
+        }
+
+        .tab div.cur {
+            display: block;
+            background: palegoldenrod;
+        }
+
+        .tab li.cur {
+            background: palegoldenrod;
+        }
+    </style>
+</head>
+<body>
+<div class="tab">
+    <ul>
+        <li class="cur">1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <div class="cur">1</div>
+    <div>2</div>
+    <div>3</div>
+</div>
+</body>
+</html>
+    <script src="utils%20(1).js"></script>
+    <script>
+        var tab=utils.getElesByClass('tab')[0];
+        var lis=tab.getElementsByTagName('li');
+        for(var i=0;i<lis.length;i++){
+            lis[i]['on'+'mouseover']=function(){
+                var siblings=utils.siblings(this);
+                for(var j=0;j<siblings.length;j++){
+
+                }
+
+            }
+        }
+    </script>

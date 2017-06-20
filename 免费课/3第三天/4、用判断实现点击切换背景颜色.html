@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body id="box">
+<input type="button" value="点击" id="btn">
+<!--点击这个按钮 整个body的颜色进行切换，第一次点击变成红色，第二次点击变成黄色，第三次红色，第四次黄色.....-->
+<script>
+    //首先要获取到操作的元素 input body
+    var oBtn=document.getElementById("btn");
+    var oBox=document.getElementById("box");
+    //console.log(oBox,oBtn);
+    oBtn.onclick=function () {
+        //如何在js中给对象添加css属性
+        //oBox.style.backgroundColor="red";
+        //判断一下oBox当前的背景颜色是什么，如果是红色，将变成黄色
+        //如何获取一个对象的背景颜色
+        var bg=oBox.style.backgroundColor;
+        //console.log(bg);
+        /*if(bg===""){
+            oBox.style.backgroundColor="red";
+        }else{
+            oBox.style.backgroundColor="yellow";
+        }*/
+        //只要是bg的值为red的时候，我就让背景颜色变黄色，除了黄色以外的情况，都变红
+        if(bg==="red"){
+            oBox.style.backgroundColor="yellow";
+        }else{
+            //只要bg的值不是红色都会变红
+            oBox.style.backgroundColor="red";
+        }
+    };
+    /*oBtn.onclick=function () {
+        //如何在js中给对象添加css属性
+        oBox.style.backgroundColor="yellow";
+        //这一段代码就会将上面的代码覆盖掉
+    }*/
+</script>
+</body>
+</html>

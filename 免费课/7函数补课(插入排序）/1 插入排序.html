@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>insertSort</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    var ary = [3, 5, 2, 4];
+    var newAry = []; // [1,3]   2
+    newAry.push(ary[0]);
+    for (var i = 1; i < ary.length; i++) { // 每次从原数组中循环获取一项，把这一项插入到newAry这个新数组中
+        // i = 1 => 在原有ary这个数组中拿出索引1的项。其实也就是1. ary[1]
+        for (var j = 0; j <=newAry.length; ) {
+           // j = 0  => newAry[j] => newAry[0] => 1
+            if(ary[i] < newAry[j]){
+                newAry.splice(j,0,ary[i]);
+                // splice是要改变数组长度的
+                break;
+            }else{
+                j++;
+                if(j === newAry.length){
+                    newAry.push(ary[i]);
+                   // break;
+                }
+            }
+        }
+    }
+    console.log(newAry);
+
+
+</script>

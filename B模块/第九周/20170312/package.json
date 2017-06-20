@@ -1,0 +1,14 @@
+{
+  "name": "20170312",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "less": "lessc css/index.less css/index.min.css -x",
+    "babel": "datal js/index.js -o js/index.min.js -w"
+
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

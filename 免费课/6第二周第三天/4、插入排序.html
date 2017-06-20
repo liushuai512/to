@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>插入排序</title>
+</head>
+<body>
+<!--<script>
+    var ary=[10,3,7,4,3,8];
+    var newAry=[];
+    newAry.push(ary[0]);//newAry = [10]
+    for (var i=1;i<ary.length;i++){//循环ary数组中的每一项
+        for (var j=newAry.length-1;j>=0;){//循环newAry中的每一项
+            //用ary中的一项去和newAry中的每一项进行比较
+            if(ary[i]>newAry[j]){
+                newAry.splice(j+1,0,ary[i]);//如果确定ary的当前项大于newAry中的某一项，就将ary的当前项添加到newAry这一项的后面
+                break;//添加完成之后，结束本轮循环，继续取ary中的下一项和newAry中的每一项比较
+            }else{
+                j&#45;&#45;;//如果ary中的这一项比new中的值小，就继续向前比较
+                if(j===-1){//如果j===-1 说明ary的这一项比new中的每一项都小，直接添加到新数组的开始
+                    newAry.unshift(ary[i]);
+                }
+            }
+        }
+    }
+    console.log(newAry);
+
+    //var ary=[10,3,7,4,3,8];
+    //newAry=[10]  [3,10,7]
+</script>-->
+<script>
+    var ary=[10,8,3,9,6];
+    var newAry=[];
+    newAry.push(ary[0]);//newAry=[10]
+    //var newAry=ary[0];//ary[0]=10
+    for (var i=1;i<ary.length;i++){
+        //length-1代表数组的最后一项
+        for (var j=newAry.length-1;j>=0;){
+            if(ary[i]>newAry[j]){
+                newAry.splice(j+1,0,ary[i]);
+                break;
+            }else{
+                j--;//j--只是在比较，没有在添加,如果这一项大于了话会走if中的操作
+                if(j===-1){
+                    //newAry.unshift(ary[i]);//[3,8,9,10]
+                    newAry.splice(0,0,ary[i]);
+                }
+
+            }
+        }
+        /*
+        i=1  ary[1]=8  newAry=[10]  8<10  newAry.unshift(8)  newAry=[8,10]
+        i=2  ary[2]=3  newAry=[8,10]  3<10 继续比较 3<8   newAry.unshift(8) newAry=[3,8,10]              0   1
+         i=3  ary[3]=9  newAry=[3,8,10] 9<10 继续比较 9<8  需要将9放在8的后面 newAry.splice(1+1,0,9)  newAry=[3,8,9,10]
+         i=4  ary[4]=6  newAry=[3,8,9,10]  6<10  6<9  6<8  6>3 需要将6放在3的后面 newAry.splice(0+1,0,6)  newAry=[3,8,9,10]
+
+         当i循环一次的时候，ary[i]要和newAry中的每一项都再比较一次，当i执行一次的时候，里面的代码要执行newAry.length
+        */
+    }
+    console.log(newAry);
+</script>
+
+</body>
+</html>

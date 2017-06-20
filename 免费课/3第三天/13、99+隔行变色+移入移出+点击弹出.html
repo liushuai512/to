@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p {
+            line-height: 30px;
+        }
+
+        span {
+            padding: 0 10px;
+        }
+        .bg0{
+            background: #84a8c8;
+        }
+        .bg1{
+            background: #ff6600;
+        }
+        .bg2{
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+<script>
+    var str="";
+    for (var i=1;i<=9;i++){
+        str+="<p class='bg"+i%2+"'>";
+        //str+="<p class='bg1'>";
+        for (var j=1;j<=i;j++){
+            str+="<span>"+j+"*"+i+"="+j*i+"</span>";
+        }
+        str+="</p>";
+    }
+    document.write(str);
+    var oP=document.getElementsByTagName("p");
+    for(var i=0;i<oP.length;i++){
+        oP[i].zhufeng=i;
+        oP[i].onclick=function () {
+            alert("我是第"+(this.zhufeng+1)+"行");
+        };
+        oP[i].onmouseover=function () {
+            this.bg=this.className;
+            this.className="bg2";
+        };
+        oP[i].onmouseout=function () {
+            this.className=this.bg;
+        }
+    }
+</script>
+</body>
+</html>

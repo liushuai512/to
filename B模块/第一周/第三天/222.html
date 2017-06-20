@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="div1" style="width: 100px;  height: 100px; background:red" ></div>
+<script>
+    //只要有变量或者对象的属性被占用的时候就不能被释放
+
+    /*
+    * 栈内存作用域释放条件
+    *
+    * 函数在执行的时候，函数中的一部分（一般是引用数据类型）被函数外的变量或者对象的属性所占用，那么这个函数执行时刻产生的那个作用域不被释放，  那么就会导致这个区域内的私有变量都被保存下来
+    *
+    * fn在执行的时候，fn中的一部分（return后面的函数）被fn外的全局变量f所占用，那么fn执行的时刻产生的那个作用域不被释放，  导致fn中的私有变量num=300也被保存下来
+    *
+    *
+    * */
+
+    /*function fn(num){
+        // 如果没有return 那么fn没有执行结果，根本不涉及到被外界占用的问题
+        //如果return存在，那么还要关注return的值是不是引用数据类型
+        return function (){
+            console.log(num)
+        }
+    }
+    var f=fn(300); //这行代码就是fn执行所产生的那个作用域不被释放
+     var g=fn(200) ;     //这是fn第二次执行，那么形成了第二个私有作用域
+
+    f();
+    f();
+    var h=fn(100);
+    f();
+    g();*/
+
+
+    /*function fn(num){*/
+    /*   return function (){
+    /*       num +=1;*/
+    /*       console.log(num);
+    /*   }*/
+    /*}*/
+    /*var f=fn(10);*/
+    /*var g=fn(20) ;*/
+    /*f()  ;*/
+    /*g() ;*/
+    /*f();*/
+    /*g() ;*/
+
+
+
+    /*function fn(){
+        var num=10;
+        return function (){
+            num++;
+            console.log(num);
+        }
+    }
+    var f=fn();
+    var obj={f:f};
+    fn()();
+    f();
+    obj.f();
+    var f=fn();
+    f();
+    fn()()*/
+
+
+    /*function fn(){
+        var num=10;
+        return function (){
+            num++;
+            console.log(num);
+        }
+    }
+    var f=fn();
+    f();//11
+    var obj={};
+    obj.f=f;
+    obj.f();//12
+    document.onclick=f;
+    for(var i=0;i<2;i++){
+        document.onclick();//13 14
+    }
+    f(); //15
+    obj.f(); //16*/
+
+    function fn(){
+        var num = 10;
+        return function (){
+            num++;
+            console.log(num);
+        }
+    }
+    var f = fn();
+    f();
+    var obj = {};
+    obj.f = f;
+    obj.f();
+    document.onclick = f;
+    for(var i = 0; i< 2; i++){
+        document.onclick();
+    }
+    f();
+    obj.f();
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

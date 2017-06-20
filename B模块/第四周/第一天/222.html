@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            /*margin: 100px auto;*/
+            width: 100px;
+            height: 100px;
+            background: orangered;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>
+<script src="../utils%20(1).js"></script>
+<script>
+    var div1 =document.getElementById('div1');
+    var time=0;
+    var duration=1000;
+    //以下俩个是为left准备的
+    /*var begin=utils.getCss(div1,'left');//开始的时刻生效的样式
+    var target=500;
+
+    var beginOpacity=utils.getCss(div1,'opacity');//开始的时刻生效的样式
+    var targetOpacity=500;*/
+
+    var begin={
+        left:utils.getCss(div1,'left'),
+        opacity:utils.getCss(div1,'opacity'),
+        width:utils.getCss(div1,'width')
+    };
+
+    var target={
+        left:500,
+        opacity:0.2,
+        width:200
+    };
+
+    var change={
+        left:target.left-begin.left,
+        opacity:target.opacity-begin.opacity,
+        width:target.width-begin.width
+    };
+
+    var timer=window.setInterval(function(){
+        time+=10;//每次运动多远
+        if(time >=duration){
+            window.clearInterval(timer)
+        }
+
+
+
+    },10);//多久动一次
+
+    function linear(t,b,c,d){
+        return b+t/d*c;
+    }
+
+
+</script>

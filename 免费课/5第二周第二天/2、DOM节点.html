@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM节点</title>
+</head>
+<body>
+<div id="parent">
+    <p>我是第1个p</p>
+    <!--第二个儿子是继承人-->
+    <p id="list2">我是第2个p</p>
+    <p>我是第3个p</p>
+    <p>我是第4个p</p>
+    <p>我是第5个p</p>
+</div>
+<script>
+    var oDiv=document.getElementById("parent");
+    console.log(oDiv.firstChild);
+    console.log(oDiv.firstElementChild);
+    console.log(oDiv.lastChild);
+    console.log(oDiv.lastElementChild);
+    //console.log(oDiv.childNodes);
+    //[text, p, text, comment, text, p#list2, text, p, text, p, text, p, text]
+    //console.log(oDiv.children);
+    //[p, p#list2, p, p, p]
+    //var oP=document.getElementById("list2");
+    //console.log(oP.parentNode);
+    /*console.log(oP.previousSibling);
+    console.log(oP.previousElementSibling);*/
+   /* console.log(oP.nextSibling);
+    console.log(oP.nextElementSibling);*/
+    /*
+    * 节点：（Node） 在页面中出现的所有东西都是节点，元素、注释、文本等都是节点
+    * js可以通过这些节点来访问html，进行html内元素对象的增删改查
+    *
+    * 节点的关系属性：
+    * childNodes 获取所有的子节点（一组）
+    * children   获取所有元素子节点（一组）
+    * 通过以上两种方式获取到的一组元素，以类数组的形式展示
+    * parentNode 获取父亲节点
+    * previousSibling 获取上一个节点  previousElementSibling 上一个元素节点（不兼容）
+    * nextSibling 获取弟弟节点   nextElementSibling下一个元素节点（不兼容）
+    * firstChild 获取子节点中的第一个  firstElementChild
+    * lastChild  获取子节点中最后一个  lastElementChild
+    * */
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

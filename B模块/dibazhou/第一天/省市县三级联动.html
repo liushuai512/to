@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+<select name="area" id="province">
+    <option value="请选择">请选择</option>
+</select>
+<select name="area" id="city">
+    <option value="请选择">请选择</option>
+</select>
+<select name="area" id="county">
+    <option value="请选择">请选择</option>
+</select>
+<script src="js/ajax.js"></script>
+<script>
+    var areaReader = (function () {
+        var province = document.getElementById('province'),
+                city = document.getElementById('city'),
+                county = document.getElementById('county');
+        var resultData = null;
+
+        //->绑数据
+        function bindData(ele, data) {
+            ele.options.length = 0;
+            var frag = document.createDocumentFragment();
+            for (var i = 0, len = data.length; i < len; i++) {
+                var dataItem = data[i];
+                var option = document.createElement('option');
+                option.value = dataItem.name;
+                option.innerHTML = dataItem.name;
+                frag.appendChild(option);
+            }
+            ele.appendChild(frag);
+            frag = null;
+        }
+
+        //->绑定事件
+        function bindEvent() {
+            province.onchange = function () {
+                var index = this.selectedIndex,
+                        subItem = resultData[index];
+                subItem.sub ? bindData(city, subItem.sub) : null;
+            };
+            city.onchange = function () {
+                var proIndex = province.selectedIndex,
+                        cityIndex = this.selectedIndex;
+                var subItem = resultData[proIndex].sub[cityIndex];
+                subItem.sub ? bindData(county, subItem.sub) : null;
+            };
+        }
+        return {
+            init: function () {
+                ajax({
+                    url: 'json/data.json',
+                    success: function (result) {
+                        resultData = result;
+                        bindData(province, result);
+                        bindEvent();
+                    }
+                });
+            }
+        }
+    })();
+    areaReader.init();
+</script>
+</body>
+</html>

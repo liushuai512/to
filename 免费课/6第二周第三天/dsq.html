@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="btn">ssssss</div>
+<div id="btn1" style="cursor: pointer">ssssss</div>
+<script>
+    var con=0,timer=null;
+    btn1.onclick=function () {
+        if(!timer){
+            mor();
+            return;
+        }
+        window.clearTimeout(timer);
+        timer=null;
+    };
+    function mor() {
+        window.clearTimeout(timer);
+        con++;
+        btn.innerHTML=con;
+        timer=window.setTimeout(mor,1000);
+        set
+    }
+</script>
+</body>
+</html>

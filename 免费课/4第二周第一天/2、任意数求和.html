@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<script>
+    //alert("我是第"+i+1+"个");
+    //"我是第01个" "我是第11个" "我是第21个"
+    //求和 最终的结果一定是一个数字
+    //任意数 可能是数字、可能是字符串、可能是对象.... 但是数字+字符串的时候会默认进行字符串拼接 得到的结果就不是数字，而是一个字符串&#45;&#45;将任意数先转为数字
+    //"1"+[] &#45;&#45; > "1"  "1"+{} &#45;&#45; > "1[object Object]"
+    //只有数字才能相加 判断一个值是否为数字，调用的方法是isNaN()
+
+    function sum() {//不定义形参，是因为不确定传递进来的到底有多少值，用arguments接收实参
+        //arguments 是一个对象，是一个类数组，里面存放着所有的实参
+        //要累加arguments中的每一项，我们需要先有一个容器，然后向这个容器中添加我们每次累加的内容
+        var total=null;//total就是用来装内容的容器
+        for(var i=0;i<arguments.length;i++){
+            var cur=Number(arguments[i]);
+            if(!isNaN(cur)){
+                total+=cur;
+            }
+        }
+        return total;
+    }
+    var total=sum("1",2,4,"12bc");
+    console.log(total);
+
+</script>-->
+<!--<script>
+    function sum() {
+        var total=0;//total=null
+        for (var i=0;i<arguments.length;i++){
+            //var total=null;  每次循环的时候 total都会重新定义成null，那么值钱这个变量中存储的值就没有了
+            var cur=Number(arguments[i]);
+            if(!isNaN(cur)){
+                total+=cur;
+                //total为空字符串的时候 total=""+1+2+3+0;&ndash;&gt;"1230"
+                //total只定义不赋值   total=undefined+1+2+3+0 &ndash;&gt; NaN
+            }
+        }
+        return total;
+    }
+    var sumEdn=sum(1,2,3,"abc",[],{});
+    console.log(sumEdn);
+</script>-->
+<script>
+    function sum() {//
+        var total=null;//
+        for (var i=0;i<arguments.length;i++){//
+            var cur=Number(arguments[i]);//
+            if(!isNaN(cur)){//
+                total+=cur;//
+            }
+        }
+        return total;//
+    }
+    console.log(sum("ab",[],"23","1",2,7));//
+    var ary=[1,2,3,4,5];
+    //数组对象  天生自带索引和length
+    var total=null;
+    for(var i=0;i<ary.length;i++){
+        var cur=Number(ary[i]);
+        if(!isNaN(cur)){
+            total+=cur;
+        }
+    }
+    console.log(total);
+</script>
+</body>
+</html>

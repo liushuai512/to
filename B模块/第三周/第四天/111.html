@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            margin: 100px auto;
+            width: 200px;
+            height: 200px;
+            border: 2px dashed #330033;
+            border-radius: 10px;
+            overflow: hidden;
+            background: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+<div id="div1" class="c1"></div>
+</body>
+</html>
+<script>
+    var div1=document.getElementById('div');
+    div1.classList.add('c2');
+    div1.classList.remove('c2');
+    div1.classList.toggle('c2');
+
+    //判断一个元素是否存在一个类  hasOwnproperty isNaN
+    function hasClass(ele,className){
+        var reg=new RegExp()
+    }
+
+    //
+    removeClass();
+    function removeClass(ele,className){
+        var className=className.replace(/(^ +| +$)/g,'').split(/ +/);
+
+    }
+    function toggleClass(){
+        if(hasClass(ele,className)){
+            removeClass(ele,className);
+        }else {
+            addClass(ele,cl)
+        }
+    }
+</script>

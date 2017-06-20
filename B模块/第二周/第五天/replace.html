@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var str='zf2016px2017ha2018';
+    str.replace()
+
+    /*
+    * replace:
+    *     1、返回一个新的替换后的字符串
+    *     2、第一个参数是reg，第二个参数是函数
+    *        str.replace(reg.function)
+    *        1）函数执行的次数取决于正则reg成功匹配多少次
+    *        2）使用函数每次执行的返回值return来替换正则每次匹配到的内容
+    *        3）打印arguments类数组：
+    *               arguments[0]:每次正则匹配到的内容
+    *               arguments[1]:第1个分组匹配到的内容
+    *               arguments[n]:第n个分组匹配到的内容
+    *               arguments[length-1]:input
+    *               arguments[length-2]:index
+    *        4)str.replace(reg,'$1');
+    *              当使用“$1”这样的字符串来替换reg的时候，如果正则中存在第一个分组，那么是使用分组的内容来替换，如果不存在就还是“$1”字符串本身
+    *              ps:任何一个正则只要执行完捕获等操作就已经把第一个分组的内容添加到RegExp
+    *
+   * */
+
+
+    /*
+    * ?=  只能是什么  肯定
+    * ?!  不能是什么  否定
+    *
+    * ps  不占字符
+    *
+    * */
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--meta:vp-->
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title>珠峰培训-个人简历</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="icon" href="img/icon.png"/>
+
+    <link rel="stylesheet" href="css/reset.min.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+
+    <!--REM-->
+    <script>
+        ~function () {
+            var winW = document.documentElement.clientWidth;
+            if (winW < 640) {
+                //->超过640PX我们保持最大宽度就是640,所以不需要重新计算REM比例，小于640PX的，才需要根据当前屏幕和设计稿的宽度比例，动态计算REM的转换比例值
+                document.documentElement.style.fontSize = winW / 640 * 100 + 'px';
+            }
+        }();
+    </script>
+</head>
+<body>
+<!--MAIN中包含所有需要展示给别人的内容
+  目的：保证当屏幕的宽度大于设计稿的时候，我们保证MAIN最大宽度就是设计稿的宽度，MAIN在页面居中位置，两边留白即可(最大尺寸就是设计稿这样大)
+-->
+<main class="mainBox">
+    <!--LOADING-->
+    <section class="loading">
+        <div class="title">
+            <h1>珠峰培训</h1>
+            <h2>八年专注，有口皆碑，不忘初心，方得始终</h2>
+        </div>
+        <div class="progress"><span></span></div>
+    </section>
+</main>
+
+<script src="js/zepto.min.js"></script>
+<script src="js/index.js"></script>
+</body>
+</html>

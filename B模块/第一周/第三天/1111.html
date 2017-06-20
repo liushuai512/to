@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //上级作用域：上级作用域是谁，就看函数在哪里定义的
+    //例如f函数是在sum函数return结果，f的上级作用域就是sum，sum的上级作用域是window
+
+   var num=12000;
+    function sum(num){//在这里的num和var num都表示为sum这个函数的私有变量
+        //var num=120;
+        return function (){
+            console.log(num);
+        }
+    }
+    var f=sum();//这个sum函数的执行结果就是留一个函数的堆内存地址
+    f();
+</script>

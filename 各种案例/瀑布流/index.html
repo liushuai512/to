@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        div{
+            width: 1260px;
+            margin: 10px auto;
+        }
+        div ul{
+            width: 300px;
+            margin: 5px;
+            float: left;
+        }
+        div ul li{
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+
+</div>
+<script src="js/utils.js"></script>
+<script>
+    var aUl=document.getElementsByTagName('ul');
+
+    function createLi(){
+        var oLi=document.createElement('li');
+        oLi.style.height=utils.rnd(80,200)+'px';
+        oLi.style.background='rgb('+utils.rnd(0,255)+','+utils.rnd(0,255)+','+utils.rnd(0,255)+')';
+        return oLi;
+
+    }
+
+    function li50(){
+        for(var i=0;i<50;i++){
+            var oLi=createLi();
+
+            var ary=utils.makeArray(aUl);
+            ary.sort(function(a,b){
+                return a.offsetHeight- b.offsetHeight;
+            })
+            ary[0].appendChild(oLi);
+        }
+    }
+    li50()
+
+    window.onscroll=function(){
+        var scrollBottom=utils.win('scrollTop')+utils.win('clientHeight');
+        if(document.body.scrollHeight+50>=scrollBottom){
+            li50()
+        }
+    }
+</script>
+
+</body>
+</html>

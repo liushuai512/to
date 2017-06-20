@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //数字数据类型
+    /*
+     * 在js中数字数据类型包含哪些？
+     * 整数和浮点数
+     * NaN not a number（不是一个数字）
+     * 1、Number()--将其他数据类型转为数字数据类型的方法
+     * 当转化值中有一个不是数字的时候，就返回NaN，如果是数字的时候直接返回数字
+     * Number()这个方法的返回值只有数字或NaN
+     *对象数据类型转化为数字的时候，首先会转化为字符串，然后再转化为数字
+     * Number({});
+     * 第一步 先将括号中的{}转为字符串，调用.toString()方法
+     * 第二步 {}.toString() 转为字符串 最终值为"[object Object]"
+     * Number("[object Object]") 最终值是NaN
+     *
+     * Number([]);
+     * 第一步 [].toString() 转为字符串最终值为 "" （空字符串）
+     * 第二步 Number("")  最终值是0
+     *
+     * Number(null) 最终值是0
+     * Number(undefined) 最终值是NaN
+     * Number(true) 最终值是1
+     * Number(false) 最终值是0
+     * */
+    //console.log(Number(1));
+    //var str="123";//str用来代表和储存"123"
+    //document.write(Number(str));//123
+    //相当于将"123"放到了Number的括号中
+    //var str1="abc";
+    //document.write(Number(str1));//NaN
+    //console.log(Number(str1));
+    //var str2="12bc";
+    //document.write(Number(str2));//NaN
+    //var obj={};//对象
+    //console.log(Number(obj));//NaN
+    //var ary=[];//数组
+    //console.log(Number(ary));//0
+    //console.log({}.toString());//"[object Object]"
+
+    //console.log(Number(""));//0
+    //console.log(Number({}));//NaN
+    //console.log(Number([1]));//1
+    //[1].toString() -- > "1"
+    //Number("1") -- >1
+    //console.log(Number([1,2]));
+    //[1,2].toString() -- > "1,2"
+    //Number("1,2") -- >NaN
+    //console.log(Number({1:1}));//NaN
+    //{1:1}.toString() --> "[object Object]"
+    //Number("[object Object]") -- NaN
+    //console.log(Number(1+1));//2
+    //如果括号中是数学表达式的时候，会进行优先运算
+    //console.log(Number("1+1"));//NaN
+    /*
+     * Number()中的值如果是
+     * 1、字符串的时候，只要字符中有一个值不是数字返回NaN
+     * 2、对象的时候，先将对象转为字符串（调用.toString()方法），然后将字符串转为数字  {}  []
+     * 3、布尔的时候，true为1，false 0
+     * 4、null的时候，为0
+     * 5、undefined的时候，为NaN
+     * */
+    //isNaN()  方法
+    //这个方法是用来检测一个值不是一个数字
+    //xxx is not a number --> xxx这个值不是一个数字
+    //NaN not a number
+    //console.log(isNaN(1));//false
+    //console.log(isNaN({}));//true
+    //isNaN()检测一个值不是数字的时候，返回true，这个值如果是数字的时候返回false
+    //    isNaN()的返回值 是布尔类型的值，要么是true要么是false
+    //isNaN在验证之前，会先调用Number()方法，然后再去检查Number()方法的返回值
+
+    //parseFloat()
+    //将字符串中的值从左向右查找，遇到非数字停止查找，将查找到的结果作为返回值，可以识别小数点
+    //parseInt()
+    //将字符串中的值从左向右查找，遇到非数字停止查找，将查找到的结果作为返回值，只能返回整数
+    //以上两种方法是将“字符串”中能转为数字的部分转为数字
+
+    //console.log(parseFloat("123.45bc"));//123.45
+    //console.log(parseInt("123.45bc"));//123
+    //console.log(parseInt([]));//NaN
+    //console.log(parseFloat(true));//NaN
+    //console.log(parseFloat(1.2));//1.2
+    //console.log(parseInt(1.2));//1
+    //console.log(parseInt(.2));//0
+    //console.log(parseFloat(.2));//0.2
+    //console.log(parseInt(".2"));// NaN
+    //console.log(parseFloat(".2"));//0.2
+
+    //console.log(parseInt(1+1.2));
+
+    //    NaN==NaN  返回false  ==在js中是比较的意思
+    //Number("b") == Number("a") 返回false
+    //console.log(parseInt(1%1));//取余数
+</script>
+background:rgba(0,0,0,.3)
+x=++y
+x=(y+1)
+
+x=y++
+x=y   y=y+1
+<script>
+    //++的意思就是+1
+    //x++ 先将x原本输出，下一步的时候在累加1
+    var x=2;
+    console.log(x++);//2
+    //x=3
+    //++x先在原本的值上+1，然后输出+1后的结果
+    console.log(++x);
+    //x=4
+</script>
+</body>
+</html>

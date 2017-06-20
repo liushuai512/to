@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+</body>
+</html>
+<script>
+//    function FE(name,money){ // front engineer
+//        this.name = name;
+//        this.money = money;
+//    }
+//
+//    //FE.prototype.sallery = 20;
+//    //Object.prototype.sallery = 20;
+////    FE.prototype.code = function (){
+////        console.log(this.money + this.sallery);
+////    }
+//    FE.prototype.code = {
+//        constructor : FE,
+//        code : function (){
+//            console.log(this.money + this.sallery);
+//        },
+//        a : function (){},
+//        b : function (){}
+//
+//    };
+//    FE.prototype.a = function (){}
+//    FE.prototype.b = function (){}
+//    var fe1 = new FE('peiyanfei',19);
+//    var fe2 = new FE('weixiao',18);
+//    fe1.code(); // fe1 => fe1.money + fe1.sallery => 19 + 20 => 39
+//
+//    fe1.code === fe2.code;
+//    console.log(fe1.constructor); //
+
+
+    function Fn(){
+        this.x = 10;
+    }
+    Fn.prototype.getX = function (){
+        console.log(this.x + this.y);
+    }
+    Fn.prototype.y = 20;
+    var f = new Fn();
+    f.getX();
+    Fn.prototype.getX();
+    Fn.prototype.getX == f.__proto__.getX;
+    console.log(f.constructor);
+    console.log(f.constructor.constructor); // ?
+
+
+
+
+
+
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #btn{
+            width: 500px;
+            height: 500px;
+            margin: 0 auto;
+            border: 2px solid;
+        }
+        li{
+
+            width: 300px;
+            height: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<ul id="btn">
+    <li>这是第一条</li>
+    <li>这是第二条</li>
+    <li>这是第三条</li>
+</ul>
+<!--<input type="button" value="按钮1">-->
+<!--<input type="button" value="按钮2">-->
+<!--<input type="button" value="按钮3">-->
+<!--<input type="button" value="按钮4">-->
+<script>
+    //let oBtn=document.getElementById('btn');
+    let aLi=document.getElementsByTagName('li');
+    for(let i= 0,len=aLi.length;i<len;i++){
+        //自定义属性
+        //把正确的I值保存在对应的私有属性上
+        /*let oLI=aLI[i];
+        oLI.ls=i;
+        oLI.onclick=function(){
+            alert(this.ls)
+        }*/
+
+        //闭包
+        //把正确的I值保存在不同的私有作用域中
+        /*(function(index){
+            aLi[index].onclick=function(){
+                alert(index);
+            }
+        })(i)*/
+
+        //这种常规写法，全局变量，不建议
+        aLi[i].onclick=function(){
+            alert(i);
+        }
+    }
+</script>
+</body>
+</html>

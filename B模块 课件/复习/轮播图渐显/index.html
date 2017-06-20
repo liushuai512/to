@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图渐显</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="banner" id="banner1">
+        <div class="bannerInner">
+            <!--<div><img src="images/1.jpg" real=""></div>-->
+            <!--<div><img src="images/2.jpg" real=""></div>-->
+            <!--<div><img src="images/3.jpg" real=""></div>-->
+            <!--<div><img src="images/4.jpg" real=""></div>-->
+        </div>
+        <ul class="focusUl">
+            <!--<li class="cur"></li>-->
+            <!--<li></li>-->
+            <!--<li></li>-->
+            <!--<li></li>-->
+        </ul>
+        <a class="left" href="javascript:void 0"></a>
+        <a class="right" href="javascript:void 0"></a>
+    </div>
+    <div class="banner" id="banner2">
+        <div class="bannerInner">
+            <!--<div><img src="images/1.jpg" real=""></div>-->
+            <!--<div><img src="images/2.jpg" real=""></div>-->
+            <!--<div><img src="images/3.jpg" real=""></div>-->
+            <!--<div><img src="images/4.jpg" real=""></div>-->
+        </div>
+        <ul class="focusUl">
+            <!--<li class="cur"></li>-->
+            <!--<li></li>-->
+            <!--<li></li>-->
+            <!--<li></li>-->
+        </ul>
+        <a class="left" href="javascript:void 0"></a>
+        <a class="right" href="javascript:void 0"></a>
+    </div>
+    <div id="banner3"></div>
+</body>
+</html>
+<!--
+<script src="js/index.js"></script>-->
+<script src="js/jquery-1.11.3.js"></script>
+<script src="js/index1.js"></script>
+<script>
+    $('#banner1').banner('data.txt');
+    $('#banner2').banner('data2.txt',3000);
+    console.log(this);
+</script>

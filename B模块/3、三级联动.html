@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select name="area" id="province">
+    <option value="请选择">请选择</option>
+</select>
+<select name="area" id="city">
+
+</select>
+<select name="area" id="county">
+
+</select>
+<script src="js/ajax.js"></script>
+<script>
+    var areaRender = (function () {
+        var province = document.getElementById('province'),
+            city = document.getElementById('city'),
+            county = document.getElementById('county');
+        //->绑定数据
+        function bindData(curEle) {
+            curEle.options.length = 0;
+            var frag = document.createDocumentFragment();
+            for (var i = 0, len = curEle.data.length; i < len; i++) {
+                var dataItem = curEle.data[i];
+                var option = document.createElement('option');
+                option.value = dataItem.name;
+                option.innerHTML = dataItem.name;
+                frag.appendChild(option);
+            }
+            curEle.appendChild(frag);
+            frag = null;
+        }
+        function bindEvent() {
+            province.onchange = function () {
+                change(this, city);
+            };
+            city.onchange = function () {
+                change(this, county);
+            }
+        }
+        function change (curEle, nextEle) {
+            var curAry = curEle.data[curEle.selectedIndex];
+            if (curAry.sub) {
+                nextEle.data = curAry.sub;
+                bindData(nextEle);
+            }
+        }
+        return {
+            init: function () {
+                ajax ({
+                    url: 'data.json',
+                    success: function (result) {
+                        //->给省绑定数据
+                        province.data = result;
+                        bindData(province);
+                        bindEvent();
+                    }
+                });
+            }
+        }
+    })();
+    areaRender.init();
+</script>
+</body>
+</html>

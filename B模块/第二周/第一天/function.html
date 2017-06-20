@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*
+    * call方法：
+    *    1.定义在function原型上的方法，任何一个函数实例都可以调用
+    *    2.实例找到call 方法之后，然后把调用call的实例（函数）中的this修改成call的第一个参数
+    *    3.调用call方法的这个函数实例执行
+    *    4.call方法的第一个参数都是用来修改this的，从第二个参数开始是传给调用call方法的函数实例的，
+    *
+    *    =》找到call =》改this =》执行
+    *
+    *    ps：调用call方法之后，切记这个函数已经执行结束
+    * */
+
+    //定时器函数中的this都是window，==》把定时器函数中的this修改成body
+
+
+//    function fxy(){
+//        console.log(this);
+//    }
+
+//    window.setInterval(function (){
+//        fxy.call(document.body)
+//    },1000)
+    /*
+    *apply方法和call相比都是用来修改this的，apply的第二个参数是一个数组，是把数组的每一项当作参数传给实例的
+    *  ps:call和apply  都是已经把前面的实例都执行完了
+    *
+    * */
+
+
+    /*
+    * bind ：和call  和apply相同都是用来修改this的 ，但是bind是返回了一个修改好this的新函数，参数可以在新函数执行的时候传 ，bind只负责修改this   //好用的都不兼容
+    *
+    * sum.bind()
+    * */
+
+    'use strict'; //以下js代码按照严格模式解析
+    /*
+    * 严格模式
+    * 1.使用call和apply等修改this，null和undefined是本身，非严格模式使window
+    * 2.自执行函数中的this在严格模式下是undefined；原来是window
+    * 3.当函数执行  没有“.”那么函数中的this是undefined
+    *
+    * */
+
+
+
+
+
+
+</script>
+</body>
+</html>

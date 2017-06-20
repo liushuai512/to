@@ -1,0 +1,115 @@
+#banner1, #banner2, #banner3 {
+    position: relative;
+}
+
+.unslider {
+    overflow: auto;
+    margin: 0;
+    padding: 0
+}
+
+.unslider-wrap {
+    position: relative
+}
+
+.unslider-wrap.unslider-carousel > li {
+    float: left
+}
+
+.unslider-vertical > ul {
+    height: 100%
+}
+
+.unslider-vertical li {
+    float: none;
+    width: 100%
+}
+
+.unslider-fade {
+    position: relative
+}
+
+.unslider-fade .unslider-wrap li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    z-index: 8
+}
+
+.unslider-fade .unslider-wrap li.unslider-active {
+    z-index: 10
+}
+
+.unslider li, .unslider ol, .unslider ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: none
+}
+
+#banner1 .unslider-arrow {
+    margin-top: -8.5px;
+    position: absolute;
+    top: 50%;
+    width: 17px;
+    height: 17px;
+    z-index: 999;
+    text-indent: -9999px;
+    cursor: pointer;
+
+
+}
+
+#banner1 .unslider-arrow.prev {
+    left: 8px;
+    background: url("../../img/shouye/topArrow-l.png") no-repeat;
+}
+
+#banner1 .unslider-arrow.next {
+    right: 8px;
+    background: url("../../img/shouye/topArrow-r.png") no-repeat;
+}
+
+#banner2 .unslider-arrow {
+    margin-top: -20px;
+    position: absolute;
+    top: 50%;
+    width: 40px;
+    height: 40px;
+    z-index: 999;
+    text-indent: -9999px;
+    cursor: pointer
+}
+
+#banner2 .unslider-arrow.prev {
+    left: 30px;
+    background: url("../../img/shouye/arrowl.png") no-repeat;
+}
+
+#banner2 .unslider-arrow.next {
+    right: 30px;
+    background: url("../../img/shouye/arrowr.png") no-repeat;
+}
+
+#banner3 .unslider-arrow {
+    margin-top: -16px;
+    width: 17px;
+    height: 32px;
+    position: absolute;
+    top: 50%;
+    z-index: 999;
+    text-indent: -9999px;
+    cursor: pointer;
+}
+
+#banner3 .unslider-arrow.prev {
+    left: 30px;
+    background: url(../../img/Slider-Button-Left-Icon.png) no-repeat;
+}
+
+#banner3 .unslider-arrow.next {
+    right: 30px;
+    background: url(../../img/Slider-Button-Right-Icon.png) no-repeat;
+}
+

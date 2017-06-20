@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<script>
+    //如何获取本地时间
+    var time=new Date();//实例创建方式
+    //js中所有的数据都是对象，对象根据不同的性质和功能分为了很多的类，时间类，数字类，数组类...每一个具体的对象就是这个类的实例
+    /*Date//时间类
+    2016-12-25 09:39:00//这个是时间类的一个实例*/
+    console.log(time);//Sun Dec 25 2016 09:42:21 GMT+0800 (中国标准时间)
+    var year=time.getFullYear();//设置 Date 对象中的年份（四位数字）
+    var month=time.getMonth();//根据世界时设置 Date 对象中的月份 (0 ~ 11)
+    var day=time.getDate();//从 Date 对象返回一个月中的某一天 (1 ~ 31)
+    var week=time.getDay();//从 Date 对象返回一周中的某一天 (0 ~ 6) 代表周日-周六
+    var str="日一二三四五六";//以week中获取到的数字作为索引，查找str中对应的字符
+    var weekDay=str.charAt(week);
+    var hours=time.getHours();//返回 Date 对象的小时 (0 ~ 23)
+    var minutes=time.getMinutes();//返回 Date 对象的分钟 (0 ~ 59)
+    var seconds=time.getSeconds();//返回 Date 对象的秒数 (0 ~ 59)
+    var mSeconds=time.getMilliseconds();//返回 Date 对象的毫秒(0 ~ 999)
+    //今天是2016年12月25日 周日 09点56分04秒
+    var newStr="今天是"+year+"年"+zero(month+1)+"月"+day+"日 周"+weekDay+" "+zero(hours)+"点"+zero(minutes)+"分"+zero(seconds)+"秒";
+    document.write(newStr);
+    //需要写一个补零的函数
+    function zero(n) {
+        //如果传递进来的变量n接收到的数字是01 02 03....要怎么办
+        n=Number(n);
+        if (n<=9){
+            return n="0"+n;
+        }else {
+            return n;
+        }
+    }
+</script>-->
+
+<!--<script>
+    //倒计时
+    /*
+    * 如何获取时间差
+    * 如何将2016/12/25 10:34:00的时间变成计算机的标准时间Sun Dec 25 2016 09:42:21 GMT+0800 (中国标准时间)
+    * */
+    //将其他时间变成标准时间
+    var endTime=new Date("2016/12/26 11:00:00");//Sun Dec 25 2016 11:00:00 GMT+0800 (中国标准时间)
+    //endTime是要到达的时间
+    //在变成标准时间的时候，格式也是有要求的  2016/12/25 11:00:00
+    //获取现在时间到指定时间的时间差
+    //nowTime获取到的是本地时间
+    var nowTime=new Date();
+    //endTime-nowTime就是我们要的时间差
+    var getT=endTime.getTime()-nowTime.getTime();
+    //getTime()  获取当前时间到1970年1月1日 00:00:00的时间（所有毫秒数）
+    //getT获取到的是当前时间到目标时间所有的毫秒数，我们要将这些毫秒转为多少天多少小时多少分钟多少秒，在拼接成一句话
+    //1000毫秒是一秒   60秒是一分钟  60分钟是一小时  24小时是一天
+    var day=Math.floor(getT/(1000*60*60*24));//获取到的就是天数
+    var s=getT%(24*60*60*1000);//取的是余数 取到的是去掉日期所剩下的毫秒数
+    var h=Math.floor(s/(60*60*1000));//获取到的是小时
+    s=s%(60*60*1000);//取到的是去掉日期和小时所剩下的毫秒数
+    //s%=60*60*1000;
+    /*x+=1
+    x=x+1*/
+    var m=Math.floor(s/(60*1000));//获取到的是分钟
+    s=s%(60*1000);//取到的是去掉日期和小时和分钟所剩下的毫秒数
+    var sm=Math.floor(s/1000);//获取到的秒数
+    document.write("距离2016/12/26 11:00:00还有"+day+"天"+h+"小时"+m+"分"+sm+"秒");
+</script>-->
+
+<script>
+    function getTimes() {
+        var endTime=new Date("2016/12/26 11:00:00");//Sun Dec 25 2016 11:00:00 GMT+0800 (中国标准时间)
+        //endTime是要到达的时间
+        //在变成标准时间的时候，格式也是有要求的  2016/12/25 11:00:00
+        //获取现在时间到指定时间的时间差
+        //nowTime获取到的是本地时间
+        var nowTime=new Date();
+        //endTime-nowTime就是我们要的时间差
+        var getT=endTime.getTime()-nowTime.getTime();
+        //getTime()  获取当前时间到1970年1月1日 00:00:00的时间（所有毫秒数）
+        //getT获取到的是当前时间到目标时间所有的毫秒数，我们要将这些毫秒转为多少天多少小时多少分钟多少秒，在拼接成一句话
+        //1000毫秒是一秒   60秒是一分钟  60分钟是一小时  24小时是一天
+        var day=Math.floor(getT/(1000*60*60*24));//获取到的就是天数
+        var s=getT%(24*60*60*1000);//取的是余数 取到的是去掉日期所剩下的毫秒数
+        var h=Math.floor(s/(60*60*1000));//获取到的是小时
+        s=s%(60*60*1000);//取到的是去掉日期和小时所剩下的毫秒数
+        //s%=60*60*1000;
+        /*x+=1
+         x=x+1*/
+        var m=Math.floor(s/(60*1000));//获取到的是分钟
+        s=s%(60*1000);//取到的是去掉日期和小时和分钟所剩下的毫秒数
+        var sm=Math.floor(s/1000);//获取到的秒数
+        //document.write("距离2016/12/26 11:00:00还有"+day+"天"+h+"小时"+m+"分"+sm+"秒");
+        document.body.innerText="距离2016/12/26 11:00:00还有"+day+"天"+h+"小时"+m+"分"+sm+"秒";
+    }
+    getTimes();
+    window.setInterval(getTimes,1000);
+</script>
+
+</body>
+</html>
+
+
+</body>
+</html>

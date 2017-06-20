@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>function</title>
+</head>
+<body>
+</body>
+</html>
+<script>
+    function sum(num1, num2) { // 参数可以理解为是函数的入口
+        // 在函数体内如果需要外面的值或者对象等那么需要从参数位置传进来
+        var total = num1 + num2;
+        console.log(num1 + num2);
+        return total;
+        // return就是函数的出口，如果不写return默认返回undefined
+    }
+    function makeBread(mian, egg, oil) {
+        console.log("面包");
+    }
+    // 为什么要写一个函数 : 只要页面中重复出现的效果或者其他功能出现过2次或者2次以上那么我们就想着写成一个函数
+    function changeBg() {
+        document.documentElement;// html;
+        document.body; // body
+        document.body.style.backgroundColor = 'black';
+        document.body.style.width = '100px';
+        document.body.style.height = '100px';
+        document.body.style.opacity = '.5';
+        //return;
+    }
+    changeBg();
+    changeBg();
+    changeBg();
+    str = '';
+
+    function sum(num1, num2, num3) {
+        arguments; //很重要 [1,2,3,4]   所有[]都可以认为是类数组  index,length
+        var total = null; // 0
+        for (var i = 0; i < arguments.length; i++) {
+            arguments[i]; // 1 2 3 4...
+            if (!isNaN(arguments[i])) {
+                //total += Number(arguments[i]);
+                if (arguments[i] == 6) {
+                    continue; // break return;
+                }
+                total += arguments[i] / 1;
+                // “-” “*” “/” 都有强制转化为数字的功能
+            }
+        }
+        //console.log(total);
+        return total; // 函数运行结束的结果 => 函数执行结束后留下来的东西
+    }
+    var res = sum(1, 2, 3, '4', '5px', 5, 5, 5, 5, 5, 6, 7);
+    console.log(res); // 10
+    var obj = {
+        "name": 'zhufeng',
+        age : 7
+    }
+    for(var key in obj){
+        // 循环多少次取决于obj存在多少组属性
+        // key : 第一次循环key代表name 第二次 key : age
+        // key就是属性名字，不是属性值
+        console.log(obj[key]); //属性值  obj[name] obj[age]
+        console.log(typeof key);
+    }
+    function fn(a, b, c) {
+        arguments[3];
+        console.log(a, b); // undefined
+        function foo(){}
+        return foo(); // undefined
+
+        return function (){
+
+        }
+
+        return {
+            a: 5,
+            b: 6
+        };
+
+        return [5, 6]; // [0:5,1:6]
+
+        return 6;
+
+        return 1 == 2;
+
+
+    }
+    fn(1, 2, 3, 4);
+    // 函数执行  fn(1,2);
+    // 参数:
+    // 实参  就是函数执行的时候真正需要的东西
+    // 形参  就是定义函数的时候规定的东西
+    //  定义了参数，但是执行的时刻没有传实参，打印出来是undefined
+    //arguments 重要=> 获取到所有参数的一个集合 arguments[0] 就是第一个参数
+
+    // return 返回值 => 函数执行之后留下的东西
+    // return 下面的代码不执行 如果return一个函数的执行，那么要先执行函数，然后把函数执行留下的结果在return出去
+    if( false || true ){
+
+    }
+    if(true && true){
+
+    }
+    if(5){
+
+    }
+    var c = undefined || 5; // c : 5
+    var c = null || 5; // c : 5
+    var c = "" || 5; // c : 5
+    var c = NaN || 5; // c : 5
+    var c = 5 || 6; //
+
+
+    fn;
+    // 自执行函数
+    ;(function (){
+
+    })();
+    fn();
+    // 下面这几个不建议使用
+    +function (){}();
+    -function (){}();
+    ~function (){}();
+    !function (){}();
+    // .nav
+
+    // 如果一个效果用2次或者一个功能用2次那么我们写成一个函数
+    //
+    function changeBg(element){
+        element.style.background = 'black';
+    }
+    var oDiv = document.getElementById('div1');
+    changeBg(document.body);
+    changeBg(oDiv);
+
+    //
+
+    var obj = {
+        // xxx : function (){}
+    };
+    // obj对象
+    obj.xxx = function (){}
+    // oDiv也是对象 => 不是只有{a:1}才是对象
+    oDiv.xxx = function (){}
+    oDiv.xxx();
+    function fff(){
+        return function (){}
+    }
+    oDiv.onclick = fff(); //点击的时候执行
+    oDiv.onclick(); // 也可以执行 => 主动触发事件
+    // 与其名曰绑定事件，还不如说就是把一个函数赋值给一个dom对象的事件属性
+
+
+
+
+    oDiv.onclick = function (){}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    oDiv.onclick = function (){
+        // 点击动作发生时刻...
+        this; // this用法和自定义属性,配合使用
+    }
+    oLis[i].index = i;
+    oLis[i].onclick = function (){
+        this.index;
+    }
+
+
+
+
+</script>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //字符串：在js中是用来储存字符的变量，通常用引号包裹
+    //字符串有长度和索引 长度就是字符串的字符个数，索引从0开始，每一个索引代表一个字符
+    //在字符串中空格也是一个字符
+    //var str="我是祖国的花朵，我正在盛开！";
+    //console.dir(str.length);
+    //console.log(str[0]);
+    //console.log(str.charAt(1));//"是"
+    //charAt(索引)  获取指定索引位置的字符
+
+    //字符串截取的三种方式，其中slice支持负值
+    //var str1=str.substr(2,4);//从索引2开始，截取4个字符串
+    //"祖国的花"
+    //var str2=str.substring(2,4);//从索引2开始，截取到索引4，不包含4
+    //"祖国"
+    //var str3=str.slice(2,4);//从索引2开始，截取到索引4，不包含4
+    //"祖国"
+    //var str4=str.slice(0,-1);//如果前面是负值，后面的m不能是0
+
+
+    //indexOf/lastIndexOf 查找字符在字符串中出现位置的索引值
+    //如果出现过，返回当前索引值，如果没有出现过，返回-1
+    /*var str="我是祖国的花朵，我正在盛开！";
+    console.log(str.indexOf("我"));//0
+    console.log(str.lastIndexOf("我"));//8*/
+
+    //search("a")  查找字符在字符串中出现位置的索引值
+    //如果出现过，返回当前索引值，如果没有出现过，返回-1
+    //console.log(str.search("a"));//3
+
+    //匹配字符的，找到，就把找到的内容以数组的形式返回；找不到null
+    //console.log(str.match("a"));
+    //["a",index:3,input:"A man can succeed at almost anything for which he was unlimited enthusiasm."]
+
+    //console.log(str.match("z"));//null
+
+
+    //var str="A man can succeed at almost anything for which he was unlimited enthusiasm.";
+
+    //console.log(str.split(" "));
+
+    //一个人如果有无限的热情，做什么事情都会成功。
+    //str.toLowerCase()//将所有字母转为小写
+    //str.toUpperCase()//将所有字母转为大写
+
+
+    //replace(old,new)  每一次执行只能替换一个字符
+    //console.log(str.replace("a","z"));
+
+
+    //split 用字符串中的符号将字符串分割，然后将分割后的字符串以数组的形式返回
+    //这个符号不会出现在数组中了
+    //如果分隔符不存在字符串中，就将字符串当做数组的一项返回
+    var time="2016-12-21 17:06:20";
+    var str=time.split(" ");
+    console.log(str);//["2016-12-21", "17:06:20"]
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

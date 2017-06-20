@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{width: 200px;height: 100px;text-align: center;line-height: 100px;font-size: 30px;margin: 20px auto;border: 1px solid #ff6600;}
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="点击">
+<div id="box"></div>
+<script>
+    var oBtn=document.getElementById("btn");
+    var oBox=document.getElementById("box");
+    var tem=null;
+    function getNum() {
+        clearInterval(tem);
+        var str="你我他abcd1234567890";
+        var newStr="";
+        while (newStr.length<4){
+            var val=Math.round(Math.random()*(str.length-1));//索引
+            var valStr=str.charAt(val);
+            if(newStr.indexOf(valStr)===-1){
+                newStr+=valStr;
+            }
+        }
+        oBox.innerText=newStr;
+        tem=window.setTimeout(getNum,1000);
+    }
+    oBtn.onclick=function () {
+        if(tem){
+            clearInterval(tem);
+            tem=null;
+        }else{
+//            tem=window.setTimeout(getNum,1000);
+            getNum();
+        }
+    }
+    
+</script>
+</body>
+</html>

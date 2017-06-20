@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //三元运算符又叫做条件运算符或三目运算符
+    //这个运算符是用来给变量进行赋值的
+    //格式：
+    //var 变量名=(条件)?条件成立将这个value1值给变量:条件不成立将这个value2值给变量;
+    //(条件) 的最终返回值是 布尔类型的值
+    //var name=(1+6)?2:3;  Boolean(7)-->true
+    //name的最终值是什么？
+    //console.log(name);
+
+    //还可以用在if else判断中
+    /*var num="2";
+    if(num===1){
+        console.log(1);
+    }else{
+        console.log("好嘞！！！！")
+    }
+    (num===1)?console.log(1):console.log("好嘞！！！！");*/
+    /*var num="2";
+    if(num===1){
+        console.log(1);
+    }
+    (num===1)?console.log(1):void (0);
+    num===1?console.log(1):void 0;*/
+    //delete  是一元运算符  作用：用来删除对象中的自定义属性
+    //void 0  是一元运算符  作用：避免输出不该输出的值
+
+    var num="2";
+    if(num==="2"){
+        console.log(1);
+        console.log(133);
+    }
+    //当执行语句为多个的时候
+    num==="2"?(console.log(1),console.log(133)):void 0;
+</script>
+</body>
+</html>

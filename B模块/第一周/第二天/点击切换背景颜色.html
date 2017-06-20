@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body id="box">
+<input type="button" value="点击" id="btn">
+<script>
+    /*var oBtn=document.getElementById("btn");
+    var oBox=document.getElementById("box");
+    oBtn.onclick=function(){
+        var bg=oBox.style.backgroundColor;
+        if(bg==="red"){
+            oBox.style.backgroundColor="yellow";
+        }else{
+            oBox.style.backgroundColor="red"
+        }
+    }*/
+
+    var oBtn=document.getElementById("btn");
+    var oBox=document.getElementById("box");
+    oBtn.onclick=function () {
+        var bg=oBox.style.backgroundColor;
+//        if(bg==="red"){
+//            oBox.style.backgroundColor="yellow";
+//        }else if(bg==="yellow"){
+//            oBox.style.backgroundColor="pink";
+//        }else  {
+//            oBox.style.backgroundColor = "red"
+//        }
+        switch (bg){
+            case"red":
+                oBox.style.backgroundColor="yellow";
+                break;
+            case"yellow":
+                oBox.style.backgroundColor="pink";
+                break;
+            case"pink":
+                oBox.style.backgroundColor="green";
+                break;
+            default:
+                oBox.style.backgroundColor="red";
+        }
+
+    };
+
+
+
+
+</script>
+</body>
+</html>

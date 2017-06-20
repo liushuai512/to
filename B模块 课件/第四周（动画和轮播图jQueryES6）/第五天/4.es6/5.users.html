@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+</head>
+<body>
+<ul id="users">
+
+</ul>
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script>
+    /**
+     * 1. 当页面加载完成之后通过 ajax向服务器请求user.json文件的数据，取回来之后得到一个JSON数组，
+     * 再把JSON数组转成li字符串放在ul的内部
+     */
+    {
+        let xhr = new XMLHttpRequest;
+        xhr.open('GET','users.json',true);
+        xhr.responseType = 'json';
+        xhr.onreadystatechange = function(){
+            // 4表示响应已经获取完成并且返回状态是成功态
+            if(xhr.readyState == 4 && /2\d{2}/.test(xhr.status)){
+                let users = xhr.response;//是一个JSON数组
+                let html = users.map(user=>`<li>${user.id}:${user.name}</li>`).join('');
+                document.querySelector('#users').innerHTML = html;
+            }
+        }
+        xhr.send();
+    }
+</script>
+</body>
+</html>

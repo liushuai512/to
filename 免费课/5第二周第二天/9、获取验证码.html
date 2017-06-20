@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var str="0123456789你我他ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+    //charAt(索引) 从str字符串中获取到一个字符，将这个字符存到一个数组（字符串）
+    //{1:1,2:2}  [11,2] "123"
+    //charAt() 中的索引是从随机数中来 范围是0-----(str.length-1)
+    //验证码可以重复
+    //验证码的个数4
+    /*var ary=[];
+    for(var i=0;i<4;i++){
+        var val=Math.round(Math.random()*(str.length-1));
+        var strVal=str.charAt(val);
+        ary.push(strVal);
+    }
+    document.write(ary.join(" "));*/
+    //不重复的验证码
+    /*var str1="";
+    while (str1.length<4){
+        var val=Math.round(Math.random()*(str.length-1));
+        var strVal=str.charAt(val);
+        if(str1.indexOf(strVal)===-1){
+            str1+=strVal;
+        }
+    }
+    document.write(str1);*/
+
+    function getRound(str,n) {
+        var strAll="";
+        while (strAll.length<n){
+            var val=Math.round(Math.random()*(str.length-1));
+            var strVal=str.charAt(val);
+            if(strAll.indexOf(strVal)===-1){
+                strAll+=strVal;
+            }
+        }
+        return strAll;
+    }
+    var strList=getRound(str,10);
+    document.write(strList);
+
+</script>
+</body>
+</html>

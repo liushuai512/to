@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+   /* var num=1;
+    console.log(typeof num);//"number"
+    var str="珠峰培训";
+    console.log(typeof str);//"string"
+    var obj={};
+    console.log(typeof obj);//"object"
+    var ary=[];
+    console.log(typeof ary);//"object"
+    var n=null;
+    console.log(typeof n);//"object"
+    var un=undefined;
+    console.log(typeof un);//"undefined"
+    var boo=true;
+    console.log(typeof boo);//"boolean"
+    var fn=function () {};
+    console.log(typeof fn);//"function"
+    var time=new Date();
+    console.log(typeof time);//"object"*/
+
+
+    //typeof 要检测的值
+    //返回值是一个字符串，里面包裹着具体的数据类型
+    //（{} []） 只要是对象数据类型 typeof 返回值都是"object"
+    //null typeof  返回值都是"object"
+
+    /*console.log(typeof (typeof (typeof 1)));//"string"
+                       typeof     "number"
+                typeof  "string"
+            "string"*/
+    //typeof value;
+
+    //instanceof
+    //[1,2] instanceof Array;
+
+    //constructor
+    //[1,2].constructor === Array;
+
+    //Object.prototype.toString.call()
+    //(Object.prototype.toString.call('珠峰培训') === '[object String]')---> true
+    //console.log(Object.prototype.toString.call([1,2])==="[object Array]");
+    //Object.prototype.toString.call([1,2])会变成 "[object Array]"
+    //console.log(Object.prototype.toString.call({1:1})==="[object Object]");
+</script>
+</body>
+</html>

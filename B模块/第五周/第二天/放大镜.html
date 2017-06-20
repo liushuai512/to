@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            margin: 50px;
+            position: relative;
+            width: 350px;
+            height: 350px;
+            box-shadow: 5px 5px 10px #000;
+        }
+        .imgBox img{
+            width: 100%;
+            height: 100%;
+            border: none;
+            vertical-align: top;
+        }
+        .mask{
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 175px;
+            height: 175px;
+            background: orange;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+<div id="box" class="box">
+    <div class="imgBox"><img src="images/iphone.jpg" alt=""></div>
+    <div class="mask"></div>
+</div>
+</body>
+</html>
+<script>
+    var box=document.getElementById('box');
+    var mask=box.getElementsByClassName('mask')[0];
+
+    box.onmouseover=function(e){
+        mask.style.display='block';
+    };
+    box.onmousemove=function(e){
+        e=e || window.event;
+        var l= e.pageX-box.offsetLeft-mask.offsetWidth/2;
+        var t= e.pageY-box.offsetTop-mask.offsetHeight/2;
+
+        var maxLeft=box.clientWidth-mask.offsetWidth;
+        var maxTop=box.clientHeight-mask.offsetHeight;
+        var minLeft= 0,minTop=0;
+        l=l>maxLeft?maxLeft:l<minLeft?minLeft:l;
+        t=t>maxTop?maxTop:t<minTop?minTop:t;
+
+        mask.style.left=l+'px';
+        mask.style.top=t+'px';
+    };
+    box.onmouseout=function(e){
+        mask.style.display='none';
+    }
+</script>

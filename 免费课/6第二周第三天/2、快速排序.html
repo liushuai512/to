@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var ary=[7,9,4,2,6,9,0,7,6,5];
+    //[4, 2, 6, 0, 6, 5, 7, 9, 9, 7]
+    function qs(n) {
+        if(n.length<=1){return n;}
+        //第一步 取参照项
+        var val=n.splice(0,1)[0],newLeft=[],newRight=[];
+        //n这个数组被改变，将这个数组的第一项取出来了，原数组没有这一项了
+        for (var i=0;i<n.length;i++){
+            if(val>n[i]){//小于的情况
+                newLeft.push(n[i]);
+            }else{//大于等于的情况
+                newRight.push(n[i]);
+            }
+        }//return newLeft.concat([val],newRight);
+        return qs(newLeft).concat([val],qs(newRight));
+    }
+    var res=qs(ary);
+</script>
+</body>
+</html>

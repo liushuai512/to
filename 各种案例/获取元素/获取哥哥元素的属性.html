@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //使用闭包获取当前元素的上一个哥哥元素
+    //1）参数：当前元素
+    //2）返回值：找到的上一个哥哥元素
+    //3）浏览器兼容处理：如果浏览器支持，直接使用浏览器提供的方法，如果浏览器不支持，再自己写兼容的方法；
+    var aDiv=document.getElementsByTagName('div');
+    (function(){
+        function prev(curEle){
+            if (curEle.previousElementSibling) {//标准浏览器有支持上一个哥哥元素的属性
+                return curEle.previousElementSibling;
+            }else{//IE浏览器自己做处理
+                var pre=curEle.previousSibling;//网上找哥哥元素的前提条件：必须是一个节点，并且不是元素节点
+                while (pre && pre.nodeType !==1){
+                    pre=pre.previousSibling;
+                }
+                return pre;
+            }
+        }
+        window.aa=prev;
+    })();
+    alert(aa(aDiv[2].innerHTML));
+
+</script>
+</body>
+</html>

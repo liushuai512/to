@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var ary=[5,4,1,2,2,1,3,2,1,3,4];
+
+    //1.模拟系统方法
+    //2.每个实例都可以调用这个方法，因为我们把这个方法挂载原型上
+    //思想：sort排序
+    /*Array.prototype.rmsame=function(){
+        var ary=this.sort(function(a,b){return a-b});
+            for(var i=0;i<ary.length;i++){
+                if(ary[i]==ary[i+1]){
+                    ary.splice(i,1);
+                    i--;
+                }
+            }
+        return ary;
+    };*/
+
+    //思路：双循环思想--》那当前项和他后面的每一项激进型比较，相同的就删除；注意数组塌陷
+   /* Array.prototype.rmsame=function(){
+        for(var i=0;i<this.length;i++){
+            var oLi=this[i];
+            for (var j=i+1;j<this.length;j++){//比的是他的后一项，所以j+1
+                if(oLi===this[j]){
+                    this.splice(j,1);
+                    j--;
+                }
+            }
+        }
+        return ary;
+    };*/
+
+    /*ary.__proto__.pop=function(){};
+    ary.pop();*/
+    //这种方法是行不通的，系统为了避免开发者通过Array.prototype={}批量修改系统内置类的共有方法，所以禁止了用户的这种行为--这是系统的自我保护；
+
+    //    ary.rmsame();
+//    console.log(ary);
+
+    /*思路：
+    1.先将原数组进行排序
+    2.检查原数组中的第i个元素 与 结果数组中的最后一个元素是否相同，因为已经排序，所以重复元素会在相邻位置
+   3.如果不相同，则将该元素存入结果数组中*/
+
+    /*Array.prototype.unique2 = function(){
+        this.sort(); //先排序
+        var res = [this[0]];
+        for(var i = 1; i < this.length; i++){
+            if(this[i] !== res[res.length - 1]){
+                res.push(this[i]);
+            }
+        }
+        return res;
+    }
+    var arr = [1, 'a', 'a', 'b', 'd', 'e', 'e','b', 1, 0]
+    console.log(arr.unique2());*/
+
+
+    /*
+    * 思路：
+     1.创建一个新的数组存放结果
+     2.创建一个空对象
+     3.for循环时，每次取出一个元素与对象进行对比，如果这个元素不重复，则把它存放到结果数组中，同时把这个元素的内容作为对象的一个属性，并赋值为1，存入到第2步建立的对象中。
+     说明：至于如何对比，就是每次从原数组中取出一个元素，然后到对象中去访问这个属性，如果能访问到值，则说明重复。
+     */
+    Array.prototype.unique3 = function(){
+        var res = [];
+        var json = {};
+        for(var i = 0; i < this.length; i++){
+            if(!json[this[i]]){
+                res.push(this[i]);
+                json[this[i]] = 1;
+            }
+        }
+        return res;
+    }
+
+    var arr = [112,112,34,'你好',112,112,34,'你好','str','str1'];
+    console.log(arr.unique3());
+
+
+</script>
+</body>
+</html>

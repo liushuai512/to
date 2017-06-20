@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul,li{
+    list-style: none;
+}
+a,a:hover,a:active{
+    color: #000;
+    text-decoration: none;
+}
+
+/*index*/
+.box{
+    margin: 10px auto;
+    padding: 20px;
+    width: 600px;
+    border: 1px dashed green;
+    border-radius: 5px;
+}
+.box a{
+    display: inline-block;
+    line-height: 35px;
+    color: red;
+    font-size: 20px;
+}
+.box .header{
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: green;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 5px;
+}
+.box .header span{
+    float: left;
+    width: 200px;
+}
+.box .content li{
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.box .content li span{
+    float: left;
+    width: 200px;
+    height: 30px;
+}
+.box .content li span a{
+    display: inline-block;
+    color: #000;
+    font-size: 14px;
+}
+
+.box .content li:nth-child(even){
+    background: #eee;
+}
+.box .content li:hover{
+    background: orange;
+    border-radius: 5px;
+}
+
+/*detail*/
+.input{
+    outline: none;/*周围的轮廓线*/
+}
+.detail{
+    margin: 10px auto;
+    padding: 20px;
+    width: 300px;
+    border: 1px dashed green;
+}
+.detail #userName{
+    display: inline-block;
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #ddd;
+}
+.detail #submit{
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border:1px solid #ddd;
+    background: green;
+    cursor: pointer;
+    color: #fff;
+}

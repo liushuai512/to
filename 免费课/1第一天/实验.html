@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    console.log(Number(".2"))
+    let a = () => {
+        console.log(this);
+    };
+
+    let b = {
+        c(){
+            console.log(this,'1');
+            d = () => {
+                console.log(this,'2');
+            };
+            d();
+        }
+    };
+
+    a();
+    b.c();
+
+
+
+
+
+</script>
+</body>
+</html>

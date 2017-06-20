@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //布尔是逻辑运算 只有两个值 true 和 false
+    //布尔运算是判断一个值是真是假
+    //Boolean(要判断的值)
+    //console.log(Boolean(1));//true
+    //console.log(Boolean(0));//false
+    //console.log(Boolean(""));//false
+    //console.log(Boolean("0"));//true
+    //console.log(Boolean([]));//true
+    //console.log(Boolean(null));//false
+    //console.log(Boolean(undefined));//false
+    //如果判断一个值是真是假，遵循 0 "" NaN null undefined为假，其余都为真
+    //console.log(Boolean(1+1));//true
+    //console.log(Boolean(0+0));//false
+    //! 取反
+    //!! 取反再取反 -- 进行布尔运算
+    //!!和Boolean()方法相同
+    //console.log(!"");
+    //!"" -- !Boolean("") -- !false -- true
+    //console.log(!!"");
+    //!!"" -- !!Boolean("") --!!false -- !true -- false
+
+
+    console.log(!(NaN==NaN));//true
+    console.log(!"0");//false
+    console.log(!!"null");//true
+
+</script>
+</body>
+</html>

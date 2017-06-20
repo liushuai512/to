@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+课前检测：
+1、数据类型具体怎么分？
+基本数据类型：number string boolean null undefined
+引用数据类型:
+对象数据类型（object）：对象类（Object） 数组类（Array） 正则类（RegExp）时间类（Date） 数学函数类（Math）....
+函数数据类型（function）
+2、将其他数据类型转为数字数据类型的方法？
+Number() 强制将其他数据类型转为数字类型
+转化值为对象的时候，先将对象转为字符串，然后将字符串转为数字
+转化字符串的时候，直接转为数字
+转化布尔，true 1 false 0
+null  -- 0
+uneducated -- NaN
+
+parseFloat() 和parseInt()-- 转化的值只能是字符串和数字
+parseFloat() 可以识别小数点
+parseInt()只能识别整数
+从字符串的左侧查找到右侧，只要遇到不是数字的字符就停止查找
+
+
+3、js的组成？
+ECMAScript规定了js中的规范
+BOM 浏览器对象模型  --  window（浏览器对象）
+DOM 文档对象模型 -- document（文档对象）
+
+4、js的变量有什么作用，怎样创建？
+js中的变量是代表值和储存值 js中的变量是松散数据类型，可以储存任何的值
+声明 变量名=值;/声明 变量名;
+var obj={};  只要声明变量 前面就要有var
+
+5、布尔运算中的方法有什么，返回值是什么？（怎样判断一个值是正确的还是错误的/将其他数据类型转为布尔类型）
+Boolean(value)  -- true / false
+!value -- true / false  先调用Boolean方法将value转为布尔值，再进行取反
+!!value -- true / false  先调用Boolean方法将value转为布尔值，再进行取反，再取反只要看到 Boolean() , ! , !!返回值只有 true或false
+
+判断一个值是否为true和false的规律？
+0  NaN  ""  null undefined这五个为false 其余都为true
+
+
+6、请说出下面运算后的返回值
+1)  Number("a")--将"a"转为数字
+--》NaN
+2)  parseFloat([])--将[]转为数字  只能是字符串和数字
+--》NaN
+3)  Number([])--将[]转为数字
+-->[].toString() --> "" Number("")-->0
+4)  ![] -- 布尔值
+--》!Boolean([]) --!true -->false
+5)  !!{} -- 布尔值
+-->!!Boolean({})-->!!true -->!false-->true
+
+6)  !(0*6) --布尔值
+-->!0 -->!Boolean(0)--》！false--》true
+7)  parseInt("1.34ab")--数字
+--》1
+
+parseInt(.2) -- parseInt(0.2)--0
+parseInt(".2") -- 第一步识别字符串中第一个字符是“.” 点不是数字 所以停止查找 返回值是NaN
+
+js的命名规范？
+严格区分大小写
+有数字 字母 下划线 $符号组成，数字不能为首位
+推荐使用驼峰命名法
+不能使用关键字和保留字
+变量命名的时候，推荐使用匈牙利命名类型
+
+js的引入方式？
+行内式--不用
+内嵌式--偶尔用
+外联式--最常用的
+js要写在页面的那个部分？-- 文档的所有内容之后
+写在外联式标签内的js代码不执行
+</body>
+</html>

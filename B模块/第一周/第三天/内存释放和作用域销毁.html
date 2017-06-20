@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内存释放和作用域销毁</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    //堆内存：用来 存值      栈内存：用来 运行代码
+
+    //内存释放条件：如果没有被引用那么就释放（浏览器会主动去做）
+
+    var person={
+
+        name:'meng',
+        age:'20'
+    };
+    var people=person;  //把person所代表的对象的内存地址又赋值给people==》person和people共同占用对象的内存地址
+    person=null;//让person这个全局变量不在占用对象的内存地址，那么对象的内存地址就没有任何变量或者属性所占用，浏览器会主动销毁
+
+    //释放堆内存：保证这个内存没有任何变量或者属性占用
+</script>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: orange;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>
+<script>
+    //this的第一种用法:当事件触发的时候，绑定数据中的this就是绑定事件的那个主体   把事件绑定给那个元素，那个事件被触发的时候，函数中的this就是那个元素。
+    //this的第二种用法:函数之星时候的this，就看调用这个函数的那个主体，其实就是看（函数执行）时候“。”前面是谁this就是谁。
+    //ps:(函数中)的this在定义的时候是不确定的，只要执行的时候才能确定
+    var div1=document.getElementById('div1');
+    var a='onclick';
+    div1[a]=function(){
+
+    }
+</script>

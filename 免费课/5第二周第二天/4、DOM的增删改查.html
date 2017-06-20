@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .zhufengpeixun{background-color: red;height: 100px;}
+    </style>
+</head>
+<body id="box">
+<div id="parent">
+    <p id="test"></p>
+</div>
+<script>
+    //如何创建元素节点（本来html中不存在这个元素，在js中创建，并且添加到body或者其他元素中）
+    var oDiv=document.createElement("div");
+    oDiv.innerText="div";
+    oDiv.id="old";
+    //如何将创建的元素节点添加到其他元素中
+    //appendChild 将创建的节点添加到指定元素所有内容之后
+    //var oBox=document.getElementById("box");
+    //oBox.appendChild(oDiv);
+    //oBox.innerHTML=oDiv;//[object HTMLDivElement]
+    var oP=document.getElementById("test");
+    //var oPar=document.getElementById("parent");
+    //oPar.insertBefore(oDiv,oP);
+    oP.parentNode.insertBefore(oDiv,oP);
+    //属性节点就是标签属性--属性名和属性值
+    oDiv.setAttribute("class","zhufengpeixun");
+    //console.log(oDiv.name);//uneducated
+    oDiv.removeAttribute("class");
+    console.log(oDiv.getAttribute("class"));
+    var newDiv=oDiv.cloneNode(true);
+    oP.parentNode.replaceChild(newDiv,oP);
+    newDiv.parentNode.removeChild(newDiv);
+
+    父级.removeChild(ele);
+    父级.appendChild(ele);
+    父级.insertBefore(ele,oldEle)
+    ele.cloneNode()
+
+</script>
+</body>
+</html>

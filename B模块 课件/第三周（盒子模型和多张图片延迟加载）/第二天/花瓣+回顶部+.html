@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            width: 20%;
+            float: left;
+            list-style: none;
+        }
+        /*ul:nth-child(2){*/
+        /*margin: 5px;*/
+        /*}*/
+        /*ul:nth-child(3){*/
+        /*margin: 5px;*/
+        /*}*/
+        /*ul:nth-child(4){*/
+        /*margin: 5px;*/
+        /*}*/
+        ul li{
+            margin: 10px;
+
+            box-shadow: 5px 5px 10px #eaf4ff;
+            opacity: 0.8;
+        }
+        ul li:hover{
+            opacity: 1;
+        }
+        ul li img{
+            width: 100%;
+            height: 100%;
+            border: none;
+            vertical-align: top;
+        }
+        .btn-top{
+            display: none;
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            right: 30px;
+            bottom: 120px;
+            background: url("../../../田喜老师/第三周/第二天/img2/top.png")no-repeat #000;
+            background-size: 100% auto;
+            opacity: 0.6;
+            border-radius: 3px;
+        }
+        .btn-top:hover{
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+<ul></ul>
+<ul></ul>
+<ul></ul>
+<ul></ul>
+<ul></ul>
+<a class="btn-top J-btn-top" href="javascript:void 0"></a>
+</body>
+</html>
+<script src="../../../田喜老师/第三周/第二天/js/utils1.js"></script>
+<script>
+    var aUl=document.getElementsByTagName('ul');
+    var btn=document.getElementsByClassName('J-btn-top')[0];
+
+    appendLiToUl();
+    function appendLiToUl(){
+        for (var i=0;i<50;i++){
+            var oLi=document.createElement('li');//创建li
+            oLi.style.height=utils.getRandom(200,400)+'px';//设置li随机高度
+            var oImg=document.createElement('img');//创建图片
+
+//        oImg.src="to/"+utils.getRandom(2,15)+".jpg";
+            oImg.src=`img2/${utils.getRandom(1,10)}.jpg`;
+            oLi.appendChild(oImg); //把图片插入li中
+            //类数组
+            var ulsAry=utils.toArray(aUl);
+            //排序
+            ulsAry.sort(function(aul1,aul2){
+                return aul1.clientHeight-aul2.clientHeight;
+            });
+            //var最短ul
+            var curUlsAry=ulsAry[0];
+            curUlsAry.appendChild(oLi);//将li插入ul
+        }
+
+        window.onscroll=function(){
+            var scrollTop=utils.win("scrollTop");
+            var winHeight=utils.win("clientHeight");
+            if(scrollTop>document.body.scrollHeight-winHeight-500){
+                appendLiToUl();
+            }
+            if(scrollTop>winHeight){
+                utils.setCss(btn,'display','block');
+            }else {
+                utils.setCss(btn,'display','none');
+            }
+        }
+    }
+
+    //回到顶部
+
+    btn.onclick = function (){
+        window.clearTimeout(this.timer);// 这个是清空上一次的定时器
+        var that=this;
+        that.timer=window.setInterval(function(){
+            var curScrollTop=utils.win('scrollTop');//获取窗口混出去的高度
+            if(curScrollTop<=0){
+                window.clearTimeout(that.timer);//清空当次定时器
+                // 当次定时器执行的时候这个值小于等于0说明已经到达顶部，清空定时器
+                window.onscroll=Fn;
+                return;
+            }
+            curScrollTop-=10;
+            utils.win('scrollTop',curScrollTop)
+        },10);
+        utils.setCss(btn,'display','none');
+        window.onscroll=null;
+    }
+
+</script>
+
+

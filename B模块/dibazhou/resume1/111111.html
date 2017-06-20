@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var func=(function(a){
+        this.a=a;
+        return function (a){
+            a+=this.a;
+            return a;
+        }
+    })(function(a,b){
+        return a;
+    }(1,2));
+    func(4)
+
+    var inp = document.getElementsByTagName('input')[0];
+    inp.onkeyup = function () {
+        var str = inp.value;
+        var ary = str.split('');
+        var obj = {};
+
+        for (var i = 0; i < ary.length; i++) {
+            var val = ary[i];
+            console.log();
+            if (typeof obj[val] != 'undefined') {
+                obj[val]++
+
+            } else {
+                obj[val] = 1
+
+            }
+        }
+        var div=document.getElementById('div');
+        var str='';
+        for (var key in obj) {
+            str+=`<div> 字符：${key}出现 ${obj[key]}</div> `
+
+        }
+        div.innerHTML=str
+    }
+
+</script>
+</body>
+</html>

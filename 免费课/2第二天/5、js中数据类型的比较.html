@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*abcdn
+    /^an$/*/
+    //对象转为布尔值的时候，全部为true
+    //一个值在进行布尔运算的时候，只有五个值为false，其余都是true
+    //那五个值呢？ 0  ""  NaN  null  undefined   ****************
+    //在js中存在两种比较
+    //第一种是 value1==value2 允许等号两侧的数据类型不同
+    //第二种是 value1===value2  等号两侧的值必须一模一样
+    //以上两种比较后返回的值 只有true或false
+    //console.log(1=="1");//true
+    //console.log(1==="1");//false
+
+    /*
+    两个等号进行比较时的规律
+    * 1、对象==对象  返回值永远是false
+    * 对象包含 数组类 [] 对象类 {}
+    * {}=={}
+    * []==[]
+    * {}==[]
+    * 两个等号左右的值，只有是不同数据类型的时候，才需要进行转化，如果是相同数据类型，就不需要转化
+    *
+    *2、对象==字符串
+    * 等号两侧数据类型不同，需要转为相同数据类型
+    * 将对象转为字符串，调用.toString()方法
+    * {}.toString()-->"[object Object]"
+    * [].toString()-->""
+    * {}==""   "[object Object]"==""  -->false
+    * []==""   ""==""  -->true
+    *
+    * 3、对象==数字
+    * 第一步将对象转为字符串
+    * 第二步将字符串转为数字
+    * 第三步数字和数字进行比较
+    * []==0 --》[].toString()==0 -->""==0 -->Number("")==0-->0==0  true
+    * {}==0 -->{}.toString()==0-->"[object Object]"==0 -->Number("[object Object]")==0-->NaN==0  false
+    *
+    * 4、对象==布尔  最终都转为数字进行比较
+    * 第一步将对象转为字符串
+    * 第二步将字符串转为数字
+    * 第三步将布尔转为数字
+    * 第四步数字和数字进行比较
+    * []==true
+    * 第一步：[].toString()==Number(true) --》""==1
+    * 第二步：Number("")==1 --> 0==1
+    * 返回值：false
+    * {}==false
+    * 第一步：{}.toString()==Number(false)-->"[object Object]"==0
+    * 第二步：Number("[object Object]")==0-->NaN==0
+    * 返回值：false
+    *
+    *5、字符串==数字
+    * 将字符串转为数字
+    * "123"==1   -- >Number("123")==1  -->  123==1 false
+    *
+    * 6、字符串==布尔
+    * 字符串转为数字  布尔转为数字
+    * "1"==true   Number("1")==Number(true) -->  1==1  true
+    * "1"==!""    Number("1")==!Boolean("") --> 1==!false --> 1==true-->1==Number(true) -->1==1  true
+    *
+    * 7、数字==布尔
+    * 布尔转为数字
+    * true  -- 》1
+    * false --》0
+    *
+    * 8、null==undefined   true
+    * null===undefined   false
+    *
+    * 9、null==其他数据类型  永远是false
+    * undefined == 其他数据类型 永远是false
+    *
+    * 10、NaN==NaN  永远是false
+    *
+    * */
+    //在运算之前，分清楚等号两侧的数据类型
+    /*（1+1）==（1+2）
+    2==3*/
+    //等号两侧如果有运算，先进行运算，等号两侧是进行最终值的比较
+
+    []==![]
+    对象==布尔
+    [].toString() --> "" --> Number("") --> 0
+    ![]--!Boolean([])-->!true-->false--Number(false)--> 0
+    0==0   true
+
+
+    parseFloat("3.4b")==Number("3.4")
+    数字==数字
+    3.4==3.4  true
+
+    !{}==false
+    布尔==布尔
+    !{} -- > !Boolean({})-->!true-->false
+    false
+    false==false  true
+
+
+    ![]==0
+    布尔==数字
+    ![]--!Boolean([])-->!true-->false--Number(false)--> 0
+    0
+    0==0  true
+
+
+    !([]=={})
+    !(这个结果取反)   !（对象==对象）！（false） --》true
+
+
+    []==[].toString()
+    对象==字符串
+    []-->[].toString()-->""
+    [].toString()-->""
+    ""==""  true
+
+
+    {name:123}==!false
+    对象==布尔
+    {name:123}--》{name:123}.toString()-->"[object Object]"-->Number("[object Object]")-->NaN
+    !false-->true-->Number(true)-->1
+    NaN==1   false
+
+
+    1=={}
+    数字==对象
+    1
+    {}--》{}.toString()-->"[object Object]"-->Number("[object Object]")-->NaN
+    1==NaN  false
+
+
+    "1"==[1]
+    字符串==对象
+    "1"
+    [1]-->[1].toString()-->"1"
+    "1"=="1" true
+
+
+    1===parseInt("1.2nxskdjsk")
+    数字===数字
+    1===1  true
+
+
+
+
+
+</script>
+</body>
+</html>

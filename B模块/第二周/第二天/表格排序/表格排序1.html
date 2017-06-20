@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表格排序</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #tab {
+            width: 1000px;
+            margin: 100px auto;
+            border: 5px solid deepskyblue;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        #tab thead {
+            background: olive;
+        }
+
+        #tab thead tr, #tab tbody tr {
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .pointer {
+            cursor: pointer;
+        }
+
+        .bg0 {
+            /*background: lightcyan;*/
+            background: -webkit-linear-gradient(left, lightblue, lavender, lightcyan);
+        }
+
+        .bg1 {
+            /*background: lightgray;*/
+            background: -webkit-linear-gradient(left, olivedrab, blanchedalmond, goldenrod);
+        }
+
+        .bg2 {
+            /*background: lightcoral;*/
+            background: -webkit-linear-gradient(left, plum, lightpink, mediumpurple);
+        }
+
+
+    </style>
+</head>
+<body>
+<table id="tab">
+    <thead>
+    <tr>
+        <th class="pointer">国家</th>
+        <th class="pointer">首都</th>
+        <th class="pointer">人口（亿）</th>
+        <th class="pointer">GDP(万亿)</th>
+        <th class="pointer">发展</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!--<tr class="bg0">-->
+    <!--<td>中国</td>-->
+    <!--<td>北京</td>-->
+    <!--<td>14</td>-->
+    <!--<td>10</td>-->
+    <!--<td>发展中</td>-->
+    <!--</tr>-->
+    <!--<tr class="bg1">-->
+    <!--<td>中国</td>-->
+    <!--<td>北京</td>-->
+    <!--<td>14</td>-->
+    <!--<td>10</td>-->
+    <!--<td>发展中</td>-->
+    <!--</tr>-->
+
+    </tbody>
+</table>
+</body>
+</html>
+<script src="js/utils.js"></script>
+<script src="js/table.js"></script>

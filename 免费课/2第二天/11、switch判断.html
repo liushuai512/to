@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //switch判断用在不同值的不同操作中 这里面条件判断的时候一个条件和不同的值进行===的比较，如果返回值为true就执行，如果返回值为false就不执行
+    /*switch (条件){
+        case value1:
+            条件===value1的时候执行的语句;
+            break;//如果上面的条件和值匹配成功，就不会继续向下执行
+            //如果条件和值匹配成功，但是没有加break，那么判断继续向下执行，会将下面所有的语句都执行一遍
+        case value2:
+            条件===value2的时候执行的语句;
+            break;
+        default :
+            以上都不成立时执行的语句;
+    }*/
+
+    switch ("3"){
+        case 3://"3"===3
+            console.log("数字");
+            break;
+        case "3"://"3"==="3"
+            console.log("字符串");
+            break;
+        default:
+            console.log("以上都不是");
+    }
+    if("3"===3){
+        console.log("数字");
+    }else if("3"==="3"){
+        console.log("字符串");
+    }else{
+        console.log("以上都不是");
+    }
+
+    //在js中
+    console.log("111");//语句
+    {
+        //第一个语句
+        //第二个语句
+        //放在这个{}中的代码叫做代码块
+    }
+
+</script>
+
+
+
+
+
+</body>
+</html>

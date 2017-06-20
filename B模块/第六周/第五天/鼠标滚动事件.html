@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标滚动事件</title>
+    <style>
+        html,body{
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+        }
+    </style>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+//    document.body.onmousewheel=function(e){
+//        e=e || window.event;
+//        console.log(e.wheelDelta)
+//    };
+//    //firefox
+//    document.body.addEventListener('DOMMouseScroll',function(e){
+//        console.log(e.detail);
+//    });
+//
+    //专门处理鼠标滚轮事件的兼容性问题
+    function addMouseWheelEvent(ele,fn){
+        if(window.navigator.userAgent.toLowerCase().indexOf('firefox')!==-1){
+            /*document.body*/ele.addEventListener('DOMMouseScroll',handler);
+        }else{
+//            document.body.onmousewheel=function(e){
+//                e=e || window.event;
+//                console.log(e.wheelDelta)
+                ele.onmousewheel=handler;
+            }
+        function handler(e){
+            e=e || window.event;
+//            e.wheelDelta;
+//            e.detail;
+            var isDown=null;
+            if(e.wheelDelta){
+                isDown= e.wheelDelta<0;
+            }else{
+                isDown= e.detail>0;
+            }
+            fn.call(ele,isDown,e);
+            e.preventDefault? e.preventDefault(): e.returnValue=false;
+        }
+//        }
+    }
+
+
+    //处理绑定的兼容问题
+
+</script>

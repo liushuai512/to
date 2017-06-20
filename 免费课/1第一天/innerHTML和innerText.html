@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="box">
+    <p>我是一个段落</p>
+</div>
+<script>
+    //获取id是box元素的内容--"   <p>我是一个段落</p>"
+    //想要获取元素的内容，js中提供了两个方法
+    //innerHTML:获取到的是这个元素中所有的内容
+    //空格+<p>我是一个段落</p>
+
+    //innerText：获取到这个对象元素中的文本内容
+    //我是一个段落
+    //用法：元素对象.innerHTML 或者 元素对象.innerText
+
+    /*console.log(box.innerText);
+    console.log(box.innerHTML);*/
+
+    //主动向元素对象中输入内容
+    //box.innerText="<h2>我是新的内容</h2>";
+    //将box中的内容用新内容替换了
+    //box.innerText--指的是这个元素的文本内容
+    //= 一个等号是赋值 将等号右侧的值给到等号左侧
+    //"<h2>我是新的内容</h2>" 就是我们最新要给到box的内容
+    //box.innerHTML="<h2>我是新的内容</h2>";
+    document.write(box.innerText);
+
+
+    document.write(box.innerHTML);
+    //第一步：获取box.innerHTML--><p>我是一个段落</p>
+    //第二步：document.write("<p>我是一个段落</p>")
+    //<p>我是一个段落</p>--实际上输出的是“我是一个段落”
+</script>
+</body>
+</html>

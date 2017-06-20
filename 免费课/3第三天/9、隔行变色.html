@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        ul{list-style: none;margin: 0 auto;width: 500px;}
+        li{line-height: 36px;}
+        .bg1{background: red;}
+        .bg2{background: yellow;}
+    </style>
+</head>
+<body>
+<ul>
+    <li>我是列表1</li>
+    <li>我是列表2</li>
+    <li>我是列表3</li>
+    <li>我是列表4</li>
+    <li>我是列表5</li>
+    <li>我是列表6</li>
+    <li>我是列表7</li>
+    <li>我是列表8</li>
+    <li>我是列表9</li>
+    <li>我是列表10</li>
+</ul>
+<script>
+    var oLis=document.getElementsByTagName("li");
+    for (var i=0;i<10;i++){
+        /*if(i%2===0){
+            oLis[i].className="bg1";
+        }else{
+            oLis[i].className="bg2";
+        }*/
+        i%2===0?oLis[i].className="bg1":oLis[i].className="bg2";
+    }
+</script>
+<!--<script>
+    var oLis=document.getElementsByTagName("li");
+    //获取多有要操作的li 会获取到10个li  由oLis存储和代表
+    for (var i=0;i<10;i++){
+        //要操作每一个li 因为for循环可以重复执行循环体中的代码
+        if (i%2===0){
+            //当i= 0 2 4 6 8 可以整除 余数为0
+            //当余数为0 的时候  oLis[0] oLis[2] oLis[4] oLis[6]  oLis[8] 的li 的class为bg1
+            oLis[i].className="bg1";
+        }else{
+            //当余数为1 的时候  oLis[1] oLis[3] oLis[5] oLis[7]  oLis[9] 的li 的class为bg2
+            oLis[i].className="bg2";
+        }
+    }
+</script>-->
+
+
+
+
+<!--1 3 5 7 9 的背景颜色为 red   2 4 6 8 10的背景颜色是yellow-->
+<!--用当前行数/2 余数为0 的是 偶数行 余数为1 的是奇数行-->
+<!--<script>
+    //1、获取要操作的元素 要获取所有的li
+    var oLis=document.getElementsByTagName("li");
+    //获取了10个元素集合  oLis储存着这个集合
+    //console.log(oLis);
+    //[li,li,li,li,li....li]10个li
+    //0:li  索引0代表第一个li元素
+    //1:li  索引1代表第二个li元素
+    //2:li  索引2代表第三个li元素
+    //.....
+    //9:li  索引9代表第十个li元素
+    //现在只有获得元素集合的索引值，那么索引就当表当前这个元素，我们就可以用  索引值/2  余数为0  代表奇数行  余数1  代表偶数行
+    //获取属性值
+    /*oLis[0].className="bg1";
+    oLis[1].className="bg2";
+    oLis[2].className="bg1";*/
+    /*for(var i=0;i<4;i++){
+        console.log("我是最棒的")
+    }*/
+    for (var i=0;i<10;i++){
+        //oLis[i].className="bg1";
+        //oLis 泛指10个li 我们现在是要给每一个li添加类名
+        //[i] 指的是这个集合对象的每一个值的属性名，一个对象我们可以通过属性名来获取属性值，这个集合的每一个属性值就是每一个li
+        //oLis[i] 这种形式可以获取到每一个li
+        //.  这个li的
+        //className  类名
+        //= 赋值
+        //bg1
+        //oLis 是一个集合  提供了每一个属性值的属性名，这个属性名是索引
+        //索引是从0-length-1的一组数字
+        //如果当前索引值/2的余数为 0  那么就说明当前li所在奇数行
+        if(i%2===0){
+            oLis[i].className="bg1";
+        }else{
+            oLis[i].className="bg2";
+        }
+    }
+</script>-->
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{width: 200px;height: 100px;text-align: center;line-height: 100px;font-size: 30px;margin: 20px auto;border: 1px solid #ff6600;}
+    </style>
+</head>
+<body>
+<input type="button" id="btn" value="点击">
+<div id="box"></div>
+<script>
+    var oBtn=document.getElementById("btn");
+    var oBox=document.getElementById("box");
+    var num=0,tem=null;
+    function total() {
+        clearInterval(tem);
+        num++;
+        oBox.innerText=num;
+       // tem=window.setTimeout(total,1000);
+        tem=window.setInterval(total,1000);
+    }
+    oBtn.onclick=function () {
+        if (tem){//tem中已经有了定时器的返回值，代表定时器已经执行了
+            clearInterval(tem);
+            tem=null;
+        }else{//tem为null，说明定时器还没有开启
+            total();
+        }
+    }
+</script>
+<!--<script>
+    var oBtn=document.getElementById("btn");
+    var oBox=document.getElementById("box");
+    //设置一个初始值 0 在0的基础上+1  设置一个变量用来接收定时器返回的值
+    var num=0,tem=null;
+    //定义一个方法，向num+1,并且将num的值添加到div中
+    function total() {
+        num++;
+        oBox.innerText=num;
+    }
+    total();
+    oBtn.onclick=function () {
+        //判断定时器是否在执行，怎么样判断定时器是否在执行呢？
+        //定时器执行的时候会返回一个数字，当tem中是数字的时候，定时器就是一句运行了，当定时器运行的时候，我们清除掉这个定时器就可以了，清除定时器之后，tem中还是一个数字，清除之后需要将tem这个变量也清空
+        //tem=window.setInterval(total,1000);
+        if(tem){
+            clearInterval(tem);
+            tem=null;
+        }else {
+            tem=window.setInterval(total,1000);
+        }
+    }
+</script>-->
+<!--<script>
+//获取要操作的div和input
+    var oBtn=document.getElementById("btn");
+    var oDiv=document.getElementById("box");
+    //写一个方法，设置一个初始值0，这个方法只要执行就在0的基础上+1
+    var num=0,tem=null;//tem用来接收定时器的返回值
+    function total() {
+        num++;
+        oDiv.innerText=num;
+    }
+    oBtn.onclick=function () {
+        //第一次点击的时候，执行else中的代码
+        //第二次点击的时候，tem中有了一个数字返回值，不在是null了
+        //第三次点击的时候，tem中不是null，走if中的代码
+        if(tem){
+            clearInterval(tem);
+            //每次清除定时器之后，tem中的值也清除掉
+            tem=null;
+        }else {
+            tem=window.setInterval(total,1000);
+        }
+    }
+</script>-->
+</body>
+</html>

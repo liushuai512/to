@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html,body,table,thead,tr,th,td{
+            margin: 0;
+            padding: 0;
+        }
+        #tab{
+            width: 1000px;
+            border: 5px solid deepskyblue;
+            margin: 50px auto;
+        }
+        #tab thead{
+            background: yellowgreen;
+        }
+        #tab thead th,#tab tbody td{
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size: 24px;
+        }
+        .bg0{
+            background: plum;
+        }
+        .bg1{
+            background: palegoldenrod;
+        }
+    </style>
+</head>
+<body>
+    <table id="tab">
+        <thead >
+            <tr >
+                <th class="cursor">国家</th>
+                <th class="cursor">首都</th>
+                <th class="cursor">人口（亿）</th>
+                <th class="cursor">GDP(万亿)</th>
+                <th class="cursor">发展</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--<tr class="bg1">
+                <td>中国</td>
+                <td>北京</td>
+                <td>14</td>
+                <td>10</td>
+                <td>发展中</td>
+            </tr>
+            <tr class="bg0">
+                <td>韩国</td>
+                <td>首尔</td>
+                <td>1</td>
+                <td>1.5</td>
+                <td>发达</td>
+            </tr>-->
+        </tbody>
+    </table>
+</body>
+</html>
+<script src="js/table2.js"></script>
+<script src="js/utils2.js"></script>

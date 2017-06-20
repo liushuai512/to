@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+   /* function Parent() {
+        this.name ='欲泪成雪';  
+　　    this.age = 22;
+    };
+    Parent.prototype.lev = function () {
+        return this.name;
+
+    };
+    var x = new Parent();*/
+
+    function exec(){
+        let num=5;
+        if(true){
+            let num=10;
+        }
+        console.log(num);
+    }
+   exec()
+
+    for(var i=1;i<=3;i++){
+        for(var i=1;i<=3;i++){
+            console.log(i)
+        }
+    }
+
+    var arr=[1,2,3];
+    var [a,b,c]=arr;
+    console.log(arr);
+
+//    let [flag = false] = [];
+//    console.log(flag);
+    let [name,age = 8] = ['zfpx',9];
+    console.log(name,age);
+
+    let obj = {name:'zfpx',age:8};
+    let {name,age} = obj;
+    console.log(name,age);
+
+
+   //节点操作
+   //创建节点
+    createElement() //创建元素节点
+    createAttribute() //创建属性节点
+    createTextNode() //创建文本节点
+
+    //插入节点
+    appendChild()  //向子节点列表的末尾添加新的子节点
+    insertBefore() //在已知的子节点前插入一个新的子节点
+
+   //替换节点
+    replaceChild(新元素,老元素) //将某个子节点替换成为另一个
+
+    //复制节点
+    cloneNode(true /false) //创建子节点的副本
+    //参数：true:复制当前节点及所有子节点   false：仅复制当前节点
+
+    //删除节点
+    removeClass();  //删除指定节点
+
+    //属性操作
+    getAttrbute(); //获取元素节点中指定属性的属性值
+    setAttrbute(); //创建或改变元素节点的属性
+    removeAttrbute(); //删除元素节点
+
+
+    //文本操作
+    insertData(offset,String); //从offset指定的位置插入string
+    appendData(string); //将string插入到文本节点的末尾处
+    deleteData(offset,count); //从offset起删除count个字符
+    replaceData(off,count ,string); //从off将count个字母用string替代
+    spliceData(offset); //从offset起将文本节点分成俩个节点
+    substring(offset,count); //返回由offset起的count个节点
+</script>
+</body>
+</html>

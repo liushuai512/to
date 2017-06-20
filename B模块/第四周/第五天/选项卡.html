@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul{
+            list-style: none;
+        }
+        #box{
+            margin: 50px auto;
+            width: 300px;
+
+        }
+
+
+        #box ul li{
+            float: left;
+            width: 100px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            background-color: #99ddaa;
+            color: #000;
+        }
+        #box ul li.change{
+            background: olive;
+        }
+
+        #box .con div{
+            width: 300px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+            color: #000000;
+            background: lightgreen;
+        }
+        #box .con .show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+<div id="box">
+    <ul>
+        <li class="change">腾讯体育</li>
+        <li>腾讯视频</li>
+        <li>腾讯新闻</li>
+    </ul>
+    <div class="con">
+        <div class="show">腾讯体育内容</div>
+        <div>腾讯视频内容</div>
+        <div>腾讯新闻内容</div>
+    </div>
+
+</div>
+<script>
+    //第一种方式：以前则么写就怎么写
+    //第二种方式：用let来改写
+    //第三种：点击事件函数的改成箭头函数
+//    var oLi=document.getElementsByTagName('li');
+    var box=document.getElementById('box');
+    var data=[
+        {title:'腾讯视频',content:'腾讯视频内容'},
+        {title:'腾讯体育',content:'腾讯体育内容'},
+        {title:'腾讯新闻',content:'腾讯新闻内容'}
+    ];
+    var obj={
+        ele:box,data:data
+    };
+    function Tab(opts){
+
+
+    }
+    Tab.prototype={
+        constructor:Tab,
+        init(){
+
+        },
+        renderDOM(){
+
+        },
+        bindHandler:function(){
+
+        }
+    }
+
+
+</script>
+</body>
+</html>

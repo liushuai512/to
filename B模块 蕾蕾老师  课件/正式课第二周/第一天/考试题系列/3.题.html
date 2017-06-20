@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var obj={name:'珠峰',age:7};
+    ~function(obj){
+        obj.name="中国";
+        obj={};
+        obj.age=5000;
+        console.log(obj);
+    }(obj)
+    console.log(obj);
+
+    var num = 2;
+    var obj = {num : 3};
+    obj.fn = (function (){
+        ++num;
+        this.num++;
+        return function (){
+            this.num++;
+            num++;
+            console.log(num);
+        }
+    })(num);
+    var f = obj.fn;
+    f();
+    obj.fn();
+    obj.fn();
+    console.log(window.num,obj.num);
+
+</script>
+</body>
+</html>

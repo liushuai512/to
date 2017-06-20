@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #div1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background: yellowgreen;
+        }
+        #div2{
+
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 150px;
+            background: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>
+<script src="event2.js"> </script>
+<script>
+    var div1=document.getElementById('div1');
+    var div2=document.getElementById('div2');
+    drag(div1);
+    drag(div2);
+//    on(div1,'mousedown',down);/*IE浏览器绑定down方法，其实绑定的是‘AAAmousedown’中【down】*/
+    function drag(ele){
+        on(ele,'mousedown',down);
+        function down(e){
+            this.l= e.pageX- this.offsetLeft;
+            this.t= e.pageY-this.offsetTop;
+                if(this.setCapture){//IE
+                this.setCapture();
+                on(this,'mousemove',move);
+                on(this,'mouseup',up);
+            }else{
+                var that=this;//div1
+                that.MOVE=function(e){
+                    move.call(that,e);//这个函数中的this是document
+                };
+                on(document,'mousemove',this.MOVE);
+                that.UP=function(e){
+                    up.call(that,e);//up方法可以不用e,e只存在于事件绑定的函数中
+                };
+                on(document,'mouseup',this.UP);
+            }
+        }
+        function move(e){
+            var left= e.pageX-this.l;
+            var top= e.pageY-this.t;
+            this.style.left=left+'px';
+            this.style.top=top+'px';
+            e.preventDefault();//阻止默认行为
+        }
+        function up(e){
+            // this
+            if(this.releaseCapture){
+                this.releaseCapture();
+                off(this,'mousemove',move);
+                off(this,'mouseup',up);
+            }else{
+                off(document,'mousemove',this.MOVE);
+                off(document,'mouseup',this.UP);
+            }
+        }
+    }
+
+
+</script>

@@ -1,0 +1,180 @@
+/*!*
+    移动端页面设计稿PSD一般都是640px ==>当设备宽度为640px的时候应展示的页面大小
+    当设备为320px我们应该缩小到原来的1/2，当设备宽度为800px的时候我们应该放大到原来的800/600倍
+    rem布局:html的font-size的值就是1rem;
+    一般情况：设计稿为640px 的时候 1rem对应100px
+*!
+html{
+    font-size: 100px;
+}
+*{
+    !*撑满整个页面*!
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.music-box{
+    position: relative;
+    !*我们需要把模糊的背景添加给单独的元素只用来做背景*!
+
+}
+.music-box .music-bg{
+    !*把背景模糊添加给这个元素*!
+    position: absolute;
+    !*当元素定位之后，宽度和高度就不会继承父级元素，我们需要重新指定*!
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: url("../img/poster.jpg") no-repeat;
+    background-size: cover;
+    !*把层级降低*!
+    z-index: -1;
+    !*背景模糊*!
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+}
+!*我们应该把对应640设备的宽度和高度亮出来，换算成rem单位 ==》把对应设备修改成640宽度，然后再盒子模型对应的px值获取到，并且换算成rem*!
+.music-box .head{
+    position: relative;
+    height: 1.2rem;!*对应640*!
+    padding: .3rem;
+    background: rgba(0,0,0 1);
+}
+!*图片和歌手信息的父级*!
+.header .music-info{
+    height: 1.2rem;
+}
+.header .music-info .music-logo{
+    width: 1.2rem;
+    height: 1.2rem;
+    float: left;
+
+}
+.header .music-info .music-logo img{
+    width: 100%;
+    height: 100%;
+    border: none;
+    vertical-align: top;
+}
+.header .music-logo .music-song{
+    margin-left: .1rem;
+    width: 2.4rem;
+    height: 1.2rem;
+    overflow: hidden;
+    float: left;
+
+}
+.header .music-logo .music-song p{
+    line-height: .6rem;
+    color: #fff;
+    font-size: .36rem;
+
+}
+.header .music-btn{
+    position: absolute;
+    right: .3rem;
+    top: 50%;
+    margin-top: -.45rem;
+    width: .9rem;
+    height: .9rem;
+    border-radius: 50%;
+    border: .03rem solid #fff;
+
+}
+.header .music-btn a{
+
+}*/
+html{
+    /*根节点的字体大小是100px ->1renm*/
+    font-size: 100px;
+    /* 1rem == 100px */
+    /*移动端设计稿PSD一般是640px，=> 当设备宽度为640px应该展示的页面大小，
+    当设备宽度为320px,我们应该缩小原来的1/2，当设备宽度为800px的时候我们应该放大到原来的800/640倍；
+    rem 布局 -> html的font-size的值就是1rem
+    一般情况：设计稿为640的时候 1rem对应100px 因为好算
+    */
+}
+/*撑满整个页面*/
+html,body,.music-box{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.music-box{
+    position: relative;
+    /*我们需要把模糊的背景添加给一个单独的元素只用来做背景*/
+}
+.music-box .music-bg{
+    position: absolute;
+    /*当元素定位之后 宽度和高度就不会继承父级元素了，我们需要从新指定*/
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: url("img/poster.jpg") no-repeat;
+    background-size: cover;
+    /*层级降低*/
+    z-index: -1;
+    /*背景模糊*/
+    -webkit-filter: blur(10px);
+    filter: blur(10px);
+}
+/*我们应该把对应640时 设备的宽度和高度 换算成rem单位 =>把对应设备修改成640时 然后再盒子模型中 把对应的px值获取到，并且换算成rem*/
+.music-box .header{
+    height: 1.2rem;/*对应640 高度是120px。那么直接变成1.2rem*/
+    position: relative;
+    padding: 0.3rem;
+    /*透明度*/
+    background: rgba(0,0,0,0);
+}
+.header .music-info{
+    height: 1.2rem;
+}
+.header .music-info .music-logo{
+    width: 1.2rem;
+    height: 1.2rem;
+    float: left;
+}
+.header .music-info .music-logo img{
+    width: 100%;
+    height: 100%;
+    border: none;
+    vertical-align: top;
+}
+/*装载着 歌曲信息  歌手和歌曲名字*/
+.header .music-info .music-song{
+    margin-left: 0.1rem;
+    height: 2.4rem;
+    width: 1.2rem;
+    overflow: hidden;
+    float: left;
+}
+.header .music-info .music-song p{
+    line-height: 0.6rem;
+    color: #fff;
+    font-size: 0.36rem;
+}
+.header .music-btn{
+    position: absolute;
+    right: 0.3rem;
+    top: 50%;
+    margin-top: -0.45rem;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    border: 0.03rem solid #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+

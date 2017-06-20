@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+
+            position: relative;
+            width: 350px;
+            height: 350px;
+            margin: 50px ;
+            box-shadow: 5px 5px 10px #000;
+        }
+         .box .imgBox img{
+            width: 100%;
+            height: 100%;
+            border: none;
+            vertical-align: top;
+        }
+         .box .mask{
+           display: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 175px;
+            height: 175px;
+            background: orange;
+            opacity: 0.5;
+            cursor: move;
+        }
+        .bigBox{
+            width: 350px;
+            height: 350px;
+            position: absolute;
+            left: 500px;
+            top: 50px;
+            box-shadow: 5px 5px 10px #000;
+            overflow: hidden;
+            display: none;
+
+        }
+        .bigBox div{
+            width: 700px;
+            height: 700px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .bigBox div img{
+            width: 100%;
+            height: 100%;
+            border: none;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box">
+    <div class="imgBox"><img src="images/iphone.jpg" ></div>
+    <div class="mask"></div>
+</div>
+    <div class="bigBox" id="bigBox">
+        <div class="bigBoxImg"><img src="images/iphone_big.jpg" ></div>
+
+    </div>
+
+</body>
+</html>
+<script type="text/javascript">
+    var box=document.getElementById('box');
+
+    var mask=box.getElementsByClassName('mask')[0];
+    var bigBox=document.getElementById('bigBox');
+    var bigBoxImg=bigBox.getElementsByClassName('bigBoxImg')[0];
+    box.onmouseenter=function(e){//onmouseover
+        mask.style.display='block';
+        bigBox.style.display='block';
+    };
+    box.onmousemove=function(e){
+        e=e||window.event;
+        var l= e.pageX-box.offsetLeft-mask.offsetWidth/2;
+        var t= e.pageY-box.offsetTop-mask.offsetHeight/2;
+        var maxLeft=box.clientWidth-mask.offsetWidth;
+        var maxTOP=box.clientHeight-mask.offsetHeight;
+        var minLeft= 0,minTop=0;
+        l=l>maxLeft?maxLeft:l<minLeft?minLeft:l;
+        t=t>maxTOP?maxTOP:t<minTop?minTop:t;
+
+        mask.style.left=l+'px';
+        mask.style.top=t+'px';
+
+        bigBoxImg.style.left=-2*l+'px';
+        bigBoxImg.style.top= -2*t+'px';
+    };
+    box.onmouseleave=function(e){//onmouseout
+        mask.style.display='none';
+        bigBox.style.display='none';
+    }
+
+
+
+
+
+
+
+</script>

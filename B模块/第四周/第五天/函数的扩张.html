@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数的扩张</title>
+</head>
+<body>
+<script>
+    //给函数的参数可以设置默认值
+    function add(a=1,b=2){
+        return a+b;
+    }
+    add();
+    add(4,5)
+
+    //箭头函数  第一：不能当做构造函数， 第二：不能使用arguments， 第三：this 执向上层作用域（在函数定义的时候就确定了）
+    var add=(a=1,b=2)=>a+b;
+</script>
+</body>
+</html>

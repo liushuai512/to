@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var ary=[1,2,3,4,5,6,7];
+    ary.push(100);//向数组末尾添加新的属性值
+    ary.pop();//删除末尾项
+    ary.unshift();//向数组开始添加新的属性值
+    ary.shift();//删除数组首相
+    ary.splice(n,m);//从索引n开始，删除m个
+    ary.splice(n,m,x);//从索引n开始删除m个，将x添加到删除位置
+    ary.splice(n,0,x);//将x添加到索引n的前面
+    ary.splice(0);//原数组清空，返回一个和原数组一样的新数组
+    ary.splice(0,0,x);//将x添加到数组开头
+    ary.splice(ary.length,0,x);//向数组末尾添加
+    ary.splice(ary.length-1,1);//删除末尾项
+    ary.splice(ary.length-1);//删除末尾项
+    ary.length--;//删除末尾项
+    //以上所有的方法都会改变原数组
+    ary.splice();//原数组不变返回一个空数组*****
+
+    ary.slice(n,m);//从索引n开始，查找到索引m处（不包含m），返回新数组，新数组是查找到的每一项
+    ary.slice()/ary.slice(0);//克隆一份和原数组一致的新数组
+    //slice不会改变原数组
+
+    //拼接
+    ary.concat();//拼接数组，如果没有传递参数，那么他的作用是克隆一份新数组
+    //将数组转为字符串
+    ary.toString();//将数组转为字符串
+    ary.join("符号");//将数组转为字符串,将数组中的每一个逗号用传递的符号替换
+
+    //数组的排序
+    ary.reverse();//将数组的排列顺序颠倒
+    ary.sort();//可以处理十以内的数字排序
+    //处理十以上数字的排序  a-b 从小到大  b-a 从大到小
+    ary.sort(function(a,b){return a-b});
+
+    //数组的遍历
+    ary.forEach()/ary.map()
+
+    //查找某一个值是否在数组中存在过
+    ary.indexOf()/ary.lastIndexOf()
+    如果在数组中存在过，返回他的索引值
+    如果没有在数组中存在过，返回-1
+
+
+
+
+    从第n项查找到第m项，不改变原数组和改变原数组的方法有哪些？
+    //从3---6  ---  索引2---6
+    var ary=[1,2,3,4,5,6,7];
+             [0 1 2 3 4 5 6]
+    ary.slice(n-1,m);//不改变原数组
+    //从索引n开始查找，查找到索引m处（不包含m）
+
+    //从3---6  ---  n-1--m是个数
+    var ary=[1,2,3,4,5,6,7];
+            [0 1 2 3 4 5 6]
+    ary.splice(n-1,m-n+1);
+    //n索引  m是个数
+
+
+
+
+</script>
+</body>
+</html>

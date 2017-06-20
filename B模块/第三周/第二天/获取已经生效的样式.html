@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #div1{
+            width: 100px;
+            height: 100px;
+            background: red;
+            position: absolute;
+            left:  0;
+            top:0;
+            opacity: 0.8;
+            filter: alpha(opacity=60);
+        }
+        #div1:before{
+            content: '我是before';
+            display: block;
+            height: 20px;
+            background: yellowgreen;
+        }
+        #div1:after{
+            content: '我是after';
+            display: block;
+            height: 20px;
+            background: green;
+        }
+    </style>
+</head>
+<body>
+<div id="div1">
+    <span>
+        我是span
+    </span>
+</div>
+<script>
+    //盒子模型属性只能获取一些关于宽高内容的样式，但是其他已经生效的样式比如，（默认）我们获取不到，而通过ele.style.opacity等这样的方式只能获取行内样式。那么我们需要另外一种方式获取已经生效的样式
+
+    /*
+    * 获取已经生效的样式
+    *     window.getComputedStyle(element)  标准
+    *     返回一个所有生效样式的对象
+    *     返回带单位的字符串  即使是opacity 0.8
+    *     element.currentStyle
+    *
+    * */
+    var div1=document.getElementById('div1');
+    function getCss(ele,attr){
+        var val=null;
+        if(window.getComputedStyle){
+            val=window.getComputedStyle(ele)[attr];
+        }else{
+            if(attr=='opacity'){
+                val=ele.currentStyle.filter;
+                var reg=/^alpha\(opacity=(\d+(?:\.\d+)?)\)$/;
+                val=reg.test(val)?reg.exev(val)[1]*100:1;
+            }else{
+                val=ele.currentStyle[attr];
+            }
+        }
+        var reg=/^-?\d+(\.\d+)?(px|em|rem|deg)?$/;
+        return reg.test(val)?parseFloat(val):val;
+    }
+
+    function setCss(ele,attr,val){
+        if(attr=='opacity'){
+            ele.style.opacity=val;
+            ele.style.filter="alpha(opacity="+val*100+")";
+            return;
+        }
+        if(attr=='float'){
+            ele.style.cssFloat=val;
+            ele.style.styleFloat=val;
+            return;
+        }
+        var reg=/^(width|height|left|right|top|bottom)(margin|padding)(left|right|top|bottom)?$/;
+        if(reg.test(attr)){
+            if(!isNaN(val)){
+                val+='px';
+            }
+        }
+        ele.style[attr]=val;
+    }
+    setCss(div1,'opacity',0.5);
+    setCss(div1,'width',100 + 'px');
+    setCss(div1,'height',200 + 'px');
+    setCss(div1,'left',300); // 不带单位的时刻能不能默认给我添加一个px单位
+    setCss(div1,'display',"block"); // 什么样的属性对应的属性值才有单位？？？
+
+</script>
+</body>
+</html>

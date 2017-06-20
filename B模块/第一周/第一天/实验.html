@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+//    for(var i=0;i<5;i++){
+//        if(i==1){
+//            console.log(1)
+//        }else if(i==2){
+//           console.log(2)
+//        }else{
+//            console.log(3)
+//       }
+//    }
+//    var i=0;
+//    while(i<5){
+//        switch(i){
+//            case 1:
+//                console.log(1);
+//                break;
+//            case 2:
+//                console.log(2);
+//                break;
+//            default :
+//                console.log(3);
+//        }
+//        i++;
+//    }
+
+
+</script>
+
+</body>
+</html>
+<script>
+
+    var str='ls';
+//    var res=str.replace('ls','刘帅');
+    res=str.replace('ls',function(){//replace先查找字符串中第一个形参，有的话拿函数的返回值替换第一个形参，没有的话就不换
+        console.log(arguments);//匹配内容，匹配内容索引，匹配
+        return '刘帅';
+    });
+    console.log(res);
+
+
+
+    var ary=[1,2,3,4];
+    console.log(eval(ary.join()));
+
+
+    var oLis=document.getElementsByTagName('li');
+
+</script>
+

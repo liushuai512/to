@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body id="box">
+<input type="button" value="点击" id="btn">
+<script>
+    var oBtn=document.getElementById("btn");
+    var oBox=document.getElementById("box");
+    oBtn.onclick=function () {
+        var bg=oBox.style.backgroundColor;
+        /*if(bg==="red"){
+            oBox.style.backgroundColor="yellow";
+        }else if(bg==="yellow"){
+            oBox.style.backgroundColor="pink";
+        }else if(bg==="pink"){
+            oBox.style.backgroundColor="yellowgreen"
+        }else{
+            oBox.style.backgroundColor="red";
+        }*/
+        switch (bg){
+            case "red":
+                oBox.style.backgroundColor="yellow";
+                break;
+            case "yellow":
+                oBox.style.backgroundColor="pink";
+                break;
+            case "pink":
+                oBox.style.backgroundColor="yellowgreen";
+                break;
+            default:
+                oBox.style.backgroundColor="red";
+        }
+    };
+</script>
+<!--<script>
+    //获取要操作的元素
+    var oBtn=document.getElementById("btn");//oBtn中存储的是一个最终值，一个按钮
+    var oBox=document.getElementById("box");
+    //var bg=oBox.style.backgroundColor;//变量bg中存储的是一个颜色
+    //获取body的背景颜色，将这个颜色储存到bg中&#45;&#45;》""
+    oBtn.onclick=function () {
+        var bg=oBox.style.backgroundColor;//变量bg中存储的是一个颜色
+        //每一次调用函数的时候，bg都会重新获取body的背景颜色
+        if(bg==="red"){
+            oBox.style.backgroundColor="yellow";
+            //bg="yellow";
+        }else if(bg==="yellow"){
+            oBox.style.backgroundColor="blue";
+            //bg="red";
+        }else if(bg==="blue"){
+            oBox.style.backgroundColor="pink";
+        }else{
+            oBox.style.backgroundColor="red";
+        }
+
+        /*
+         第一次点击 bg获取""
+        ""==="red"  false 执行else中的代码  bg=red
+        第二次点击 bg获取"red"
+        "red"=="red"  true  只写if条件成立的代码  bg=yellow
+        第三次点击 bg获取"yellow"
+         "yellow"=="red"  false  执行else中的代码  bg=red
+         ......
+        */
+    };
+    //582389589
+</script>-->
+</body>
+</html>

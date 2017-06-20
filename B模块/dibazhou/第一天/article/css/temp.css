@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+/*
+normalize.css
+   faceBook、bootStrap 等著名的公司
+
+
+   reset.min.css  我们基于normalize.css二次封装的一个
+*/
+html,body{
+    background: #f4f4f4;
+}
+.article{
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 760px;
+    background: #fff;
+    text-align:justify;/*文字散对齐，解决俩边对其的*/
+}
+.article .header{
+    border-bottom: 1px dashed #555;
+}
+.article .header h1,.article .header h2{
+    line-height: 50px;
+    text-align: center;
+}
+.article .header h1{
+    font-size: 20px;
+    color: #000;
+}
+.article .header h2{
+    font-size: 18px;
+    color: orange;
+}
+.article h3{
+    line-height: 35px;
+    font-size: 16px;
+    color: green;
+}
+.article p{
+    text-indent: 10px;/*设置首行缩进*/
+    line-height: 35px;
+    font-size: 14px;
+
+}
+.article strong{
+    color: orange;
+}
+.article .figure{
+    float: left;/*设置文字围绕*/
+    width: 300px;
+    margin-right: 10px;
+}
+.article .figure img{
+    width: 100%;
+
+}
+.article .figure .figcaption{
+    font-size: 12px;
+    color: #a1a1a1;
+    font-style: italic;
+    line-height: 25px;
+}
+.article .aside{
+    float: right;
+    width: 200px;
+    margin-left: 10px;
+}
+.article .aside img{
+    width: 100%;
+
+}
+
+
+
+
+
+
+

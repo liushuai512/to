@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!--
+    1、Math.abs() 取绝对值
+    2、Math.ceil()向上取整 （出现小数点就向上＋1）
+    3、Math.floor()向下取整
+    4、Math.round()四舍五入
+    5、Math.max(val1,val2,val3...)取最大值
+    6、Math.min(val1,val2,val3...)取最小值
+    7、Math.random()获取[0-1)之间的随机小数（不包含1）
+    8、Math.round(Math.random()*(m-n)+n) 获取任意两个数之间的随机数
+    -->
+    <!--2-20
+    Math.round(Math.random()*(m-n)+n)
+                取0-1之间的随机小数 不包含1
+                0.1245*19+2
+                0*19+2
+    +n 万一取到的随机小数为0，+n保证了取值范围
+    Math.round(浮点数)&#45;&#45;变成正数-->
+
+   <!-- <script>
+        //0-100
+        var val=Math.round(Math.random()*100);
+        //val是一个变量，第一次加载之后val里面存的内容一直不变
+        console.log(val);
+    </script>-->
+    <!--<script>
+        //0-61之间不重复的4个随机数
+        //取一个随机数放在一个盒子里面，再取一个随机数和之前的进行比较，如果重复了就继续生成新的随机数，知道比较的值为false就将这个随机数也放在那个盒子里面
+        var ary=[];//声明一个容器
+        while (ary.length<4){//只要ary的长度小于4，就一直执行while中的代码
+            var val=Math.round(Math.random()*61);//每一次循环取一个0-61之间的随机整数，存到val中
+            if(ary.indexOf(val)===-1){//本次循环得到的val值如果没有在ary中出现过，就将val存入到ary中
+                ary.push(val);
+            }
+            //出现过的val就不管了
+        }
+        document.write(ary);
+        /*var ary=[];
+        for (var i=0;i<4;){
+            var val=Math.round(Math.random()*61);
+            if(ary.indexOf(val)===-1){
+                ary.push(val);
+                i++;
+            }
+        }
+        document.write(ary);*/
+    </script>-->
+
+    <!--<script>
+        for(var i=0;i<=0;){ 判断条件一直成立
+            alert("11111");
+        }
+    </script>-->
+</body>
+</html>

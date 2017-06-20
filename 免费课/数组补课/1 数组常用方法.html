@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    // 方法作用，方法返回值， 方法参数 ， 是否改变原有数组
+    // 增加 删除 修改 查询
+    var a = [1,2,3];
+    var ary = ['a','b','c'];
+    var res = ary.push('d');
+    console.log(ary); // ['a','b','c','d']
+    console.log(res); // 4
+    // push(a,) => 数组的新长度
+    var res = ary.pop(); //
+    // pop()
+    console.log(res);// 返回删除的项目 'd'
+    console.log(ary); // ['a','b','c']
+
+    // unshift(q,w); 开头增加 => 返回新长度
+
+    // shift(); 删除开头 => 返回第一项
+
+    // splice方法
+    // splice(1)
+    // splice(1,2,'x',"y"...)
+    // splice(1,0,'z') 没有删除项目的时候是把添加的项放在索引值前
+    var ary = [1,2,3,4];
+    var res = ary.splice(1,2)/*[2,3]*/.splice(1,2); // 从索引1开始删除2项
+    console.log(res); // [2,3] => [3]
+    console.log(ary); // [1,4]
+    var ary = [1,2,3,4 ];
+    // push(5) => splice(length,0,5)
+    // pop() => splice(length-1,1)
+    // unshift => splice(0,0,'z');
+    // shift => splice(0,1)
+    // length--; length = length -1; length -= 1;
+    // length++  undefined
+    ary.slice(); // 复制 截取...
+    var ary = [1,2,3,4,5];
+    var res = ary.slice(2,4);
+    res; // [3,4] => 新数组
+    ary.slice(0); // ary.slice()
+
+    /////////////////////////////////////////////////////////////////////
+    // 排序
+    var ary = [1,2,3,4,5];
+    //var res = ary.reverse(); // 操作的是原有数组
+
+    var res = ary.sort(function (a,b){
+        return a-b;
+        // return b-a
+    }); // 操作原有数组
+    console.log(ary === res);// true
+
+    // 拼接
+    var ary = [1,2,3]; // '123'
+    ary.join() // '1,2,3'
+    ary.join('') // '123'
+    // concat
+    [1,2].concat([3],[4],5); // [1,2,3,4,5]
+
+    //
+    var ary = [1,2,3,4,5,5];
+    ary.indexOf(5); // 4
+    ary.indexOf(6); // -1
+    ary.lastIndexOf(5) // -1
+    // for(var i = 0 ; i < a.length; i++){  有长度 }
+    // while(条件){   条件为真就执行    }
+    // while(/*true*/1/[]){     }
+    // for in {a : 1,b : 2}
+    var ary = ['a','b','c'];
+    for(var i = 0; i < ary.length; i++){
+        console.log(ary[i],i);
+        // i = 0  => ary[0] => 'a' 0
+        // i = 1 => ary[1] =>  'b' 1
+        // i = 2 => ary[2] => 'c' 2
+    }
+    var res = ary.forEach(function (item,index){
+        // 次数 : 数组的长度
+        // item : 'a','b','c'
+        // index : 0   1   2
+        console.log(item,index);
+    });
+    console.log(res);
+    var res = ary.map(function (item,index){
+        console.log(item,index);
+        return item + index; // 'a' + 0
+    });
+    console.log(res); // ['a0','b1','c2']
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM练习</title>
+</head>
+<body>
+<div id="parent">
+    <p>我是第一个元素p</p>
+    <p>我是第二个元素p</p>
+    <!--我是一道鸿沟-->
+    <ul id="list">
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
+</div>
+<script>
+    //获取子指定元素子节点ul，如果这些子节点中没有ul的话，我就获取所有的元素节点
+    //ele 父元素  tagName 父元素下面指定的一个标签名
+    function getTag(ele,tagName) {
+        var cNodes=ele.childNodes;//获取所有的子节点
+        var ary=[];
+        for (var i=0;i<cNodes.length;i++){
+            if (cNodes[i].nodeType===1){
+                if(tagName){
+                    if(cNodes[i].nodeName===tagName.toUpperCase()){
+                        ary.push(cNodes[i]);
+                    }
+                }else{
+                    ary.push(cNodes[i]);
+                }
+            }
+        }
+        return ary;
+    }
+    var oDiv=document.getElementById("parent");
+    console.log(getTag(oDiv));
+</script>
+<!--<script>
+
+    function childAll(ele) {
+        //获取到这个对象多有的子节点
+        var cNodes=ele.childNodes,ary=[];
+        //cNodes 是一组，包含了ele下面多有的节点，也是一个类数组，有长度
+        for (var i=0;i<cNodes.length;i++){
+            if(cNodes[i].nodeType===1){
+                ary.push(cNodes[i]);
+            }
+        }
+        return ary;
+    }
+    var oDiv=document.getElementById("parent");
+    console.log(childAll(oDiv));
+</script>-->
+<!--<script>
+    //想要获取所有的哥哥元素节点，如果上一个节点是元素节点就存起来，存完了之后，继续查找，知道没有上一个节点为止
+    function preAll(ele) {
+        var prev=ele.previousSibling,ary=[];
+        while (prev){//只要prev存在，就一直像上次查找
+            if(prev.nodeType===1){
+                ary.push(prev);
+            }
+            //不管取到的prev的nodetype是不是等于1，都要继续向上查找
+            prev=prev.previousSibling;
+        }
+        return ary;
+    }
+    var oList=document.getElementById("list");
+    console.log(preAll(oList));//[p,p]
+    var oPs=preAll(oList);
+    oPs[0].style.backgroundColor="red";
+    console.log(oPs[0]);
+</script>-->
+<!--<script>
+    function pre(ele) {
+        var prev=ele.previousSibling;
+        while (prev&&prev.nodeType!==1){
+            prev=prev.previousSibling;
+        }
+        return prev;
+    }
+    var oList=document.getElementById("list");
+    console.log(pre(oList));
+</script>-->
+<!--<script>
+    //获取ul的上一个元素节点
+    var oList=document.getElementById("list");
+    //取到oList的上一个节点
+    var pre=oList.previousSibling;//空格
+    //判断获取到的节点是不是元素节点，如果不是元素节点，我就继续向上查找节点，如果是元素节点，停止查找，将找到的元素输出
+    while (pre&&pre.nodeType!==1){
+        //pre&&pre.nodeType!==1  pre存在并且pre的nodeType不等于1的时候，执行循环 ，存在pre就执行循环，不存在pre就不执行循环
+        pre=pre.previousSibling;
+        //第一次pre的值是注释
+        //第二次pre的值是空格
+        //第三次pre的值是空格
+        //第四层pre的值是<p>我是第二个元素p</p>  p的nodeType===1 所以()条件不成立 while循环结束
+
+    }
+    console.log(pre);
+</script>-->
+</body>
+</html>

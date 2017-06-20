@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //自执行函数：函数定义和执行一起
+    (function () {})();
+    !function () {}();
+    +function () {}();
+    -function () {}();
+    ~function () {}();
+    //函数表达式，就是将函数整体给到一个对象或者变量或者事件
+    对象.事件=function () {};
+    var 变量名=function () {};
+
+    function 函数名() {}//定义一个函数 函数名代表函数本身
+    对象.事件=函数名;//将函数整体当做值赋值给这个对象的一个事件，当事件执行的时候，函数执行
+     //和对象.事件=function () {}方法是等价的
+
+    对象.事件=函数名();//将函数的执行结果当做值给到这个对象的事件
+
+    /*toString()
+
+    function toString(x) {
+        x-->"x"
+    }
+    toString(1);
+    "1"*/
+    //xxx.toString();
+</script>
+</body>
+</html>

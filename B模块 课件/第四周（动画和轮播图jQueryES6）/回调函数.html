@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+    var ary = ['a','b','c'];
+    // 传给forEach的回调函数执行了取决于ary的长度
+    // 回调函数执行的时候给传了三个参数
+    // 三个参数分别是 : item(每一项)  index(索引)  (ary)原有数组
+    ary.forEach(function (item,index,ary){
+        console.log(this);
+        //console.log(item,index,ary);
+        // "a", 0, ['a','b','c']
+        // "b", 1, ['a','b','c']
+        // "c", 2, ['a','b','c']
+    },document.body);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    var result = ary.map(function (item,index,ary){
+        console.log(item,index,ary);
+        return item+index;
+    });
+    console.log(result); // ['a0','b1','c2']
+
+
+
+    Array.prototype.myMap = function(callback){
+        var ary = [];
+        for(var i = 0; i < this.length; i++){
+            var val = callback(this[i],i,this);
+            ary.push(val);
+        }
+        return ary;
+    }
+
+    Array.prototype.myForEach = function (callback,context){/*context是修改callback函数中的this的*/
+        // this => ary => callback执行this.length遍
+        context = context || window;
+        for(var i = 0; i < this.length; i++){
+            callback.call(context,this[i],i,this);
+        }
+    }
+
+
+
+    ary.myForEach(function (item,index,ary){
+        console.log(item,index,ary);
+        // "a", 0, ['a','b','c']
+        // "b", 1, ['a','b','c']
+        // "c", 2, ['a','b','c']
+    });
+
+
+
+
+
+</script>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta charset="UTF-8">
+    <title>简历</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script>
+        ~function () {
+            var desW = 640;
+            var winW = document.documentElement.clientWidth;
+            if (winW <= desW) {
+                document.documentElement.style.fontSize = winW / desW * 100 + 'px';
+            }
+        }();
+    </script>
+</head>
+<body>
+<main class="main">
+    <div class="audio">
+        <audio src="audio/huachenyu.mp3" preload="none" class="huahua"></audio>
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide slide1">
+                <div class="slide1-s">
+
+                </div>
+                <div class="slide1-square">
+                    <div class="slide1-text">
+                        <span>求职</span>
+                        <span>简历</span>
+                    </div>
+                </div>
+                <div class="slide1-pen">
+                    <img src="images/index-pen.png" alt="">
+                </div>
+                <div class="slide1-img">
+                    <img src="images/index-boy.gif" alt="">
+                </div>
+            </div>
+            <div class="swiper-slide slide2">
+                <span class="slide2-introduce">自我介绍</span>
+                <div class="slide2-top">
+                    <img class="slide2-avatar" src="images/slide2/avatar.png" alt="">
+                    <p class="slide2-name">刘 帅</p>
+                    <p class="slide2-skill"> 必 杀 技 &nbsp;: react框架</p>
+                    <p class="slide2-job">应聘职位 : web前端架构师</p>
+                    <img src="images/slide2/left-tree.png" alt="" class="slide2-left-tree">
+                    <img src="images/slide2/right-tree.png" alt="" class="slide2-right-tree">
+                </div>
+                <div class="slide2-text">
+                    <p class="slide2-edu"><span>学历：</span><span>大专</span></p>
+                    <p class="slide2-major"><span>专业：</span><span>计算机科学与应用</span></p>
+                    <p class="slide2-like"><span>爱好：</span><span>骑行、麦霸</span></p>
+                    <p class="slide2-home"><span>户籍：</span><span>山西省长治市</span></p>
+                    <p class="slide2-date"><span>出生日期：</span><span>1994-5-12</span></p>
+                </div>
+            </div>
+            <div class="swiper-slide slide3">
+                <div class="slide3-top">
+                    <img src="images/slide3/top.png" alt="">
+                    <img src="images/slide3/slide3-boy.png" alt="" class="slide3-boy">
+                    <p class="slide3-title">技能掌握</p>
+                </div>
+                <div class="slide3-bottom">
+                    <p>1.熟练HTML5/CSS3/jQuery等相关技术;</p>
+                    <p>2.熟悉JS对象编程，能熟练使用jQuery进行动态网页开发;</p>
+                    <p>3.熟悉React、Bootstrap等前端框架的开发;</p>
+                    <p>4.熟悉websocket、http协议等Web技术;</p>
+                    <p>5.善于不断学习新知识与新技术，逻辑性强，乐于团队合作。</p>
+                </div>
+            </div>
+            <div class="swiper-slide slide4">
+                <p class="slide4-myself">自我评价</p>
+                <p class="slide4-text">只要是交给我的工作，我只会踏踏实实的去做，而不是得过且过，甚至逃避。</p>
+                <p class="slide4-list">我相信：合理的是锻炼，不合理的是磨练。</p>
+
+            </div>
+            <div class="swiper-slide slide5">
+                <div class="slide5-top">
+                    联系方式
+                </div>
+                <div class="slide5-line">
+
+                </div>
+                <div class="slide5-text">
+                    <p class="slide5-tel"><a href="tel:18332567134">电话:18534593736</a></p>
+                    <p class="slide5-email">邮箱:Ls_nsw@163.com</p>
+                </div>
+                <p class="slide5-wx"><img src="images/slide5/weixin.png" alt=""></p>
+                <p class="slide5-sao">扫一扫</p>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="js/jquery.min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script>
+    var mySwiper = new Swiper('.swiper-container', {
+        direction: 'vertical',
+        loop: true,
+        onTransitionEnd: function (swiper) {
+            var curIndex = swiper.activeIndex;
+            var slides = swiper.slides;
+            //这样内部就对其进行了类数组转数组的方式
+            [].forEach.call(slides, function (item, index) {
+                item.id = '';
+                if (curIndex == index) {
+                    switch (index) {
+                        case 0:
+                            item.id = `page${slides.length - 2}`;
+                            break;
+                        case slides.length - 1:
+                            item.id = 'page1';
+                            break;
+                        default:
+                            item.id = `page${index}`;
+                    }
+                }
+            });
+        }
+    });
+    var audio = document.querySelector('.audio');
+    var huahua = document.querySelector('.huahua');
+    setTimeout(function () {
+        audio.style.opacity = 1;
+        huahua.play();
+        audio.className = 'audio audioMove';
+    }, 1000);
+    audio.addEventListener('click', function () {
+        if (huahua.paused) {
+            huahua.play();
+            audio.className = 'audio audioMove';
+        } else {
+            huahua.pause();
+            audio.className = 'audio';
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<select name="area" id="province">
+    <option value=""></option>
+</select>
+<select name="" id="">
+
+</select>
+<select name="" id="">
+
+</select>
+<script>
+    var areaReader=(function(){
+        var province=document.getElementById('province')
+
+        return {
+            init:function(){
+                ajax({
+                    url:'json/data.json',
+                    success:function(result){
+                        //给省绑定数据
+
+                    }
+                })
+            }
+        }
+    })();
+    areaReader.init();
+</script>
+</body>
+</html>

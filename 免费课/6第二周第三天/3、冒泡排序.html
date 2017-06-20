@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //冒泡排序的思路：上浮下沉  每一项和相邻项比较，如果比相邻项大，就和相邻项交换位置
+    //var ary=[1,5,3,6,4];
+    /*
+    1 < 5  [1,5,3,6,4]
+    5 > 3  [1,3,5,6,4]
+    5 < 6  [1,3,5,6,4]
+    6 > 4  [1,3,5,4,6]
+
+    [1,3,5,4,6]  在上一次比较后得到的数组的基础上再比较一次
+     1 < 3   [1,3,5,4,6]
+     3 < 5   [1,3,5,4,6]
+     5 > 4   [1,3,4,5,6]
+     5 <6    [1,3,4,5,6]
+
+    //我们需要让每一项都和其他项进行比较，那么比较的次数是length-1次
+    */
+    //var ary=[5,4,3,2];
+    /*
+    5 >4  [4,5,3,2]
+    5 >3  [4,3,5,2]
+    5 >2  [4,3,2,5]
+    [4,3,2,5]
+    4 > 3  [3,4,2,5]
+    4 > 2  [3,2,4,5]
+     [3,2,4,5]
+    3 > 2  [2,3,4,5]
+    总比较是3轮
+    for(var i=0;i<ary.length-1;i++){
+        当i=0   i<3
+        for(var j=0;j<3;j++){}
+        ary.length-1-i=3
+        当i=1  i<3
+        for(var j=0;j<2;j++){}
+        ary.length-1-i=2
+        当i=2  i<3
+        ary.length-1-i=1
+        for(var j=0;j<1;j++){}
+
+    }
+    总循环的次数是length-1次，每一次循环里面的循环次数是length-1-i
+    */
+
+//    var ary=[5,4,3,2,1];
+    /*var ary=[2,1,3,4,5,6];
+    for(var i=0;i<ary.length-1;i++){
+    var flag=false;//flag是一个开关，false是关闭，true是开启
+        for (var j=0;j<ary.length-1-i;j++){
+            //ary[j]>ary[j+1]
+            if(ary[j]>ary[j+1]){
+                var temp=ary[j];
+                ary[j]=ary[j+1];
+                ary[j+1]=temp;
+                flag=true;//如果if中的操作执行了，我们将flag中的值改成true，证明一直在比较，如果没有执行if中的操作，那么证明比较没有进行，结束整个循环就可以了，就将大循环结束掉 break
+            }
+        }
+        if(flag===false){
+            break;
+        }
+        //break;
+    }*/
+/*
+    function mp(n) {//n代表传入的数组
+        for (var i=0;i<n.length-1;i++){//要比较的次数
+            var flag=false;//定义一个开关，false代表没有执行下面的if判断，true代表if判断执行
+            for (var j=0;j<n.length-1-i;j++){//每次比较的时候，将当前项和后一项进行比较
+                if(n[j]>n[j+1]){//如果当前项大于后一项就调换位置
+                    var temp=n[j];
+                    n[j]=n[j+1];
+                    n[j+1]=temp;
+                    flag=true;//调换位置后将flag的值重新定义成true
+                }
+            }
+            if(flag===false){
+                //如果flag的值是false 说明已经没有进行位置的调换，那就不行要继续比较了
+                break;
+            }
+        }
+        return n;
+    }
+
+    var ary=[9,4,7,3,7,3,0];
+    var ary1=[9,4,7,3,7,3,0];
+    console.log(mp(ary));
+    console.log(mp(ary1));*/
+
+
+function mp(n) {
+    var flag=false;
+    for (var i=0;i<n.length-1;i++){
+        for (var j=0;j<n.length-1-i;j++){
+            if (n[j]>n[j+1]){
+                var temp=n[j];
+                n[j]=n[j+1];
+                n[j+1]=temp;
+                flag=true;
+            }
+        }
+        if(flag){
+            flag=false;
+        }else{
+            break;
+        }
+    }
+    return n;
+}
+    var ary=[9,4,7,3,7,3,0];
+    //[4,7,3,7,3,0,9]
+    console.log(mp(ary));
+
+    /*[2,1,3]
+            2 >1 2<3
+    [1,2,3]
+            1<2  2<3
+    [1,2,3]
+            1<2  2<3
+    [1,2,3]*/
+
+    15711314152
+    长度
+    首字符必须是1
+    第二个字符只能是3 5 7 8 4
+    保证所有的字符都是数字数据类型
+
+    密码或用户名输入错误
+</script>
+</body>
+</html>

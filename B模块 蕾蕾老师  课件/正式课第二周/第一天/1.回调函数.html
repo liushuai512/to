@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //回调函数：把一个函数的定义阶段，作为参数，传给另一个函数；
+    /*
+    *1.回调函数被调用的次数-》取决于条件
+    * 2.回调函数可以被传参
+    * 3.回调函数this指向问题;
+    * 4.回调函数是否有返回值？
+    * */
+    var obj={};
+    function fn(a){//a=fn1;
+        var ary=[];
+        for(var i=0; i<4; i++){
+            var res=a.call(obj,3,4);//fn1(); 3,4->实参；
+            ary.push(res);
+        }
+        console.log(ary)
+    }
+    function fn1(n,m){//n,m形参
+        console.log(this+(n+m));
+
+    }
+    fn(fn1);
+
+
+
+    var num = 2;
+    var obj = {num : 3};
+    obj.fn = (function (){
+        ++num;//3预解释第一次
+        this.num++;//4预解释第二次
+        return function (){
+            this.num++;
+            num++;
+            console.log(num);
+        }
+    })(num);
+
+    var f = obj.fn;
+    f();
+    obj.fn();
+    obj.fn();
+    console.log(window.num,obj.num);
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    //单例模式 ==>命名空间==》nameSpace
+    //工厂模式
+    function factory(a,b){
+        var obj={};
+        obj.a=a;
+        obj.b=b;
+        return obj;
+    }
+    //构造函数(类)模式
+    /*
+    * 1.使用function =》函数的定义和类的定义是相同的，首字母必须大写
+    * 2.执行方式用new Human(参数)=》当作一个类来执行的
+    * 3.普通函数执行是否有返回值要看return，但是类来执行默认返回一个对象数据类型的实例=》我们每个人都是人类的一个实例
+    * ps：我们可以使用instanceof  来判断一个实例是否属于一个类
+    * ps:任何一个数组都是Array这个类的一个实例，任何一个数组都是Object这个类的一个实例，Object是所有引用数据类型的基类
+    * 4.构造函数中的this就是当前实例  通过this来添加的属性一般都是当前实例自己使用的私有属性  比如 name
+    * 5.如果构造函数中return一个引用数据类型会破坏实例的返回动作，如果不需要参数 new Human  后面的小括号可以不写，在构造函数中声明的私有变量也不会影响实例
+    *
+    *
+    * */
+    // 内置类 Number String Boolean Object Array Date RegExp Function.....
+    //由于内置类不够需要拓展，所以才有构造函数
+    //每个人都是人类的一个实例=》实例就是具体到这个累得某一个
+    //每一个实例都是引用数据类型，每一个实例都是一个对象
+    function Human(){//Human本身是一个类，也是一个函数
+
+
+    }
+    Human();//普通函数执行
+    new Human(); //当作一个类（构造函数）来使用
+    //普通函数和构造函数执行都会执行函数体内的代码
+
+</script>
+</body>
+</html>

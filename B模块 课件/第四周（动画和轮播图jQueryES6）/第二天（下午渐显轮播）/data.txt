@@ -1,0 +1,6 @@
+[
+     {"src":"images/1.jpg";"background":"yellow"},
+     {"src":"images/2.jpg";"background":"red"},
+     {"src":"images/3.jpg";"background":"lime"},
+     {"src":"images/4.jpg";"background":"olive"}
+ ]

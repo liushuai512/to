@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script src="jquery-1.11.3.js"></script>
+<script>
+    var $callback= $.callback();//返回一個对应的回调函数集合 =》返回一个装函数的容器
+    $callback.add(eat);
+    $callback.add(sleep);
+
+    function eat(){
+        alert('eat');
+    }
+    function sleep(){
+        alert('sleep');
+    }
+    ;(function(){
+
+    })();
+</script>

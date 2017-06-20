@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的方法</title>
+</head>
+<body>
+<script>
+    //var ary=[9,8,5,3,1];
+    //向数组末尾添加新的属性值，可以多个值进行添加
+    //var ary1=ary.push(100,200,300);
+    //console.log(ary,ary1);
+    //push向数组末尾添加新的属性值，原数组改变,返回数组的长度
+    //ary[ary.length]=100;-->ary[5]=100;
+    //console.log(ary);
+
+    //var ary=[9,8,5,3,1];
+    //var ary1=ary.pop();
+    //console.log(ary,ary1);
+    //ary.length--;
+    //delete ary[ary.length-1];
+    //删除数组的最后一项，原数组改变，返回删除项
+
+    /*var ary=[9,8,5,3,1];
+     var ary1=ary.unshift(100,200,300);
+     console.log(ary,ary1);*/
+    //ary [100,200,300,9,8,5,3,1]
+    //ary1  8
+    //unshift向数组开始添加新的属性值，原数组改变，返回值是数组的长度
+
+    /*var ary=[9,8,5,3,1];
+     var ary1=ary.shift();
+     console.log(ary,ary1);*/
+    //删除数组第一项，原数组改变，返回值是删除项
+
+    /*
+     * push  向数组末尾增加新的属性值，原数组改变，返回值是数组的长度
+     * pop   删除数组末尾项，原数组改变，返回值是删除项
+     * unshift 向数组开始添加新的属性值，原数组改变，返回值是数组的长度
+     * shift 删除数组首项，原数组改变，返回值是删除项
+     *
+     * 添加的时候，都可以添加多项，返回值都是数组的长度
+     * 删除的时候，删除一项，返回值都是删除项
+     * */
+
+
+    //删除、修改、增加 --- splice
+    //var ary=[9,8,5,3,1];
+    //var ary1=ary.splice(2,1);
+    //console.log(ary,ary1);
+    //splice(n,m)  从索引n开始，删除m个，原数组改变，返回一个新数组，新数组里面删除的每一项
+    //var ary1=ary.splice(2);
+    //console.log(ary,ary1);
+    //splice(n)  从索引n开始，删除到末尾，原数组改变，返回一个新数组，新数组里面删除的每一项
+    //var ary1=ary.splice();
+    //console.log(ary,ary1);
+    //splice() 什么都没有删除，返回值是一个空数组
+    //var ary1=ary.splice(0);
+    //console.log(ary,ary1);
+    //splice(0) 从索引0删除到末尾，原数组清空，返回一个和原数组一样的新数组
+
+    //var ary=[9,8,5,3,1];
+    //修改  splice(n,m,x) 从索引n开始，删除m个，将x添加到删除的位置，原数组改变，返回新数组，新数组里面是删除项
+    //x 的个数可以是多个
+    //var ary1=ary.splice(1,2,100,200);
+    //console.log(ary,ary1);
+
+    //var ary=[9,8,5,3,1];
+    //增加 splice(n,0,x)  将x添加到索引n的前面，原数组改变，返回值是一个空数组
+    //var ary1=ary.splice(2,0,100,200,300);
+    //var ary1=ary.splice(ary.length,0,100,200);
+    //splice(ary.length,0,100)  向数组末尾添加多项
+    //ary.length 比如ary的length为5 原数组的索引最大值是4（length-1）
+    //[9,8,5,3,1]
+    //0 1 2 3 4 5
+    //console.log(ary,ary1);
+
+    /*var ary=["a","b",2,5,8,0];
+     var ary1=ary.push(300);
+     console.log(ary);//["a","b",2,5,8,0,300]
+     var ary2=ary.unshift(200);
+     console.log(ary);//[200,"a","b",2,5,8,0,300]
+     var ary3=ary.splice(3,0,500);
+     console.log(ary);//[200,"a","b",500,2,5,8,0,300]
+     var ary4=ary.splice(0);
+     console.log(ary);//[]*/
+
+    //删除数组末尾项
+    //ary.splice(ary.length-1)
+    //ary.splice(ary.length-1,1);
+    //ary.length--
+    //ary.pop()
+    //delete ary[ary.length-1]
+
+    //向数组开始添加
+    //ary.unshift()
+    //ary.splice(0,0,x)
+
+    //数组的截取和拼接--slice
+    //var ary = ["a", "b", 5, 6, 7];
+    /*var ary1=ary.slice(2,4);
+     console.log(ary,ary1);*/
+    //slice(n,m) 从索引n处开始查找，找到索引m处（不包含m），将查找到的数组项，以新数组的形式返回，原数组不变
+    /*var ary1=ary.slice(2);
+     console.log(ary,ary1);*/
+    //slice(n) 从索引n处开始查找，查找到最后，将查找到的数组项，以新数组的形式返回，原数组不变
+    /*var ary1=ary.slice();
+     console.log(ary,ary1);*/
+    //slice(0)/slice() 复制一份新的数组
+
+    //数组的拼接  concat
+    //var ary1=[1,2],ary2=[3,4],ary3=["a"],ary4=["b"];
+    /*var ary3=ary1+ary2;//"1,2"+"3,4"
+     console.log(ary3);//"1,23,4"*/
+    //var ary3=ary1.concat(ary2);//[1,2,3,4]
+    //var ary4=ary1.concat(["a","b"]);
+    //var ary5=ary1.concat(ary2,ary3,ary4,["c"]);
+    //var ary5=ary1.concat();
+    //concat()如果不传递参数的时候，相当于克隆一份数组
+    //concat()可以拼接多个数组，每一个数组之间用逗号隔开
+
+    /*var ary1=[1,2,3,4];
+    //var ary2=ary1.toString();
+    var ary2=ary1.join("+");//"1+2+3+4"
+    var sum=eval(ary2);//eval("1+2+3+4") --> 1+2+3+4  -->10*/
+
+    //console.log(ary1,ary2);
+    //将数组转为字符串
+    /*
+    * 1、数组.toString()  就是将数组的[] 变成""
+    * 2、join('符号')   就是将数组的[] 变成"" ,数组中所有的逗号用我们设定的符号进行替换
+    * join()什么都不传的时候，和toString()一样
+    * 字符串中的空格都是存在的，不会多个变成一个空格
+    * */
+
+    //查找一个值是否在数组中存在过，如果存在返回当前索引值，如果不存在返回-1
+    //indexOf  查找该值出现第一次的索引值
+    //lastIndexOf  查找该值最后一个出现位置的索引值
+    //之间然标准浏览器  除了ie678
+    /*var ary = ["a", "b", 5,"a", 6, 7];
+            //   0    1   2  3   4  5
+    var index=ary.indexOf("a");//0
+    var lastIndex=ary.lastIndexOf("a");//3
+    var no=ary.indexOf("90");//-1
+    var now=ary.lastIndexOf("90");//-1*/
+
+
+    //遍历数组的两种方法   forEach  和  map
+    //forEach 没有返回值   map 有返回值
+    /*var ary = ["a", "b", 5,"a", 6, 7];
+    var ary1=ary.forEach(function (n,m) {
+        //n代表属性值
+        //m代表索引
+        console.log(n,m);
+        return n;
+    });
+    console.log(ary1);
+
+    var ary2=ary.map(function (n,m) {
+        //n代表属性值
+        //m代表索引
+        console.log(n,m);
+        return n;
+    });
+    console.log(ary2);*/
+    //数组中的排序
+    //var ary = ["a", "b", 5,"a", 6, 7,10,20,"B","A"];
+    //var ary1=ary.reverse();//将数组的排列顺序改成从后到前
+    //var ary1=ary.sort();//[10, 20, 5, 6, 7, "A", "B", "a", "a", "b"]
+    //console.log(ary1);
+    //var ary=[10,2,3,21,0,9,17,55];
+    //处理是十以上的数字排序
+    /*var ary1=ary.sort(function (a,b) {
+        return b-a;//从大到小排序
+        //return a-b;//从小到大排序
+    })*/
+
+
+
+
+</script>
+</body>
+</html>

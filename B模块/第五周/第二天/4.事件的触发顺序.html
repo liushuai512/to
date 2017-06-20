@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件的触发顺序</title>
+    <style>
+        #outer{
+            width: 300px;
+            height: 300px;
+            background: yellowgreen;
+            padding: 100px;
+        }
+        #inner{
+            width: 300px;
+            height: 300px;
+            background: lightsalmon;
+        }
+    </style>
+</head>
+<body>
+<div id="outer">
+    <div id="inner">
+
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+    //事件触发的顺序： 先捕获=>目标=>冒泡
+    //标准浏览器addEventListener的第三个参数false：冒泡  true：捕获 我们一般用冒泡
+    //IE  outer.attachEvent('onclick'，fn) 默认是冒泡；
+    /*
+    * DOM2事件绑定IE8--中
+    *        1.this问题 window
+    *        2.事件触发执行函数的顺序问题
+    *        3.重复绑定问题
+    *
+    *        type:事件类型
+    * */
+    var body=document.body;
+    var outer=document.getElementById('outer');
+    var inner=document.getElementById('inner');
+    body.addEventListener('click',function(){
+        console.log('body')
+    },false);//在冒泡阶段发生
+    outer.addEventListener('click',function(){
+        console.log('outer')
+    },true);//在捕获的阶段被触发
+    inner.addEventListener('click',function(){
+        console.log('inner');
+    },false)
+
+
+    //为什么添加‘AAA’：为了最大程度减少，事件名的碰撞
+
+</script>

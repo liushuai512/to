@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机同学</title>
+    <style>
+        html,body,div{
+            margin: 0;
+            padding: 0;
+            background: -webkit-linear-gradient(left,purple,palevioletred,peru,paleturquoise);
+        }
+        #box{
+            margin: 100px auto;
+            width: 800px;
+            height: 400px;
+            border: 10px dashed #999;
+            border-radius: 10px;
+            font-size: 150px;
+            line-height: 400px;
+            text-align: center;
+            background: -webkit-linear-gradient(top,olivedrab,orange,olive);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+<div id="box">start</div>
+
+<script>
+    var box=document.getElementById('box');
+    var ary=[
+        /*['坤坤屁屁','凯凯','脸脸','姑姑','莫愁']*/
+        ['秦弘', '冯春笋', '刘凯杰', '杜晓东', '何永强', '曹凤梅'],
+        ['陈晨', '刘丽娜', '唐莹莹', '马晓敏', '崔莹', '张芳芳', '郑鹏峰'],
+        ['田之存', '邵志伟', '王长成', '乔世昌', '赵林', '杨洁', '刘帅'],
+        ['魏晓', '邢震豪', '赵磊', '居贺', '刘佳昊', '裴燕飞', '田云飞'],
+        ['任志龙', '管亚楠', '李彪彪', '荣长江', '王江', '张豫晋', '徐云娇', '韩有阳']
+    ];
+
+    /*var isRun=false;
+    box.onclick=function(){
+        if(isRun==false){
+            fn();
+            isRun=true;
+        }else{
+            window.clearInterval(timer);
+            isRun=false;
+        }
+    };
+
+    var timer=null;
+    function fn(){
+        timer=window.setInterval(function(){
+            var ran=Math.round(Math.random()*(ary.length-1));
+            var ranGroup=ary[ran];
+            ran=Math.round(Math.random()*(ranGroup.length-1));
+            var ranStudent=ranGroup[ran];
+            box.innerHTML=ranStudent;
+
+        },30)
+    }
+
+
+*/
+
+    var isRun=false;
+    box.onclick=function(){
+        if(isRun==false){
+            fn();
+            isRun=true;
+        }else{
+            window.clearInterval(timer);
+            isRun=false;
+        }
+    };
+    var timer=null;
+    function fn(){
+        timer=window.setInterval(function(){
+            var ran=Math.round(Math.random()*(ary.length-1));
+            var ranGroup=ary[ran];
+            ran=Math.round(Math.random()*(ranGroup.length-1));
+            var ranStudent=ranGroup[ran];
+            box.innerHTML=ranStudent;
+        },100)
+    }
+
+
+
+</script>
+</body>
+</html>

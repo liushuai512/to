@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+1、获取DOM对象的三种方法？
+document.getElementById("idName");--一个元素
+document.getElementsByClassName("className");--获取一组元素
+document.getElementsByTagName("tagName");--获取一组元素
+2、如何创建一个对象，怎样对对象进行增删改查？
+对象都是由键值对组成，这些键值对是用来描述这个对象的
+var obj={}-->字面量创建
+var obj=new Object();-->实例创建
+增(自定义属性，原来没有的属性)：obj.name="珠峰";/obj["name"]="珠峰";
+改（在原有属性上进行修改）：obj.name="珠峰培训";/obj["name"]="珠峰培训";
+查：obj.name  /  obj["name"]
+删除(只能删除自定义属性)：delete obj.name;
+假删除(保留属性名，属性值为null)：obj.name=null;
+null--现在占给位置，以后可能会向这个位置添加值
+
+3、if 语句的格式（三种）？
+1）if(条件){条件成立执行的语句} / if(条件)条件成立执行的语句;(不建议使用)
+2）if(条件){条件成立执行的语句}else{条件不成立执行的语句}
+3）if(条件1){条件1成立执行的语句}else if(条件2){条件2成立执行的语句}....else{以上条件都不成立执行的语句}
+4、switch语句的格式？
+用在一个条件在不同值的情况下的不同操作
+switch(条件){
+    case 值1:
+        当条件===值1成立执行的语句;
+        break;
+    case 值2:
+        当条件===值2成立执行的语句;
+        break;
+    default:
+    以上条件都不成立执行的语句;
+}
+所有的对象Boolean(对象数据类型)--》返回值都是true
+0 "" NaN null undefined 为false
+5、var num=(![])?1:2;  最终num的值是多少？  2
+条件运算符（三元/三目）他的最初用意识给变量进行赋值的
+var num=(条件)?条件成立执行:条件不成立执行;
+判断中(条件)的最终返回值都是布尔值
+6、检测数据类型的4种方法？（写单词）
+typeof value;--的返回值是一个字符串包裹着检测出来的数据类型
+不能细分object下面的具体数据类型
+null检测的返回值也是"object"
+看到两个以上的typeof 检测的最终结果是"string"
+instanceof
+constructor
+Object.prototype.toString.call()
+
+7、数据类型之间的比较？
+对象==对象   --  > 永远都是false
+对象==字符串 --  >对象转为字符串 toString()
+对象==数字   --  >对象转为字符串 toString() 字符串转为数字 Number()
+对象==布尔   --  >对象转为字符串 toString() 字符串转为数字 Number()
+                  布尔转为数字  true -- 1  false -- 0
+字符串==数字 --  >字符串转为数字 Number()
+字符串==布尔 --  >字符串转为数字 Number()
+                  布尔转为数字  true -- 1  false -- 0
+数字==布尔   --  >布尔转为数字  true -- 1  false -- 0
+null==undefined  true   null===undefined  false
+NaN==NaN  false
+
+1、对象和其他数据类型比较的时候，先转为字符串
+2、数据类型比较的最终类型基本都是数字在比较
+3、相同数据类型比较的时候不需要进行转化
+4、如果等号两侧有运算的时候，先将运算完成后在进行比较
+1)![]==false  -- > true
+布尔==布尔
+![]-->!Boolean([])-->!true-->false
+2)[]==false  --  true
+对象==布尔
+[]-->[].toString()-->""-->Number("")-->0
+false-->0
+3)parseInt(.3)===Number([])  true
+Number([])-->[].toString()-->""-->Number("")-->0
+数字==数字
+0===0
+4)!0==0 -- false
+布尔==数字
+!0-->!Boolean(0)-->!false-->true-->1
+1==0
+5){}==[]
+对象==对象  false
+6){}==NaN
+对象==数字  false
+NaN和任何值都不相等
+7)!{}==![]  true
+布尔==布尔
+false==false
+
+
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    /*function average(){
+        //1.类数组转数组
+        /!*let ary=[];
+        for(let i= 0,len=arguments.length;i<len;i++){
+            ary.push(arguments[i]);
+        }*!/
+
+        /!*let ary=Array.prototype.slice.call(arguments);*!/
+
+        let ary=[].slice.call(arguments);
+
+        //2.排序
+        ary.sort(function(a,b){return a-b});
+        //3.掐头去尾
+        ary.pop();
+        ary.shift();
+        //4.求平均数
+        return (eval(ary.join('+'))/ary.length).toFixed(1);
+    }
+    alert(average(3.552,4.852,5.124,8,255))*/
+
+
+
+    /*function good(){
+        var ary=[].slice.call(arguments);
+        ary.sort(function(a,b){return a-b});
+        ary.pop()
+        ary.shift()
+        return (eval(ary.join('+'))/ary.length).toFixed(1)
+    }
+    console.log(good(3.55,2.997,6.524,4.124,6.3214))*/
+
+
+
+    let ary= () =>{
+        arguments.__proto__ = Array.prototype;
+        arguments.sort(function(a,b){
+            return a-b;
+        });
+        arguments.shift();
+        arguments.pop();
+
+        return  ary
+    }
+    ary=[1.23,1.35,2.45,6.22,5.88,5.94]
+    console.log((eval(ary.join('+'))/ary.length).toFixed(1))
+</script>
+</body>
+</html>

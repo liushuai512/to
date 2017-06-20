@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{margin: 0;padding: 0}
+        ul{
+            margin: 0 auto;
+            list-style: none;
+            width: 300px;
+            height: 30px;
+        }
+        li{
+            float: left;
+            width: 100px;
+            background: pink;
+            line-height: 30px;
+            cursor: pointer;
+        }
+        div{
+            display: none;
+            margin: 0 auto;
+            width: 300px;
+            line-height: 300px;
+            background: pink;
+        }
+        div.cur{
+            display: block;
+            background: palegoldenrod;
+        }
+        li.cur{
+            background: palegoldenrod;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li class="cur">1</li>
+    <li>2</li>
+    <li>3</li>
+</ul>
+<div class="cur">1</div>
+<div>2</div>
+<div>3</div>
+<!--<ul>
+    <li>
+        <p></p>
+        <div></div>
+    </li>
+</ul>-->
+
+<script>
+    //原理：当鼠标点击某一个li的时候，将所有li和div的类名清空，然后马上给当前的li添加cur类名，给这个li对应的div添加cur类名
+    var oLis=document.getElementsByTagName("li");
+    var oDiv=document.getElementsByTagName("div");
+    for (var i=0;i<3;i++){
+        oLis[i].zhufeng=i;
+        oLis[i].onmouseover=function () {
+            for (var j=0;j<3;j++){
+                oLis[j].className="";
+                oDiv[j].className="";
+            }
+            this.className="cur";//this指的是当前操作的li
+            //console.log(oDiv[i]);//undefined
+            //console.log(i);//i=3
+            oDiv[this.zhufeng].className="cur";
+
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+</head>
+<body>
+
+<div>
+    <label for="username">用户名:</label><input type="text" id="username" placeholder="请输入用户名"/>
+</div>
+<div>
+    <label for="pwd">密码:</label><input type="password" id="pwd" placeholder="请输入密码 "/>
+</div>
+<button type="button" id="btn">登录</button>
+</body>
+
+<script>
+    let btn=document.getElementById('btn');
+    let userName=document.getElementById('username');
+    let pwd=document.getElementById('pwd');
+    console.log(userName);
+    const ERROR_INFO={
+        USER_ERROR:'您输入的用户名有误',
+        PWD_ERROR:'民输入用户名有误'
+
+    };
+    btn.onclick = function () {
+        let userNameVal = userName.value;
+        let pwdValue = pwd.value;
+        if (!(userNameVal == 'admin')) {
+//            return alert('您输入有误')
+            return alert(ERROR_INFO.USER_ERROR);
+        }
+        if (!(pwdValue == 123456)) {
+//            return alert('民输入有误')
+            return alert(ERROR_INFO.PWD_ERROR);
+        }
+        alert('登录成功')
+    }
+</script>
+</html>

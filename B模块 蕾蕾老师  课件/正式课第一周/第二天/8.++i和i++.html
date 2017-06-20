@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+ /*   var i=15;//++i:先++,再运算    i++:先运算，再++；再++的时候，只是自身的增加，跟运算无关；
+    alert(10+i++);
+    alert(i);
+    /!*alert(10+(++i))
+    alert(i)*!/
+
+    var n=12;
+    function fn(n){
+        alert(n)
+        n=34;
+        alert(n)
+    }
+    fn();
+    alert(n)
+
+    var a=new Object();
+    a.value=1;
+    b=a;
+    b.value=2;
+    console.log(a.value)*/
+for(var i= 1;i<=3;i++){
+    setTimeout((function (i) {
+      return function () {
+          console.log(i)
+      }
+    })(i),2000);
+  /*  (function (i) {
+        setTimeout(function(){
+            console.log(i)
+        },1000)
+    })(i)*/
+
+}
+</script>
+</body>
+</html>

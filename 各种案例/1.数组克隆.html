@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let ary=[1,2,3,4];
+    Array.prototype.slice=function(){
+        let ary=[];
+        for(let i=0;i<this.length;i++){
+            ary.push(this[i]);
+        }
+        return ary;
+    };
+    let ary1=ary.slice();
+    console.log(ary1);
+</script>
+</body>
+</html>

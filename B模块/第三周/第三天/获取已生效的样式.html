@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+   /* function getCss(ele,attr){
+        var value=null;
+        if(window.getComputedStyle){
+            value=window.getComputedStyle(ele)[attr];
+        }else{
+            if(attr==='opacity'){
+                value=ele.currentStyle['filter'];
+                var reg=/^alpha\(opacity=(\d+(?:\.\d+)?)\)$/;
+                value=reg.test(value)?reg.exec(value)[1]/100:1;
+            }else{
+                value=ele.currentStyle[attr];
+            }
+        }
+        var reg=/^-?\d+(\.\d+)?(px|em|rem|deg)?$/;
+        return reg.test(value)?parseFloat(value):value;
+    }*/
+
+    function getCss(ele,attr){
+        var value=null;
+        if(ele.getComputedStyle){
+            value=window.getComputedStyle(ele)[attr];
+        }else{
+            if(attr==='opacity'){
+                value=ele.currentStyle['filter'];
+                var reg=/^alpha\(opacity=(\d+(?:\.\d+)?)\)$/;
+                value=reg.test(value)?reg.exec(value)[1]/100:1;
+            }else{
+                value=ele.currentStyle[attr];
+            }
+        }
+        var reg=/^-?\d+(\.\d+)?(px|em|rem|deg)?$/;
+        return reg.test(value)?parseFloat(value):value;
+    }
+
+
+    function setCss(ele,attr,val){
+        if(attr=='opacity'){
+            ele.style.opacity=val;
+            ele.style.filter='alpha(opacity)='+val*100+')' ;
+            return;
+        }
+        if(attr=='float'){
+            ele.style.cssFloat=val;
+            ele.style.styleFloat=val;
+            return;
+        }
+        var reg=/^(width|height|left|top|bottom|(margin|padding)(Left|Right|Top|Bottom)?)$/;
+        if(reg.test(attr)){
+            if(!isNaN(val)){
+                val+='px';
+            }
+        }
+        ele.style[attr]=val;
+    }
+</script>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;}
+        div{position: absolute;width: 100px;height: 100px;background: red;}
+    </style>
+</head>
+<body>
+<input type="button" value="开始">
+<input type="button" value="结束">
+<div id="box"></div>
+<script>
+var oBtns=document.getElementsByTagName("input");
+var oDiv=document.getElementById("box");
+var val=0;//left的初始值
+var timer=null;
+function left() {
+    val+=1;
+    oDiv.style.left=val+"px";
+}
+oBtns[0].onclick=function () {
+    //left();
+    clearInterval(timer);//当上一次的定时器还没结束，又点击一次，两次定时器都在执行，就会让代码累加，所以在下一次执行定时器之前，需要先将上一次的定时器清除掉
+    timer=window.setInterval(left,10);
+};
+oBtns[1].onclick=function () {
+    //clearInterval(1);
+    clearInterval(timer);
+};
+
+
+    /*var oBody=document.body;
+    var num=0;
+    function total() {
+        num++;
+        //document.write(num);//123456789.....
+        oBody.innerText=num;
+    }
+    //total();//当页面加载到这一行的时候，执行一次函数
+    //var timer=window.setInterval(total,1000);//一秒之后才会执行
+    //1000毫秒是1秒
+    var timer2=window.setTimeout(total,1000);*/
+
+    /*var time1=window.setInterval(function () {
+
+    },1000);
+    var time2=window.setTimeout(function () {
+
+    },1000);
+    var time3=window.setTimeout(function () {
+
+    },1000);
+    console.log(time1,time2,time3);*/
+    //定时器有返回值，是一个数字代表他是第几个定时器
+</script>
+</body>
+</html>

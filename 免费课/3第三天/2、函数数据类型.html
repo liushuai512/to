@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #box{
+            width: 100px;
+            height: 100px;
+            background: red;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+    /*
+    函数的作用:
+    -->页面加载时不执行代码，只有触发某些事件的时候才会执行这个方法
+    * 函数：可以理解为一个方法，这个方法可以一次定义，多次使用，并且每一次使用都和上一次使用没有关系
+    * 函数就像一个数学公式，由科学家精心推敲验算出来，用的人只需要向里面传递未知数就可以得到想要的结果，并且这个公式可以一直沿用下去
+    * 函数分为定义和执行两部分
+    * 函数定义部分没有任何意义，就是一堆无用的代码
+    * 函数只有执行的时候，才会出现效果
+    *
+    * 函数名和变量一样代表了这个函数整体
+    * （函数名单独存在是代表和储存函数整体的）
+    * 函数名()代表的是函数的执行结果
+    * （是函数已经执行完成的状态）
+    * */
+    //x+y=z  数学公式中 x,y是未知数
+    //函数定义
+    /*function 函数名(x,y) {
+        //x,y叫做形参
+        //函数方法的相关代码
+        var total=x+y;
+        console.log(total);
+    }
+    //执行函数
+    函数名(1,2);//x=1,y=2  x,y叫做实参*/
+
+    function sum(x,y) {
+        //可以求出x，y之和
+        var total=x+y;
+        console.log(total);
+    }
+    sum(1,2);
+    sum(3,2);
+    //alert("我最强 我最棒");
+    /*function alt() {
+     alert("我最强 我最棒");
+     }*/
+    var oDiv=document.getElementById("box");
+    //oDiv.onclick=alert("我最强 我最棒");
+    //    oDiv.onclick=alt;
+
+    //叫做函数表达式，直接将函数整体当做值给到一个对象的一个事件中
+    //函数表达式和oDiv.onclick=alt;是等价的
+    oDiv.onclick=function () {
+        alert("我最强 我最棒");
+    };
+    //点击oDiv时执行后面的函数
+</script>
+</body>
+</html>

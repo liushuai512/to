@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dom2 事件绑定</title>
+    <style>
+        #div1 {
+            width: 100px;
+            height: 100px;
+            background: lightblue;
+        }
+    </style>
+</head>
+<body>
+<div id="div1"></div>
+</body>
+</html>
+<script>
+    //var div1=document.querySelector('#div1');//存在兼容问题
+    //    div1.onclick=function(){
+    //        console.log(0)
+    //    };//DOM 0级事件
+    var div1 = document.getElementById('div1');
+
+    /*
+     * 使用dom2事件绑定由于可以绑定多个函数，一般我们绑定实名函数，保证移出事件的时刻能找到这个函数
+     * */
+    function fn1() {
+        console.log(1)
+    }
+    function fn2() {
+        console.log(2)
+    }
+    function fn3() {
+        console.log(3)
+    }
+    function fn4() {
+        console.log(4)
+    }
+    function fn5() {
+        console.log(5)
+    }
+    //div1.addEventListener('click',fn1,false);
+    //div1.addEventListener('click',fn2,false);
+    /*div1.addEventListener('click',function(){
+     console.log(1)
+     },false);//添加事件监听
+     div1.addEventListener('click',function(){
+     console.log(2)
+     },false);*/
+
+    // div1.removeEventListener('click',fn1,false);
+
+
+    //IE
+    //    div1.attachEvent('onclick',fn1);
+    //    div1.attachEvent('onclick',fn2);
+    //    div1.detachEvent('onclick',fn1);
+
+
+    function on(ele, type, fn) {
+        if (!ele['AAA' + type]) {
+            ele['AAA' + type] = [];
+            ele.attachEvent('on' + type, /*run*/function () {
+                run.call(ele);
+            });
+        }
+        for (var i = 0; i < a.length; i++) {//这个循环处理的就是重复绑定的问题，如果自定义属性（AAAclick）数组中存在这个即将要绑定的fn，那么就不能把fn添加进去
+            var a=ele['AAA' + type];
+            for(var i=0;i< a.length;i++){
+                if (a[i] == fn) {
+                    return
+                }
+            }
+        }
+        //ele['AAA' + type].push(fn);
+        a.push(fn);
+    }
+    function run(e) {
+        //处理兼容
+        e = window.event;//兼容问题
+        e.target = e.srcElement;//事件源
+        e.pageX = e.clientX + (document.documentElement.scrollLeft || document.body.scrollLeft);//相对于浏览器可是视窗口的水平坐标
+        e.pagey = e.clientY + (document.documentElement.scrollTop || document.body.scrollTop);//相对于浏览器可视窗口的垂直坐标
+        e.preventDefault = function () {
+            e.returnValue = false;
+        };//阻止默认行为
+        e.stopPropagation = function () {
+            e.cancelBubble = true;
+        };//阻止事件传播
+
+        var a = /* e.target*/this['AAA' + e.type];
+        console.log(a);
+        if (a && a.length) {
+            for (var i = 0; i < a.length; i++) {
+                if (typeof a[i] == 'function') {
+                    a[i].call(/*e.target*/this, e);//第二个参数e是传给fn1,fn2等函数。这个e是已经处理好兼容问题的
+                }else{
+                    a.splice(i,1);
+                    i--;
+                }
+            }
+        }
+    }
+    function off(ele, type, fn) {
+        if (ele.removeEventListener) {
+            ele.removeEventListener(type, fn);
+        } else {
+            //先获取到AAAclick这个自定义属性数组，然后把数组中的fn函数删除
+            var a = ele['AAA' + type];
+            if (a && a.length) {
+                for (var i = 0; i < a.length; i++) {
+                    if (a[i] == fn) {
+                        //a.splice(i, 1);//以前的splice删除是在排序  循环执行中，所以要处理塌陷，，现在的splice未执行
+                        a[i]=null;//保证数组不塌陷，只要在run按照顺序执行的过程中
+                        break;//停止代码执行
+                    }
+                }
+            }
+        }
+    }
+
+    on(div1, 'click', fn1);
+    on(div1, 'click', fn2);
+    on(div1, 'click', fn2);
+    on(div1, 'click', fn3);
+    on(div1, 'click', fn4);
+    on(div1, 'click', fn5);
+</script>

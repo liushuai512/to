@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        input{
+            width: 100px;
+            height: 50px;
+        }
+    </style>
+
+</head>
+<body>
+<input type="button" Value="按钮1">
+<input type="button" Value="按钮2">
+<input type="button" Value="按钮3">
+<input type="button" Value="按钮4">
+
+<script>
+    let aBtn=document.getElementsByTagName('input');
+    for(let  i= 0,len=aBtn.length;i<len;i++){
+        aBtn[i].onclick=function(){
+            alert(i);
+            for(i=0;i<aBtn.length;i++){
+                aBtn[i].style.background='red'
+            }
+        }
+    }
+</script>
+</body>
+</html>

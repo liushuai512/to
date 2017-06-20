@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //将数组中的重复属性值去掉
+    //var ary=[1,2,3,1,2,3,1,2,3];//--> [1,2,3]
+    //利用对象的方法，将数组中的每一个属性值，即当做对象的属性名，又当做对象的属性值
+    //var obj={};
+    /*
+    * obj{
+    *   1:1,
+    *   2:2,
+    *   3:3,
+    *   1:1  --  之前存在相同的属性名和属性值，所以我就在数组中将这一项删除掉
+    * }
+    *
+    * */
+
+    /*var ary=[1,2,3,1,2,3,1,2,3],obj={};
+    for (var i=0;i<ary.length;i++){
+        //当 i=0 ary[0] = 1  obj[1]=1; i++
+        //当 i=1 ary[1] = 2  obj[2]=2; i++
+        //当 i=2 ary[2] = 3  obj[3]=3; i++
+        //当 i=3 ary[3] = 1  obj[1]=1; i++  到这一步 就不应该向obj中添加这一项了，将ary[3]删掉
+        //在给obj增加键值对之前，我们要先判断一下，要添加的这一对是否存在过，如果存在，就将ary的这一项删除掉，如果不存在，就添加到obj中
+        if(obj[ary[i]]===ary[i]){
+            //ary[i]在对象中存在过，所以我们要删除掉ary[i]项，删除后需要保证ary这个数组改变
+            ary.splice(i,1);
+            i--;
+        }
+        obj[ary[i]]=ary[i];
+    }
+    console.log(ary);*/
+
+   /* var ary=[1,2,3,1,2,3,1,2,3],obj={};
+    for (var i=0;i<ary.length;i++){
+        if(obj[ary[i]]===ary[i]){
+            //将数组中的末尾项，替换掉数组中的当前项
+            ary[i]=ary[ary.length-1];
+            //数组中就有两个末尾项了，需要将末尾项删除
+            ary.length--;
+            i--;
+        }
+        obj[ary[i]]=ary[i];
+    }
+    console.log(ary);*/
+
+    var ary=[100,100,900,10,0,9,2],obj={};
+    //obj[100]=100
+    /*obj={
+        100:100
+    };*/
+    /*for (var i=0;i<ary.length;i++){
+        //for 用来循环ary中的每一项 i=0 因为ary的索引从0开始
+        var cur=ary[i];
+        //声明一个变量 cur cur代表和储存ary中每次循环得到的值
+        // i=0  cur=ary[0]=100  obj[100]=100
+        // i=1  cur=ary[1]=100
+        // i=2  cur=ary[2]=900
+        if(obj[cur]===cur){
+            //i=0 obj[100]===ary[0]  100===100
+            ary[i]=ary[ary.length-1];
+            //如果obj[cur]===cur相等，我们就将ary的最后一项替换当前项
+            ary.length--;
+            //ary这个数组中就会出现两次末尾项，我们需要将重复的末尾项删掉
+            i--;
+            //再次从当前项开始比较
+        }
+        obj[cur]=cur;
+    }
+    console.log(ary);*/
+
+    var ary=[100,100,900,10,0,9,2],obj={};
+    for(var i=0;i<ary.length;i++){
+        var cur=ary[i];
+        if(obj[cur]===cur){
+            ary[i]=ary[ary.length-1];
+            ary.length--;
+            i--;
+        }
+        obj[cur]=cur;
+    }
+    console.log(ary);
+
+</script>
+
+
+
+
+
+
+
+
+
+</body>
+</html>

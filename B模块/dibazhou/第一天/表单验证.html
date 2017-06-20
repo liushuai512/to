@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单验证</title>
+    <link rel="stylesheet" href="reset.min.css">
+</head>
+<body>
+
+
+
+
+
+
+
+<input type="text" id="userEmail"/>
+<label id="spanEmail">请输入常用的邮箱</label>
+<input type="submit" id="submit">
+
+<script>
+    String.prototype.myTrim=function(){
+        return this.replace(/(^\s)|(\s$)/g,'');
+    }
+
+
+    var userEmail=document.getElementById('userEmail'),
+            spa
+</script>
+
+</body>
+</html>
+
+<!--
+  新的表单元素提供了什么样的作用
+
+    1、方便我们的开发，新的元素提供很强大的功能,日历...
+
+    2、在移动端，我们使用INPUT新的类型，当用户输入的时候，手机会根据类型调取出最符合用户输入的虚拟键盘，例如：我们使用的是number类型，那么调取出来的就是数字键盘...
+
+    3、某些类型自带了表单验证，
+-->

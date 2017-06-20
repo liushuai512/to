@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    p {
+      line-height: 30px;
+    }
+
+    span {
+      padding: 0 10px;
+    }
+
+    .bg0 {
+      background: #84a8c8;
+    }
+
+    .bg1 {
+      background: #ff6600;
+    }
+
+    .bg2 {
+      background: pink;
+    }
+  </style>
+</head>
+<body>
+<!--<p><span>1*1=1</span></p>
+<p><span>1*2=2</span><span>2*2=4</span></p>
+<p><span>1*3=3</span><span>2*3=6</span><span>3*3=9</span></p>
+<p><span>1*4=4</span><span>2*4=8</span><span>3*4=12</span><span>4*4=16</span></p>-->
+<!--要有9对p标签-->
+<!--第一对p标签中有一对span-->
+<!--第二对p标签中有两对对span-->
+<script>
+  var str = "";
+  for (var i = 1; i <= 9; i++) {
+    //str+="<p class='bg"+i%2+"'>";
+    //str+="<p class='bg1'>";
+    str += "<p>";
+    for (var j = 1; j <= i; j++) {
+      str += "<span>" + j + "*" + i + "=" + j * i + "</span>";
+    }
+    str += "</p>";
+  }
+  document.write(str);
+  var oP = document.getElementsByTagName("p");
+  for (var i = 0; i < oP.length; i++) {
+    i % 2 === 0 ? oP[i].className = "bg0" : oP[i].className = "bg1";
+    //console.log(i);//0-8
+    //oP[i]是一个对象 对象身上什么地方可以储存值 ，所以我给oP[i]添加一个自定义属性，用来存储i的每一层值 0-8
+    /*oP[0].zhufeng=0;
+     oP[1].zhufeng=1;
+     oP[2].zhufeng=2;*/
+    oP[i].zhufeng = i;//给一个对象增加一个自定义属性
+    oP[i].onclick = function () {
+      //console.log(i);//9
+      //函数中获取到的i变量是一个最终值
+      //当函数被调用执行的时候，for循环已经结束了，变量i就会被最后一个数值覆盖掉前面的数值，所以在函数内获取到i的值是9
+      //this.zhufeng 这个对象的珠峰属性
+      alert("我是第" + (this.zhufeng + 1) + "行");
+      //this 这个  代词
+      //函数中的this一般指的是当前操作的对象
+    };
+    //鼠标移入
+    oP[i].onmouseover = function () {
+      this.bg = this.className;//在覆盖之前，将当前的类名存到这个对象的自定义属性中
+      this.className = "bg2";//执行这段代码的时候，bg2会将当前p标签的class属性值覆盖掉
+    };
+    //鼠标移出
+    oP[i].onmouseout = function () {
+      this.className = this.bg;//鼠标移出的时候，将当前对象的class值用当前对象之前存的bg值进行覆盖
+    }
+  }
+</script>
+<!--<script>
+    var str = "";//准备一个盒子，用来放之后拼接的所有字符串
+    for (var i = 1; i <= 9; i++) {//i可以作为行数
+        str += "<p>";
+        for (var j = 1; j <= i; j++) {//j可以作为列数
+            //str+="<span>"+j+"*"+i+"="+j*i+"</span>";
+            str += "<span>";
+            str += j + "*" + i + "=" + j * i;
+            str += "</span>";
+        }
+        str += "</p>";
+    }
+    document.write(str);
+</script>-->
+</body>
+</html>
